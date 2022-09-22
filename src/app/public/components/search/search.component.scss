@@ -1,10 +1,19 @@
-
-button{
-  margin:2px;
+button {
+  margin: 2px;
   font-size: 24px;
 }
 
-.btn:focus{
-  box-shadow: none !important;
-  }
+select{
+  margin: 2px;
+  font-size: 24px;
+}
 
+.btn:focus {
+  box-shadow: none !important;
+}
+
+button:hover {
+  background-color:rgb(34, 34, 34);
+  border-color: rgb(34, 34, 34);;
+  color: white;
+}

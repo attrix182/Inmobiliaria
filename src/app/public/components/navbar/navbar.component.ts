@@ -55,6 +55,10 @@ export class NavbarComponent implements OnInit {
     submenu.classList.remove('show');
   }
 
+  signIn(){
+    this.router.navigateByUrl('admin');
+  }
+
   goToHome() {
     this.router.navigateByUrl('home');
   }
