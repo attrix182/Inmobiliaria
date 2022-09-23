@@ -9,11 +9,13 @@ import { AdminPropertiesComponent } from './pages/admin-section/sections/admin-p
 import { AdminInboxComponent } from './pages/admin-section/sections/admin-inbox/admin-inbox.component';
 import { AdminPreferencesComponent } from './pages/admin-section/sections/admin-preferences/admin-preferences.component';
 import { PrivateRoutingModule } from './private-routing.module';
+import { AdminPropertiesListComponent } from './pages/admin-section/sections/admin-properties/admin-properties-list/admin-properties-list.component';
+import { AdminPropertiesAddComponent } from './pages/admin-section/sections/admin-properties/admin-properties-add/admin-properties-add.component';
 
 
 
 @NgModule({
-  declarations: [AdminSectionComponent, AdminSidebarComponent, AdminNavbarComponent, AdminDashboardComponent, AdminUsersComponent, AdminPropertiesComponent, AdminInboxComponent, AdminPreferencesComponent],
+  declarations: [AdminSectionComponent, AdminSidebarComponent, AdminNavbarComponent, AdminDashboardComponent, AdminUsersComponent, AdminPropertiesComponent, AdminInboxComponent, AdminPreferencesComponent, AdminPropertiesListComponent, AdminPropertiesAddComponent],
   imports: [
     PrivateRoutingModule,
     CommonModule

@@ -4,7 +4,7 @@
     <div class="col-md-2">
       <sb-admin-sidebar (changeSection)="handleSection()"></sb-admin-sidebar>
     </div>
-  
+
     <div class="col" [ngSwitch]="section">
       <sb-admin-dashboard *ngSwitchCase="'admin-dashboard'"></sb-admin-dashboard>
       <sb-admin-users *ngSwitchCase="'admin-users'"></sb-admin-users>
@@ -16,4 +16,3 @@
       </div>
     </div>
   </div>
-  

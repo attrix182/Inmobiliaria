@@ -19,7 +19,7 @@ export class AdminSectionComponent {
 
   handleSection() {
     this.section = this.location.path().split('/')[1];
-   // this.section = 'admin-hermanos'; //remover solo test
+    this.section = 'admin-properties'; //remover solo test
   }
 
 
