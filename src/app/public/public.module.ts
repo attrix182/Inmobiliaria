@@ -8,9 +8,10 @@ import { SearchComponent } from './components/search/search.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PublicRoutingModule } from './public.routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PropertiesComponent } from './pages/properties/properties.component';
 
 @NgModule({
-  declarations: [Home360Component, HomeComponent, HomeVideoComponent, NavbarComponent, LoginComponent, SearchComponent],
+  declarations: [Home360Component, HomeComponent, HomeVideoComponent, NavbarComponent, LoginComponent, SearchComponent, PropertiesComponent],
   imports: [CommonModule, PublicRoutingModule, ReactiveFormsModule, FormsModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
