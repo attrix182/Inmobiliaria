@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 import firebase from 'firebase/app';
 import { first } from 'rxjs/operators';
 
@@ -12,7 +13,7 @@ export class AuthService {
   currentUser: any;
   public isLogged: any = false;
 
-  constructor(public afAuth: AngularFireAuth) {
+  constructor(public afAuth: AngularFireAuth, private router:Router) {
     afAuth.authState.subscribe((user) => (this.isLogged = user));
   }
 
@@ -45,5 +46,6 @@ export class AuthService {
   LogOutCurrentUser() {
     localStorage.removeItem('token');
     this.afAuth.signOut();
+    this.router.navigateByUrl('/');
   }
 }

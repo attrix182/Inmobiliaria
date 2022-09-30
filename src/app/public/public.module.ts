@@ -5,11 +5,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { HomeVideoComponent } from './pages/home/home-video/home-video.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
-import { PropertiesComponent } from './pages/properties/properties.component';
+import { LoginComponent } from './pages/login/login.component';
+import { PublicRoutingModule } from './public.routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [Home360Component, HomeComponent, HomeVideoComponent, NavbarComponent, SearchComponent, PropertiesComponent],
-  imports: [CommonModule],
+  declarations: [Home360Component, HomeComponent, HomeVideoComponent, NavbarComponent, LoginComponent, SearchComponent],
+  imports: [CommonModule, PublicRoutingModule, ReactiveFormsModule, FormsModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PublicModule {}
