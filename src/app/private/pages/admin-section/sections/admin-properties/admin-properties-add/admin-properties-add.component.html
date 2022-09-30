@@ -1,1 +1,47 @@
-<p>admin-properties-add works!</p>
+<form [formGroup]="formGroup">
+  <div class="row">
+    <div class="col-md-12 text-center"><h4>Alta de propiedad</h4></div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input
+          type="text"
+          [class]="isValidField('nombre')"
+          class="form-control"
+          formControlName="nombre"
+          placeholder="Nombre"
+        />
+        <span *ngIf="showError('nombre')" class="invalid-feedback">
+          {{ getErrorMessages('nombre') }}
+        </span>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="apellido">Apellido</label>
+        <input
+          type="text"
+          class="form-control"
+          [class]="isValidField('apellido')"
+          id="apellido"
+          formControlName="apellido"
+          placeholder="Apellido"
+        />
+        <span *ngIf="showError('apellido')" class="invalid-feedback">
+          {{ getErrorMessages('apellido') }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 text-center mt-4">
+      <button type="submit" class="btn btn-primary btn-block" [disabled]="!formGroup.valid" (click)="saveProperty()">
+        <div *ngIf="!loading">Guardar</div>
+        <div *ngIf="loading" class="spinner-border btn-block text-dark" role="status"></div>
+      </button>
+    </div>
+  </div>
+</form>
