@@ -5,9 +5,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { HomeVideoComponent } from './pages/home/home-video/home-video.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
+import { PropertiesComponent } from './pages/properties/properties.component';
 
 @NgModule({
-  declarations: [Home360Component, HomeComponent, HomeVideoComponent, NavbarComponent, SearchComponent],
+  declarations: [Home360Component, HomeComponent, HomeVideoComponent, NavbarComponent, SearchComponent, PropertiesComponent],
   imports: [CommonModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

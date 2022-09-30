@@ -1,0 +1,17 @@
+.card{
+    width: 280px;
+    height: 300px;
+    border-radius: 25px;
+    background-color: #BDE0FE;
+    padding: 20px;
+}
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
