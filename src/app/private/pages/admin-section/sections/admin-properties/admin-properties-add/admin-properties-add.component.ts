@@ -9,26 +9,29 @@ import { FormValidationAbstract } from 'src/app/shared/form-validation-abstract'
 })
 export class AdminPropertiesAddComponent extends FormValidationAbstract implements OnInit {
   formGroup: FormGroup;
-  loading:boolean = false;
+  loading: boolean = false;
 
-  constructor(private fb:FormBuilder) {
+  constructor(private fb: FormBuilder) {
     super();
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.initForm();
   }
 
-  saveProperty(){
-
+  saveProperty() {
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+      this.formGroup.reset();
+    }, 500);
   }
 
-  initForm(){
+  initForm() {
     this.formGroup = this.fb.group({
       nombre: ['', [Validators.required]],
-      apellido: ['', [Validators.required]],
-    })
-
+      apellido: ['', [Validators.required]]
+    });
   }
 
   setErrorMessages(): void {
@@ -39,7 +42,6 @@ export class AdminPropertiesAddComponent extends FormValidationAbstract implemen
       apellido: {
         required: 'El apellido es requerido'
       }
-    }
+    };
   }
-
 }

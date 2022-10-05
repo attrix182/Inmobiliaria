@@ -11,7 +11,7 @@ export class AdminPropertiesListComponent implements OnInit {
   @Input() propierties: Property[];
   @Input() propiertiesSearch: Property[];
   searchParam: string;
-  showAddProperty: boolean = false;
+  showAddProperty: boolean = false; //Cambiar a False
   btnText:string = "Agregar propiedad + ";
 
   constructor(private router:Router) {}

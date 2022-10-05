@@ -1,9 +1,10 @@
 export interface User{
     id: string;
+    email:string;
     name: string;
     lastname:string;
     rol: Roles;
-    active: string;
+    active: boolean;
 }
 
 export enum Roles{

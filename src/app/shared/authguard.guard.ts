@@ -15,6 +15,7 @@ export class AuthGuard implements CanActivate {
     let userLog = localStorage.getItem('token');
 
     let log = await this.authSvc.GetCurrentUser();
+    console.log(log)
 
     if (log == null) {
       this.router.navigateByUrl('/login');

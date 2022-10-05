@@ -13,6 +13,9 @@ import { AdminPropertiesListComponent } from './pages/admin-section/sections/adm
 import { AdminPropertiesAddComponent } from './pages/admin-section/sections/admin-properties/admin-properties-add/admin-properties-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminPropertiesPageComponent } from './pages/admin-section/sections/admin-properties/admin-properties-page/admin-properties-page.component';
+import { AdminUsersAddComponent } from './pages/admin-section/sections/admin-users/admin-users-add/admin-users-add.component';
+import { AdminUsersListComponent } from './pages/admin-section/sections/admin-users/admin-users-list/admin-users-list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -26,8 +29,10 @@ import { AdminPropertiesPageComponent } from './pages/admin-section/sections/adm
     AdminPreferencesComponent,
     AdminPropertiesListComponent,
     AdminPropertiesAddComponent,
-    AdminPropertiesPageComponent
+    AdminPropertiesPageComponent,
+    AdminUsersAddComponent,
+    AdminUsersListComponent
   ],
-  imports: [PrivateRoutingModule, CommonModule, FormsModule, ReactiveFormsModule]
+  imports: [PrivateRoutingModule, CommonModule, FormsModule, ReactiveFormsModule, NgbModule]
 })
 export class PrivateModule {}
