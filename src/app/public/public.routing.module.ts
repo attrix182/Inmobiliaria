@@ -5,14 +5,15 @@ import { AuthGuard } from '../shared/authguard.guard';
 import { Home360Component } from './pages/home360/home360.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PropertiesComponent } from './pages/properties/properties.component';
+import { PropertyDetailsComponent } from './pages/property-details/property-details.component';
 
 
 const routes: Routes = [
   {path:'', component: Home360Component},
   {path: 'login', component: LoginComponent},
   {path: 'propiedades', component: PropertiesComponent},
+  {path: 'propiedad/:id', component: PropertyDetailsComponent},
   { path: 'admin', loadChildren: () => import('../private/private.module').then((m) => m.PrivateModule), canActivate:[AuthGuard] },
-
   {path:'**', component: Home360Component},
 
 ];
