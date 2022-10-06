@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Property } from 'src/app/models/property';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'sb-properties',
@@ -8,12 +9,12 @@ import { Property } from 'src/app/models/property';
   styleUrls: ['./properties.component.scss']
 })
 export class PropertiesComponent implements OnInit {
-  productos: any [] = [
+  productos: any[] = [
     {
       id: 1,
       title: "Casa quinta pilar",
       price: "USD 650.000",
-      description: "4.000 mts cuadrados, 2 baños, 6 habitaciones", 
+      description: "4.000 mts cuadrados, 2 baños, 6 habitaciones",
     },
     {
       id: 2,
@@ -35,14 +36,17 @@ export class PropertiesComponent implements OnInit {
     }
   ]
 
-  constructor(private router:Router) { 
+  constructor(private router: Router, private storageSvc: StorageService) {
+  }
 
-    }
-
-goToDetails (property:any){
-  this.router.navigateByUrl("propiedad/"+property.id)
+  getAllproperties() {
+    this.storageSvc.GetAll("properties").subscribe((p) => { console.log(p) })
+  }
+  goToDetails(property: any) {
+    this.router.navigateByUrl("propiedad/" + property.id)
   }
   ngOnInit(): void {
+    this.getAllproperties()
   }
 
 }

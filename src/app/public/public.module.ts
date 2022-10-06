@@ -10,11 +10,12 @@ import { PublicRoutingModule } from './public.routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PropertiesComponent } from './pages/properties/properties.component';
 import { PropertyDetailsComponent } from './pages/property-details/property-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
   declarations: [Home360Component, HomeComponent, HomeVideoComponent, NavbarComponent, LoginComponent, SearchComponent, PropertiesComponent, PropertyDetailsComponent],
-  imports: [CommonModule, PublicRoutingModule, ReactiveFormsModule, FormsModule,],
+  imports: [CommonModule, PublicRoutingModule, ReactiveFormsModule, FormsModule, NgbModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PublicModule {}
