@@ -3,10 +3,9 @@
     <div>
       <button [class]="claseComprar" (click)="setActive('comprar')">Comprar</button>
       <button [class]="claseAlquilar" (click)="setActive('alquilar')">Alquilar</button>
-      <button [class]="claseVender" (click)="setActive('vender')">Vender</button>
     </div>
-    <div class="row">
 
+    <div class="row">
       <select type="text" class="form-control col">
         <option>Localidad</option>
         <option>Quilmes</option>
@@ -15,7 +14,7 @@
         <option>La Falda</option>
       </select>
 
-      <button class="btn btn-primary btn-search col"><i class="fas fa-search"></i></button>
+      <button class="btn btn-danger btn-search col" [disabled]="!enabled" (click)="search()"><em class="fas fa-search"></em></button>
     </div>
   </div>
 </div>

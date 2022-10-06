@@ -1,11 +1,16 @@
 button {
   margin: 2px;
-  font-size: 24px;
+  font-size: 22px;
+  height: 7vh;
 }
 
 select{
   margin: 2px;
-  font-size: 24px;
+  font-size: 20px;
+  height: 7vh;
+  width: 15vw;
+  cursor: pointer;
+  user-select: none;
 }
 
 .btn:focus {
