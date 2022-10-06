@@ -13,7 +13,7 @@ import { PropertyDetailsComponent } from './pages/property-details/property-deta
 
 @NgModule({
   declarations: [Home360Component, HomeComponent, HomeVideoComponent, NavbarComponent, LoginComponent, SearchComponent, PropertiesComponent, PropertyDetailsComponent],
-  imports: [CommonModule, PublicRoutingModule, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, PublicRoutingModule, ReactiveFormsModule, FormsModule,],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PublicModule {}
