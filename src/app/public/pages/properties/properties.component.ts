@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Property } from 'src/app/models/property';
 
 @Component({
   selector: 'sb-properties',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./properties.component.scss']
 })
 export class PropertiesComponent implements OnInit {
-  productos = [
+  productos: any [] = [
     {
       id: 1,
       title: "Casa quinta pilar",
@@ -33,9 +35,13 @@ export class PropertiesComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(private router:Router) { 
 
+    }
 
+goToDetails (property:any){
+  this.router.navigateByUrl("propiedad/"+property.id)
+  }
   ngOnInit(): void {
   }
 
