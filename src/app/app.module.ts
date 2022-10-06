@@ -7,6 +7,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { PublicModule } from './public/public.module';
 import { PrivateModule } from './private/private.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { PrivateModule } from './private/private.module';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     PublicModule,
-    PrivateModule
+    PrivateModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],

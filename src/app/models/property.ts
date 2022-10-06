@@ -1,6 +1,7 @@
 export interface Property {
   id: string;
   price: number;
+  currency: string;
   squareFeet: number;
   squareFeetCover: number;
   baths: number;
@@ -8,8 +9,8 @@ export interface Property {
   parkings: number;
   yearBuilt?: number;
   adress: Adress;
-  offerType: Type;
-  propertyType: PropertyType;
+  offerType: string;
+  propertyType: string;
   props: Prop[];
   images: string[];
 }
@@ -36,5 +37,5 @@ export interface Adress {
 
 export interface Prop {
   key: string;
-  value: string;
+  value: any;
 }

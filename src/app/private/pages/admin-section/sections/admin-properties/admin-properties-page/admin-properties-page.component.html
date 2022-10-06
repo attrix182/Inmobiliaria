@@ -1,0 +1,35 @@
+<sb-admin-navbar></sb-admin-navbar>
+
+<section class="container-fluid bg-white mt-4 p-4 mb-4 rounded" style="width: 90vw;">
+  <button class="btn btn-danger" (click)="goToProperties()"><i class="fa fa-arrow-left"></i> Volver</button>
+  <button class="btn btn-danger ml-3" (click)="goToProperties()">Editar <i class="fa fa-pen"></i></button>
+<article>
+  <div class="card mb-3 mt-3 list">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="{{ prop.images[0] }}" />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ prop.propertyType | titlecase }} - {{ prop.adress.street }}, {{ prop.adress.locality }}
+          </h5>
+          <p class="card-text">
+            <span class="font-weight-bold font-price">{{ prop.price }} {{ prop.currency }}</span>
+          </p>
+          <div class="card-text">
+            <div class="row">
+              <div class="col-6">{{ prop.squareFeet }} m² totales</div>
+              <div class="col-6">{{ prop.squareFeetCover }} m² cubiertos</div>
+
+              <div class="col-6">{{ prop.bedrooms }} Habitaciones <i class="fa fa-bed"></i></div>
+              <div class="col-6">{{ prop.baths }} Baños <i class="fa fa-toilet"></i></div>
+              <div class="col-6">{{ prop.parkings }} Cochera <i class="fa fa-car"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+</section>

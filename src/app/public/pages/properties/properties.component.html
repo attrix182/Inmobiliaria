@@ -1,17 +1,15 @@
 <sb-navbar></sb-navbar>
-<div class="contenedor" >
-    <div *ngFor="let producto of productos">
-
-
-      <div class="card" (click)="goToDetails(producto)">
-        <img src="../../../../assets/Casa.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{producto.title}}</h5>
-          <p class="card-text">
-            {{producto.description}}
-            {{producto.price}}          
-          </p>
-        </div>
+<div class="contenedor">
+  <div *ngFor="let producto of productos">
+    <div class="card" (click)="goToDetails(producto)">
+      <img src="../../../../assets/Casa.jpg" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ producto.title }}</h5>
+        <p class="card-text">
+          {{ producto.description }}
+          {{ producto.price }}
+        </p>
       </div>
-      </div>
-      </div>
+    </div>
+  </div>
+</div>
