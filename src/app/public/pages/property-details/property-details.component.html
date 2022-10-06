@@ -1,33 +1,73 @@
-<p>property-details works!</p>
+
 <sb-navbar></sb-navbar>
-<ngb-carousel *ngIf="images">
+
+  <ngb-carousel *ngIf="images">
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper">
         <img [src]="images[0]" alt="Random first slide">
       </div>
       <div class="carousel-caption">
         <h3>First slide label</h3>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    </div>
+  </ng-template>
+  
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="images[1]" alt="Random second slide">
+    </div>
+    <div class="carousel-caption">
+      <h3>Second slide label</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+  </ng-template>
+  
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="../../../../assets/depto.jpg" alt="Random second slide">
+    </div>
+    <div class="carousel-caption">
+      <h3>Second slide label</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+  </ng-template>
+  </ngb-carousel>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  
+  <section *ngIf="prop" class="container-fluid bg-white mt-4 p-4 mb-4 rounded" style="width: 90vw;z-index: 100;">
+    <button class="btn btn-danger"><i class="fa fa-arrow-left"></i> Volver</button>
+    <article>
+      <div class="card mb-3 mt-3 list">
+        <div class="row">
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">
+                {{ prop.propertyType | titlecase }} - {{ prop.adress.street }}, {{ prop.adress.locality }}
+              </h5>
+              <p class="card-text">
+                <span class="font-weight-bold font-price">{{ prop.price }} {{ prop.currency }}</span>
+              </p>
+              <div class="card-text">
+                <div class="row">
+                  <div class="col-6">{{ prop.squareFeet }} m² totales</div>
+                  <div class="col-6">{{ prop.squareFeetCover }} m² cubiertos</div>
+                  
+                  <div class="col-6">{{ prop.bedrooms }} Habitaciones <i class="fa fa-bed"></i></div>
+                  <div class="col-6">{{ prop.baths }} Baños <i class="fa fa-toilet"></i></div>
+                  <div class="col-6">{{ prop.parkings }} Cochera <i class="fa fa-car"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </ng-template>
-
-    <ng-template ngbSlide>
-      <div class="picsum-img-wrapper">
-        <img [src]="images[1]" alt="Random second slide">
-      </div>
-      <div class="carousel-caption">
-        <h3>Second slide label</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-    </ng-template>
-
-    <ng-template ngbSlide>
-      <div class="picsum-img-wrapper">
-        <img src="../../../../assets/depto.jpg" alt="Random second slide">
-      </div>
-      <div class="carousel-caption">
-        <h3>Second slide label</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-    </ng-template>
-
+    </article>
+  </section>
