@@ -1,25 +1,24 @@
-.contenedor{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
-
+.contenedor {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
-.card{
-    width: 18rem;
-    height: 22rem;
+
+.card {
+  width: 18rem;
+  height: 22rem;
 }
 
 .card {
-    border-radius: 5px !important;
-    box-shadow: 1px 1px 7px #b8b3b3;
-  }
-  
-  .card:hover{
-    box-shadow: 1px 1px 15px #605d5d;
-  }
-  
+  border-radius: 5px !important;
+  box-shadow: 1px 1px 7px #b8b3b3;
+}
+
+.card:hover {
+  box-shadow: 1px 1px 15px #605d5d;
+}

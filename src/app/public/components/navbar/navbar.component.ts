@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'sb-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+  styleUrls: ['./navbar.component.scss']
 })
 @HostListener('scroll', ['$event'])
 export class NavbarComponent implements OnInit {
@@ -55,7 +55,7 @@ export class NavbarComponent implements OnInit {
     submenu.classList.remove('show');
   }
 
-  signIn(){
+  signIn() {
     this.router.navigateByUrl('admin');
   }
 
@@ -63,7 +63,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl('home');
   }
 
-  goToProperties(){
+  goToProperties() {
     this.router.navigateByUrl('propiedades');
   }
 }

@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Home360Component implements OnInit {
 
+  isVisible = true
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }

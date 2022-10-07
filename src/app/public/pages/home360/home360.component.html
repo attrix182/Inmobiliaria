@@ -1,6 +1,6 @@
 <sb-navbar></sb-navbar>
-<div class="div">
-  <a-scene vr-mode-ui="enabled: false" class="vr-background">
+<div>
+  <a-scene vr-mode-ui="enabled: false" class="vr-background" [ngClass]="isVisible ? '' : 'hide'">
     <a-entity>
       <a-sky src="../../../assets/360Room.jpeg"></a-sky>
     </a-entity>

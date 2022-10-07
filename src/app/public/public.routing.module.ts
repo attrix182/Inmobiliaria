@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'propiedades', component: PropertiesComponent},
   {path: 'propiedad/:id', component: PropertyDetailsComponent},
   { path: 'admin', loadChildren: () => import('../private/private.module').then((m) => m.PrivateModule), canActivate:[AuthGuard] },
-  {path:'**', component: Home360Component},
+
 
 ];
 
