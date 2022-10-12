@@ -1,5 +1,5 @@
 <div class="container bg-white mt-4 p-4 mb-4 rounded table-desktop" *ngIf="vista !== 'grilla'">
-  <h4 align="center">Usuarios</h4>
+  <h4 class="text-center">Usuarios</h4>
   <input
     [(ngModel)]="searchParam"
     (ngModelChange)="hacerBusqueda()"
@@ -9,6 +9,7 @@
   />
 
   <table class="table table-hover text-center">
+    <caption></caption>
     <thead>
       <tr>
         <th>Nombre</th>
@@ -24,7 +25,12 @@
         <td>{{ uno.name }}</td>
         <td>{{ uno.lastname }}</td>
         <td>{{ uno.email }}</td>
-        <td>{{ uno.rol }}</td>
+        <td>
+          <select class="form-control" (change)="selectRol($event.target, uno)">
+            <option selected disabled id="rolOption">{{ uno.rol }}</option>
+            <option *ngFor="let r of roles" [ngValue]="r">{{ r }}</option>
+          </select>
+        </td>
         <td>
           <label class="switch">
             <input
@@ -41,7 +47,7 @@
 
         <td>
           <div class="table-actions">
-            <button class="btn btn-danger" (click)="delete(uno)"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-danger" (click)="delete(uno)"><em class="fa fa-trash"></em></button>
           </div>
         </td>
       </tr>
@@ -87,15 +93,19 @@
 <ng-template #detailsModal let-modal>
   <div class="modal-body">
     <div class="btn-exit">
-      <i (click)="modal.dismiss('Cross click')" class="btn btn-white"><i class="fas fa-times"></i> </i>
+      <em (click)="modal.dismiss('Cross click')" class="btn btn-white"><em class="fas fa-times"></em> </em>
     </div>
     <div class="header-modal">
       {{ selectedUser.name }}
       {{ selectedUser.lastname }}
     </div>
-
+    <select class="form-control" (change)="selectRol($event.target, selectedUser)">
+      <option selected disabled id="rolOption">{{ selectedUser.rol }}</option>
+      <option *ngFor="let r of roles" [ngValue]="r">{{ r }}</option>
+    </select>
     <div class="disponibilidad-modal">
       {{ selectedUser.email }}
+
       <label class="switch">
         <input
           (change)="toggleActive(selectedUser)"

@@ -72,14 +72,13 @@ export class AlertService {
       Swal.fire({
         title: '¿Esta seguro?',
         showDenyButton: true,
-
+        reverseButtons: true,
         confirmButtonText: 'Si',
         denyButtonText: `Cancelar`,
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
           resolve(true);
-          Swal.fire('Post eliminado', '', 'info');
         }
         resolve(false);
       });

@@ -1,43 +1,171 @@
-<form [formGroup]="formGroup">
+<form [formGroup]="formGroup" style="padding: 20px">
   <div class="row">
-    <div class="col-md-12 text-center"><h4>Alta de propiedad</h4></div>
+    <div class="col-md-12 text-center"><h3>Alta de propiedad</h3></div>
   </div>
+
+
   <div class="row">
+    <!-- Tipo de propiedad -->
     <div class="col-md-6">
       <div class="form-group">
-        <label for="nombre">Nombre</label>
+        <label>Tipo de propiedad</label>
         <input
           type="text"
-          [class]="isValidField('nombre')"
           class="form-control"
-          formControlName="nombre"
-          placeholder="Nombre"
+          [class]="isValidField('propertyType')"
+          formControlName="propertyType"
+          placeholder="Tipo de propiedad"
         />
-        <span *ngIf="showError('nombre')" class="invalid-feedback">
-          {{ getErrorMessages('nombre') }}
+        <span *ngIf="showError('propertyType')" class="invalid-feedback">
+          {{ getErrorMessages('propertyType') }}
         </span>
       </div>
     </div>
+
+    <!-- Tipo de oferta -->
     <div class="col-md-6">
       <div class="form-group">
-        <label for="apellido">Apellido</label>
+        <label>Tipo de oferta</label>
         <input
           type="text"
           class="form-control"
-          [class]="isValidField('apellido')"
-          id="apellido"
-          formControlName="apellido"
-          placeholder="Apellido"
+          [class]="isValidField('offerType')"
+          formControlName="offerType"
+          placeholder="Tipo de oferta"
         />
-        <span *ngIf="showError('apellido')" class="invalid-feedback">
-          {{ getErrorMessages('apellido') }}
+        <span *ngIf="showError('offerType')" class="invalid-feedback">
+          {{ getErrorMessages('offerType') }}
         </span>
       </div>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-12 text-center mt-4">
+    <!-- Precio -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="nombre">Precio</label>
+        <input
+          type="number"
+          [class]="isValidField('price')"
+          class="form-control"
+          formControlName="price"
+          placeholder="Precio"
+        />
+        <span *ngIf="showError('price')" class="invalid-feedback">
+          {{ getErrorMessages('price') }}
+        </span>
+      </div>
+    </div>
+    <!-- Moneda -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="moneda">Moneda</label>
+        <input
+          type="text"
+          class="form-control"
+          [class]="isValidField('currency')"
+          formControlName="currency"
+          placeholder="Moneda"
+        />
+        <span *ngIf="showError('currency')" class="invalid-feedback">
+          {{ getErrorMessages('currency') }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <!-- Metros 2 -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Metros cuadrados</label>
+        <input
+          type="number"
+          class="form-control"
+          [class]="isValidField('squareFeet')"
+          formControlName="squareFeet"
+          placeholder="Metros cuadrados"
+        />
+        <span *ngIf="showError('squareFeet')" class="invalid-feedback">
+          {{ getErrorMessages('squareFeet') }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Metros 2 cubiertos -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Metros cuadrados cubiertos</label>
+        <input
+          type="number"
+          class="form-control"
+          [class]="isValidField('squareFeetCover')"
+          formControlName="squareFeetCover"
+          placeholder="Metros cuadrados cubiertos"
+        />
+        <span *ngIf="showError('squareFeetCover')" class="invalid-feedback">
+          {{ getErrorMessages('squareFeetCover') }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <!-- Cocheras -->
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Cocheras</label>
+        <input
+          type="text"
+          class="form-control"
+          [class]="isValidField('parkings')"
+          formControlName="parkings"
+          placeholder="Cocheras"
+        />
+        <span *ngIf="showError('parkings')" class="invalid-feedback">
+          {{ getErrorMessages('parkings') }}
+        </span>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Dormitorios</label>
+        <input
+          type="text"
+          class="form-control"
+          [class]="isValidField('bedrooms')"
+          formControlName="bedrooms"
+          placeholder="Dormitorios"
+        />
+        <span *ngIf="showError('bedrooms')" class="invalid-feedback">
+          {{ getErrorMessages('bedrooms') }}
+        </span>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Baños</label>
+        <input
+          type="text"
+          class="form-control"
+          [class]="isValidField('baths')"
+          formControlName="baths"
+          placeholder="Baños"
+        />
+        <span *ngIf="showError('baths')" class="invalid-feedback">
+          {{ getErrorMessages('baths') }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 text-center mt-6">
       <button type="submit" class="btn btn-danger btn-block" [disabled]="!formGroup.valid" (click)="saveProperty()">
         <div *ngIf="!loading">Guardar</div>
         <div *ngIf="loading" class="spinner-border btn-block text-dark" role="status"></div>

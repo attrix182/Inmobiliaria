@@ -38,7 +38,6 @@ export class AuthService {
       let user: User;
       user = formUser;
       user.id = uid;
-      console.log(user)
       this.storageService
         .InsertCustomID('users', uid, user)
         .then(() => this.alertSvc.alertCenter('success', 'Usuario agregado con exito'));

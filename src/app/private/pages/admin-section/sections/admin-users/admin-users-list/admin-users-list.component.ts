@@ -14,19 +14,16 @@ export class AdminUsersListComponent implements OnInit {
   @Input() usuariosSearch: any;
   @Input() vista: 'grilla' | 'hermanos';
   @Output() goToEdit = new EventEmitter<User>();
-  selectedUser:User;
+  selectedUser: User;
   searchParam: string;
-  hermanoSeleccionado: string;
-
+  previousRol = undefined;
+  roles = ['Admin', 'Nuevo', 'Empleado'];
 
   @ViewChild('detailsModal', { read: TemplateRef })
   detailsModal: TemplateRef<any>;
   disponibilidad: any;
 
-  constructor(
-    private storageSVC: StorageService,
-    private alertSvc: AlertService,
-    private modalSvc:NgbModal) {}
+  constructor(private storageSVC: StorageService, private alertSvc: AlertService, private modalSvc: NgbModal) {}
 
   ngOnInit(): void {
     if (this.vista == 'grilla') {
@@ -36,20 +33,43 @@ export class AdminUsersListComponent implements OnInit {
     }
   }
 
-  toggleActive(user:User){
-    if(user.active){
-      user.active = false
-    }else{
-      user.active = true
-    }
-    this.storageSVC.Update(user.id,'users', user)
+  async selectRol(rol: any, user: User) {
+    let previousRol = user.rol;
+    console.log(previousRol);
+    let rolValue = rol.value;
+    this.alertSvc.confirmAlert().then((a) => {
+      if (a) {
+        user.rol = rolValue;
+        this.storageSVC.Update(user.id, 'users', user).then(() => {
+          this.alertSvc.alertTop('success', 'Se ha cambiado el rol');
+        });
+      } else {
+        user.rol = previousRol;
+        this.previousRol = previousRol;
+      }
+    });
+    console.log(user.rol);
   }
 
-  openModalDetails(user:User){
+  toggleActive(user: User) {
+    if (user.active) {
+      this.alertSvc.confirmAlert().then((a) => {
+        if (a) {
+          user.active = false;
+          this.storageSVC.Update(user.id, 'users', user);
+        }
+      });
+    }else{
+      user.active = true;
+    }
+    this.storageSVC.Update(user.id, 'users', user);
+
+  }
+
+  openModalDetails(user: User) {
     this.selectedUser = user;
     this.modalSvc.open(this.detailsModal);
   }
-
 
   async delete(product: any) {
     let confirm: any = false;
@@ -64,7 +84,6 @@ export class AdminUsersListComponent implements OnInit {
   goToEditUser(hermano: User) {
     this.goToEdit.emit(hermano);
   }
-
 
   hacerBusqueda() {
     if (this.searchParam === '') {
@@ -91,5 +110,4 @@ export class AdminUsersListComponent implements OnInit {
 
     return (typeof value == 'string' ? value.toLocaleLowerCase() : value.toString()).includes(searcher);
   }
-
 }

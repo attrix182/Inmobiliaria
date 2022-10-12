@@ -10,18 +10,15 @@ import { FormValidationAbstract } from 'src/app/shared/form-validation-abstract'
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent  extends FormValidationAbstract implements OnInit {
-
+export class LoginComponent extends FormValidationAbstract implements OnInit {
   public user: any = {};
   public formGroup: FormGroup;
   public loged: boolean = false;
 
-
-
   constructor(
     private FB: FormBuilder,
     private router: Router,
-    private authSVC:AuthService,
+    private authSVC: AuthService,
     private alertSVC: AlertService
   ) {
     super();
@@ -29,9 +26,8 @@ export class LoginComponent  extends FormValidationAbstract implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    this.loged =  this.isLogged()
+    this.loged = this.isLogged();
     this.isLogged() ? this.router.navigate(['/admin']) : null;
-
   }
 
   isLogged() {
@@ -42,12 +38,9 @@ export class LoginComponent  extends FormValidationAbstract implements OnInit {
     this.formGroup = this.FB.group({
       email: new FormControl('', [
         Validators.required,
-        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')
       ]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(6),
-      ]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)])
     });
   }
 
@@ -55,22 +48,20 @@ export class LoginComponent  extends FormValidationAbstract implements OnInit {
     this.errroMessages = {
       email: {
         required: 'El correo es obligatorio',
-        pattern: 'El correo no es válido',
+        pattern: 'El correo no es válido'
       },
       password: {
         required: 'La contraseña es obligatoria',
-        minlength: 'La contraseña debe tener al menos 6 caracteres',
-      },
+        minlength: 'La contraseña debe tener al menos 6 caracteres'
+      }
     };
   }
 
   async onLogin() {
-  
     this.user = this.formGroup.value;
-   
+
     try {
       const user = await this.authSVC.onLogin(this.user);
-      console.log(user)
       if (user) {
         this.router.navigate(['/admin']);
       }

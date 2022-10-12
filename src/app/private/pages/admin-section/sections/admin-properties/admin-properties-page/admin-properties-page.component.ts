@@ -16,7 +16,6 @@ export class AdminPropertiesPageComponent implements OnInit {
   ngOnInit(): void {
     this._Activatedroute.paramMap.subscribe((params) => {
       this.id = params.get('id');
-      console.log(this.id);
     });
 
     this.prop =  {

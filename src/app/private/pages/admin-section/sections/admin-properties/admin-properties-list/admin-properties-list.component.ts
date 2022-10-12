@@ -50,12 +50,10 @@ export class AdminPropertiesListComponent implements OnInit {
   }
 
   goToDetail(id:string){
-    console.log('go'+id)
     this.router.navigate(['admin/propiedad/' + `${id}`])
   }
 
   toggleShowAddProperty(){
-    console.log(this.showAddProperty)
     if(this.showAddProperty){
       this.showAddProperty = false
       this.btnText = "Agregar propiedad + "

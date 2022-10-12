@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/internal/operators/filter';
 
 @Component({
   selector: 'sb-navbar',
@@ -9,7 +10,12 @@ import { Router } from '@angular/router';
 @HostListener('scroll', ['$event'])
 export class NavbarComponent implements OnInit {
   public toggle: boolean = false;
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe((event: NavigationEnd) => {
+      let doc = document.querySelector('html') as HTMLElement;
+      doc.classList.remove('a-fullscreen');
+    });
+  }
 
   ngOnInit(): void {}
 

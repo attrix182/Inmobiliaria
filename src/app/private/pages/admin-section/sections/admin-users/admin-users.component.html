@@ -1,11 +1,15 @@
-<div class="btn-add">
+<!-- <div class="btn-add">
   <button (click)="toggleShowAddUser()" class="btn btn-danger mt-3" type="button">
     {{ btnText }} <i class="fa fa-user"></i>
   </button>
-</div>
+</div> -->
 
 <section class="container bg-white mt-4 p-4 mb-4 rounded" *ngIf="!showAddUser">
-  <sb-admin-users-list [usuarios]="users" [usuariosSearch]="users"   (goToEdit)="sendEditUser($event)"></sb-admin-users-list>
+  <sb-admin-users-list
+    [usuarios]="users"
+    [usuariosSearch]="users"
+    (goToEdit)="sendEditUser($event)"
+  ></sb-admin-users-list>
 </section>
 
 <section class="container bg-white mt-4 p-4 mb-4 rounded" *ngIf="showAddUser">

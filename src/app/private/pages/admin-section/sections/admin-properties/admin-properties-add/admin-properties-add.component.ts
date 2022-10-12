@@ -29,8 +29,22 @@ export class AdminPropertiesAddComponent extends FormValidationAbstract implemen
 
   initForm() {
     this.formGroup = this.fb.group({
-      nombre: ['', [Validators.required]],
-      apellido: ['', [Validators.required]]
+      id: ['', []],
+      price: ['', []],
+      currency: ['', []],
+      squareFeet: ['', []],
+      squareFeetCover: ['', []],
+      bedrooms: ['', []],
+      parkings: ['', []],
+      yearBuilt: ['', []],
+      adress: ['', []],
+      baths: ['', []],
+      offerType: ['', []],
+      propertyType: ['', []],
+      props: ['', []],
+      images:  ['', []],
+
+
     });
   }
 
