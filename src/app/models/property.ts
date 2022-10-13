@@ -28,7 +28,6 @@ export enum Type {
 }
 
 export interface Adress {
-  country: string;
   province: string;
   locality: string;
   street: string;

@@ -3,19 +3,23 @@
     <div class="col-md-12 text-center"><h3>Alta de propiedad</h3></div>
   </div>
 
-
   <div class="row">
     <!-- Tipo de propiedad -->
     <div class="col-md-6">
       <div class="form-group">
         <label>Tipo de propiedad</label>
-        <input
+        <select
           type="text"
           class="form-control"
           [class]="isValidField('propertyType')"
           formControlName="propertyType"
           placeholder="Tipo de propiedad"
-        />
+        >
+          <option disabled>Tipo</option>
+          <option *ngFor="let tipo of tipos" [ngValue]="tipo">
+            {{ tipo }}
+          </option>
+        </select>
         <span *ngIf="showError('propertyType')" class="invalid-feedback">
           {{ getErrorMessages('propertyType') }}
         </span>
@@ -26,13 +30,18 @@
     <div class="col-md-6">
       <div class="form-group">
         <label>Tipo de oferta</label>
-        <input
+        <select
           type="text"
           class="form-control"
           [class]="isValidField('offerType')"
           formControlName="offerType"
           placeholder="Tipo de oferta"
-        />
+        >
+          <option disabled>Oferta</option>
+          <option *ngFor="let tipo of oferta" [ngValue]="tipo">
+            {{ tipo }}
+          </option>
+        </select>
         <span *ngIf="showError('offerType')" class="invalid-feedback">
           {{ getErrorMessages('offerType') }}
         </span>
@@ -41,6 +50,27 @@
   </div>
 
   <div class="row">
+    <!-- Moneda -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="moneda">Moneda</label>
+        <select
+          type="text"
+          class="form-control"
+          [class]="isValidField('currency')"
+          formControlName="currency"
+          placeholder="Moneda"
+        >
+          <option disabled>Moneda</option>
+          <option *ngFor="let tipo of ['ARS','USD']" [ngValue]="tipo">
+            {{ tipo }}
+          </option>
+        </select>
+        <span *ngIf="showError('currency')" class="invalid-feedback">
+          {{ getErrorMessages('currency') }}
+        </span>
+      </div>
+    </div>
     <!-- Precio -->
     <div class="col-md-6">
       <div class="form-group">
@@ -57,28 +87,32 @@
         </span>
       </div>
     </div>
-    <!-- Moneda -->
-    <div class="col-md-6">
+  </div>
+
+  <div class="row">
+    <!-- Año de construcción -->
+    <div class="col-md-4">
       <div class="form-group">
-        <label for="moneda">Moneda</label>
-        <input
-          type="text"
+        <label>Año de construcción</label>
+        <select
+          type="number"
           class="form-control"
-          [class]="isValidField('currency')"
-          formControlName="currency"
-          placeholder="Moneda"
-        />
-        <span *ngIf="showError('currency')" class="invalid-feedback">
-          {{ getErrorMessages('currency') }}
+          [class]="isValidField('yearBuilt')"
+          formControlName="yearBuilt"
+          placeholder="Año de construcción"
+        >
+        <option disabled>Año</option>
+        <option *ngFor="let tipo of anios" [ngValue]="tipo">
+          {{ tipo }}
+        </option>
+        </select>
+        <span *ngIf="showError('yearBuilt')" class="invalid-feedback">
+          {{ getErrorMessages('yearBuilt') }}
         </span>
       </div>
     </div>
-  </div>
-
-
-  <div class="row">
     <!-- Metros 2 -->
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="form-group">
         <label>Metros cuadrados</label>
         <input
@@ -95,7 +129,7 @@
     </div>
 
     <!-- Metros 2 cubiertos -->
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="form-group">
         <label>Metros cuadrados cubiertos</label>
         <input
@@ -112,14 +146,13 @@
     </div>
   </div>
 
-
   <div class="row">
     <!-- Cocheras -->
     <div class="col-md-4">
       <div class="form-group">
         <label>Cocheras</label>
         <input
-          type="text"
+          type="number"
           class="form-control"
           [class]="isValidField('parkings')"
           formControlName="parkings"
@@ -130,12 +163,12 @@
         </span>
       </div>
     </div>
-
+    <!-- Dormitorios -->
     <div class="col-md-4">
       <div class="form-group">
         <label>Dormitorios</label>
         <input
-          type="text"
+          type="number"
           class="form-control"
           [class]="isValidField('bedrooms')"
           formControlName="bedrooms"
@@ -146,12 +179,12 @@
         </span>
       </div>
     </div>
-
+    <!-- Baños -->
     <div class="col-md-4">
       <div class="form-group">
         <label>Baños</label>
         <input
-          type="text"
+          type="number"
           class="form-control"
           [class]="isValidField('baths')"
           formControlName="baths"
@@ -164,6 +197,103 @@
     </div>
   </div>
 
+  <!-- Direccion -->
+  <div class="row">
+    <!-- Provincia -->
+    <div class="col-md-3">
+      <div class="form-group">
+        <label>Provincia</label>
+        <select
+          (ngModelChange)="onProvinciaChange()"
+          type="text"
+          class="form-control"
+          [class]="isValidField('province')"
+          formControlName="province"
+          placeholder="Provincia"
+        >
+          <option disabled>Provincia</option>
+          <option *ngFor="let prov of provincias" [ngValue]="prov.id">
+            {{ prov.nombre }}
+          </option>
+        </select>
+        <span *ngIf="showError('province')" class="invalid-feedback">
+          {{ getErrorMessages('province') }}
+        </span>
+      </div>
+    </div>
+    <!-- Localidad -->
+    <div class="col-md-3">
+      <div class="form-group">
+        <label>Localidad</label>
+        <select
+          type="text"
+          class="form-control"
+          [class]="isValidField('locality')"
+          formControlName="locality"
+          placeholder="Localidad"
+        >
+          >
+          <option disabled>Ciudad</option>
+          <option *ngFor="let ciud of ciudades" [ngValue]="ciud.id">
+            {{ ciud.nombre }}
+          </option>
+        </select>
+        <span *ngIf="showError('locality')" class="invalid-feedback">
+          {{ getErrorMessages('locality') }}
+        </span>
+      </div>
+    </div>
+    <!-- Calle -->
+    <div class="col-md-3">
+      <div class="form-group">
+        <label>Calle y altura</label>
+        <input
+          type="text"
+          class="form-control"
+          [class]="isValidField('street')"
+          formControlName="street"
+          placeholder="Calle y altura"
+        />
+        <span *ngIf="showError('street')" class="invalid-feedback">
+          {{ getErrorMessages('street') }}
+        </span>
+      </div>
+    </div>
+    <!-- Codigo postal -->
+    <div class="col-md-3">
+      <div class="form-group">
+        <label>Codigo postal</label>
+        <input
+          type="text"
+          class="form-control"
+          [class]="isValidField('zipCode')"
+          formControlName="zipCode"
+          placeholder="CP"
+        />
+        <span *ngIf="showError('zipCode')" class="invalid-feedback">
+          {{ getErrorMessages('zipCode') }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Imagenes -->
+    <div class="col-12">
+      <div>
+        <button id="banner-upload" (click)="compressFile()" hidden></button>
+        <label for="banner-upload" class="banner-upload-btn btn btn-danger mt-2"
+          ><em class="fa fa-upload"> Imagen</em></label
+        >
+      </div>
+    </div>
+
+    <div class="col 12">
+      <div class="col-12 mb-2 text-center">
+        <img [src]="imgResultAfterCompress" width="300px" alt="" />
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-12 text-center mt-6">
       <button type="submit" class="btn btn-danger btn-block" [disabled]="!formGroup.valid" (click)="saveProperty()">

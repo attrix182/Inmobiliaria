@@ -80,14 +80,14 @@ export class StorageService {
     return this.cloudFireStore.collection(collectionName).doc(id).delete();
   }
 
-  InsertProductWithImage(collectionName: string, product: any) {
-    product.id = this.cloudFireStore.createId();
+  InsertPropertyWithImage(collectionName: string, property: any) {
+    property.id = this.cloudFireStore.createId();
 
-    if (product.image) {
-      const filePath = `/products/${product.id}/image.jpeg`;
+    if (property.image) {
+      const filePath = `/properties/${property.id}/image.jpeg`;
       const ref = this.storage
         .ref(filePath)
-        .putString(product.image, 'base64', { contentType: 'image/jpeg' })
+        .putString(property.image, 'base64', { contentType: 'image/jpeg' })
         .then(() => {
           let storages = firebase.default.storage();
           let storageRef = storages.ref();
@@ -97,9 +97,9 @@ export class StorageService {
             this.fotoCargada = url;
             this.fotoCargada = `${this.fotoCargada}`;
 
-            product.image = this.fotoCargada;
+            property.image = this.fotoCargada;
 
-            return this.InsertCustomID(collectionName, product.id, product);
+            return this.InsertCustomID(collectionName, property.id, property);
           });
         });
     }

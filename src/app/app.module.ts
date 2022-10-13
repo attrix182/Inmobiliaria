@@ -8,6 +8,8 @@ import { environment } from 'src/environments/environment';
 import { PublicModule } from './public/public.module';
 import { PrivateModule } from './private/private.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxImageCompressService } from 'ngx-image-compress';
 
 
 @NgModule({
@@ -21,9 +23,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     PublicModule,
     PrivateModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [NgxImageCompressService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -23,7 +23,6 @@ propierties:Property[]
         parkings: 1,
         yearBuilt: 2001,
         adress: {
-          country: 'Argentina',
           province: 'Buenos Aires',
           locality: 'Capital Federal',
           street: 'Belgrano 650',
@@ -47,7 +46,6 @@ propierties:Property[]
         parkings: 1,
         yearBuilt: 2009,
         adress: {
-          country: 'Argentina',
           province: 'Buenos Aires',
           locality: 'Quilmes',
           street: '9 de Julio 650',

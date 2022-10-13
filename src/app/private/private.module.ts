@@ -16,6 +16,7 @@ import { AdminPropertiesPageComponent } from './pages/admin-section/sections/adm
 import { AdminUsersAddComponent } from './pages/admin-section/sections/admin-users/admin-users-add/admin-users-add.component';
 import { AdminUsersListComponent } from './pages/admin-section/sections/admin-users/admin-users-list/admin-users-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxImageCompressService } from 'ngx-image-compress';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AdminUsersAddComponent,
     AdminUsersListComponent
   ],
+  providers: [NgxImageCompressService],
   imports: [PrivateRoutingModule, CommonModule, FormsModule, ReactiveFormsModule, NgbModule]
 })
 export class PrivateModule {}

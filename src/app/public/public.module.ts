@@ -11,11 +11,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PropertiesComponent } from './pages/properties/properties.component';
 import { PropertyDetailsComponent } from './pages/property-details/property-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxImageCompressService } from 'ngx-image-compress';
 
 
 @NgModule({
   declarations: [Home360Component, HomeComponent, HomeVideoComponent, NavbarComponent, LoginComponent, SearchComponent, PropertiesComponent, PropertyDetailsComponent],
   imports: [CommonModule, PublicRoutingModule, ReactiveFormsModule, FormsModule, NgbModule],
+  providers: [NgxImageCompressService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PublicModule {}
