@@ -97,7 +97,7 @@ export class StorageService {
             this.fotoCargada = url;
             this.fotoCargada = `${this.fotoCargada}`;
 
-            property.image = this.fotoCargada;
+            property.images = this.fotoCargada;
 
             return this.InsertCustomID(collectionName, property.id, property);
           });
@@ -119,7 +119,7 @@ export class StorageService {
           this.fotoCargada = url;
           this.fotoCargada = `${this.fotoCargada}`;
 
-          product.image = this.fotoCargada;
+          product.images = this.fotoCargada;
 
           return this.cloudFireStore.collection(collectionName).doc(id).update({
             name: product.name,

@@ -68,12 +68,19 @@ export class AdminPropertiesAddComponent extends FormValidationAbstract implemen
     this.loading = true;
     console.log(this.formGroup.value);
 
-    let product = this.formGroup.value;
-    product.image = this.imgResultAfterCompress.split(/,(.+)/)[1];
-    this.storageSVC.InsertPropertyWithImage('properties', product);
+    let prop = this.formGroup.value;
+    prop.image = this.imgResultAfterCompress.split(/,(.+)/)[1];
+
+    prop.adress = {
+      "province": this.formGroup.value.province,
+      "locality": this.formGroup.value.locality,
+      "street": this.formGroup.value.street,
+      "zipCode": this.formGroup.value.zipCode,
+    }
+    this.storageSVC.InsertPropertyWithImage('properties', prop);
     this.clearForm();
     this.loading = false;
-    this.alertSVC.alertTop('success', 'Producto agregado con exito');
+    this.alertSVC.alertTop('success', 'Propiedad agregada con exito');
   }
 
   addProperty() {}

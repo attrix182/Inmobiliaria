@@ -13,6 +13,7 @@ export interface Property {
   propertyType: string;
   props: Prop[];
   images: string[];
+  image?: string;
 }
 
 export enum PropertyType {

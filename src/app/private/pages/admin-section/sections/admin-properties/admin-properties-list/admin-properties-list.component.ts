@@ -8,7 +8,7 @@ import { Property } from 'src/app/models/property';
   styleUrls: ['./admin-properties-list.component.scss']
 })
 export class AdminPropertiesListComponent implements OnInit {
-  @Input() propierties: Property[];
+  @Input() propierties: any[];
   @Input() propiertiesSearch: Property[];
   searchParam: string;
   showAddProperty: boolean = false; //Cambiar a False

@@ -1,5 +1,7 @@
 <div class="btn-add">
-  <button (click)="toggleShowAddProperty()" class="btn btn-danger mt-3" type="button"> {{btnText}} <i class="fa fa-home"></i></button>
+  <button (click)="toggleShowAddProperty()" class="btn btn-danger mt-3" type="button">
+    {{ btnText }} <i class="fa fa-home"></i>
+  </button>
 </div>
 
 <section class="container bg-white mt-4 p-4 mb-4 rounded" id="list-properties" *ngIf="showAddProperty">
@@ -27,7 +29,11 @@
       <div class="card mb-3 list" (click)="goToDetail(prop.id)">
         <div class="row">
           <div class="col-md-4">
-            <img src="{{ prop.images[0] }}" />
+            <div>
+
+            </div>
+            <img  *ngIf="prop.images" loading="lazy" src="{{ prop.images }}" alt="a" />
+            <img  *ngIf="!prop.images" src="../../../../../../../assets/default-photo-normal.jpg" alt="b" />
           </div>
           <div class="col-md-8">
             <div class="card-body">
