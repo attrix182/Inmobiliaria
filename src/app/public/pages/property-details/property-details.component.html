@@ -4,33 +4,12 @@
   <ngb-carousel *ngIf="images">
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper">
-        <img [src]="images[0]" alt="Random first slide">
+        <img [src]="prop.images" loading="lazy" alt="Random first slide" class="img-fluid">
       </div>
       <div class="carousel-caption">
-        <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
     </div>
   </ng-template>
   
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img [src]="images[1]" alt="Random second slide">
-    </div>
-    <div class="carousel-caption">
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-  </ng-template>
-  
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img src="../../../../assets/depto.jpg" alt="Random second slide">
-    </div>
-    <div class="carousel-caption">
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-  </ng-template>
   </ngb-carousel>
   <br/>
   <br/>
@@ -65,7 +44,7 @@
     </article>
     <article>
       <div class="card mb-3 mt-3 list">
-        
+        {{prop.description}}
       </div>
     </article>
   </section>
