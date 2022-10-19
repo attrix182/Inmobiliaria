@@ -34,25 +34,18 @@
   </ngb-carousel>
   <br/>
   <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  
+    
+  <button class="btn btn-danger"><i class="fa fa-arrow-left"></i> Volver</button>
   <section *ngIf="prop" class="container-fluid bg-white mt-4 p-4 mb-4 rounded" style="width: 90vw;z-index: 100;">
-    <button class="btn btn-danger"><i class="fa fa-arrow-left"></i> Volver</button>
     <article>
       <div class="card mb-3 mt-3 list">
         <div class="row">
-          <div class="col-md-4">
-          </div>
-          <div class="col-md-8">
+        <div class="col">
             <div class="card-body">
-              <h5 class="card-title">
+              <h5 class="card-title text-center">
                 {{ prop.propertyType | titlecase }} - {{ prop.adress.street }}, {{ prop.adress.locality }}
               </h5>
-              <p class="card-text">
+              <p class="card-text text-center">
                 <span class="font-weight-bold font-price">{{ prop.price }} {{ prop.currency }}</span>
               </p>
               <div class="card-text">
@@ -70,4 +63,11 @@
         </div>
       </div>
     </article>
+    <article>
+      <div class="card mb-3 mt-3 list">
+        
+      </div>
+    </article>
   </section>
+
+  

@@ -4,3 +4,19 @@ img{
     height: 60vh;
     object-fit: cover;
 }
+
+.card {
+    border-radius: 5px !important;
+    box-shadow: 1px 1px 7px #b8b3b3;
+    cursor: pointer;
+    max-width: 70vw;
+  }
+  
+  section{
+    display: flex;
+    justify-content: center;
+  }
+  
+  button{
+    margin-left: 20vw;
+  }
