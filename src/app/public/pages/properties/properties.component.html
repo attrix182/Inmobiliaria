@@ -1,12 +1,12 @@
 <sb-navbar></sb-navbar>
 <div class="contenedor">
-  <div *ngFor="let producto of productos">
+  <div *ngFor="let producto of propiedades">
     <div class="card" (click)="goToDetails(producto)">
-      <img src="../../../../assets/Casa.jpg" class="card-img-top" alt="..." />
+      <img [src]="producto.images" loading="lazy" class="card-img-top" alt="..." />
       <div class="card-body">
-        <h5 class="card-title">{{ producto.title }}</h5>
+        <h5 class="card-title">{{ producto.adress.street }}</h5>
         <p class="card-text">
-          {{ producto.description }}
+          {{ producto.baths }}
           {{ producto.price }}
         </p>
       </div>
