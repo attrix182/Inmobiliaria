@@ -1,6 +1,6 @@
 <div class="btn-add">
   <button (click)="toggleShowAddProperty()" class="btn btn-danger mt-3" type="button">
-    {{ btnText }} <i class="fa fa-home"></i>
+    {{ btnText }} <em class="fa fa-home"></em>
   </button>
 </div>
 
@@ -8,7 +8,7 @@
   <sb-admin-properties-add></sb-admin-properties-add>
 </section>
 
-<section class="container bg-white mt-4 p-4 mb-4 rounded" id="list-properties" *ngIf="!showAddProperty">
+<section  class="container bg-white mt-4 p-4 mb-4 rounded" id="list-properties" *ngIf="!showAddProperty">
   <div class="row">
     <div class="col-9">
       <input
@@ -20,7 +20,7 @@
       />
     </div>
     <div class="col-3 btn-clear">
-      <button class="btn btn-danger mb-2" (click)="clearFilter()" type="button"><i class="fa fa-times"></i></button>
+      <button class="btn btn-danger mb-2" (click)="clearFilter()" type="button"><em class="fa fa-times"></em></button>
     </div>
   </div>
 

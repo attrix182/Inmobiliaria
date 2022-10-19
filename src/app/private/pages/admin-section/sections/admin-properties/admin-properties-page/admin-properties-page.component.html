@@ -1,14 +1,14 @@
 <sb-admin-navbar></sb-admin-navbar>
 
 <section class="container-fluid bg-white mt-4 p-4 mb-4 rounded" style="width: 90vw">
-  <button class="btn btn-danger" (click)="goToProperties()"><i class="fa fa-arrow-left"></i> Volver</button>
-  <button class="btn btn-danger ml-3" (click)="goToProperties()">Editar <i class="fa fa-pen"></i></button>
+  <button class="btn btn-danger" (click)="goToProperties()"><em class="fa fa-arrow-left"></em> Volver</button>
+  <button class="btn btn-danger ml-3" (click)="goToProperties()">Editar <em class="fa fa-pen"></em></button>
   <article>
     <div class="card mb-3 mt-3 list">
       <div class="row">
         <div class="col-md-4">
           <img  *ngIf="prop.images" loading="lazy" src="{{ prop.images }}" alt="a" />
-            <img  *ngIf="!prop.images" src="../../../../../../../assets/default-photo-normal.jpg" alt="b" />
+            <img  loading="lazy" *ngIf="!prop.images" src="../../../../../../../assets/default-photo-normal.jpg" alt="b" />
         </div>
         <div class="col-md-8">
           <div class="card-body">
@@ -23,9 +23,9 @@
                 <div class="col-6">{{ prop.squareFeet }} m² totales</div>
                 <div class="col-6">{{ prop.squareFeetCover }} m² cubiertos</div>
 
-                <div class="col-6">{{ prop.bedrooms }} Habitaciones <i class="fa fa-bed"></i></div>
-                <div class="col-6">{{ prop.baths }} Baños <i class="fa fa-toilet"></i></div>
-                <div class="col-6">{{ prop.parkings }} Cochera <i class="fa fa-car"></i></div>
+                <div class="col-6">{{ prop.bedrooms }} Habitaciones <em class="fa fa-bed"></em></div>
+                <div class="col-6">{{ prop.baths }} Baños <em class="fa fa-toilet"></em></div>
+                <div class="col-6">{{ prop.parkings }} Cochera <em class="fa fa-car"></em></div>
               </div>
             </div>
           </div>

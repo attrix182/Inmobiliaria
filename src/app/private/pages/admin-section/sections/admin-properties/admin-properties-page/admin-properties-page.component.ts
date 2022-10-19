@@ -10,25 +10,31 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class AdminPropertiesPageComponent implements OnInit {
   id: string;
-  prop:Property;
+  prop: Property;
+  loading:boolean = true;
 
-  constructor(private _Activatedroute: ActivatedRoute, private router:Router, private storageSVC:StorageService) {}
+  constructor(private _Activatedroute: ActivatedRoute, private router: Router, private storageSVC: StorageService) {}
 
   ngOnInit(): void {
+    this.load()
     this._Activatedroute.paramMap.subscribe((params) => {
       let id = params.get('id');
-      this.getPropertyByID(id)
+      this.getPropertyByID(id);
     });
-
-
   }
 
-  getPropertyByID(id:string){
-    this.storageSVC.GetByParameter('properties','id',id).subscribe( (p)=> this.prop = p[0])
+  load(){
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+    }, 200);
   }
 
-  goToProperties(){
-    this.router.navigateByUrl('admin-properties')
+  getPropertyByID(id: string) {
+    this.storageSVC.GetByParameter('properties', 'id', id).subscribe((p) => (this.prop = p[0]));
   }
 
+  goToProperties() {
+    this.router.navigateByUrl('admin-properties');
+  }
 }
