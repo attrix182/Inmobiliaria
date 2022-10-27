@@ -10,7 +10,7 @@ import { StorageService } from 'src/app/services/storage.service';
   styleUrls: ['./admin-users-list.component.scss']
 })
 export class AdminUsersListComponent implements OnInit {
-  @Input() usuarios: User[];
+  @Input() usuarios: any[];
   @Input() usuariosSearch: any;
   @Input() vista: 'grilla' | 'hermanos';
   @Output() goToEdit = new EventEmitter<User>();
