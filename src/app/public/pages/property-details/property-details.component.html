@@ -4,16 +4,16 @@
   <ngb-carousel *ngIf="images">
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper">
-        <img [src]="prop.images" loading="lazy" alt="Random first slide" class="img-fluid">
+        <img [src]="prop?.images" loading="lazy" alt="Random first slide" class="img-fluid">
       </div>
       <div class="carousel-caption">
     </div>
   </ng-template>
-  
+
   </ngb-carousel>
   <br/>
   <br/>
-    
+
   <button class="btn btn-danger"><i class="fa fa-arrow-left"></i> Volver</button>
   <section *ngIf="prop" class="container-fluid bg-white mt-4 p-4 mb-4 rounded" style="width: 90vw;z-index: 100;">
     <article>
@@ -31,7 +31,7 @@
                 <div class="row">
                   <div class="col-6">{{ prop.squareFeet }} m² totales</div>
                   <div class="col-6">{{ prop.squareFeetCover }} m² cubiertos</div>
-                  
+
                   <div class="col-6">{{ prop.bedrooms }} Habitaciones <i class="fa fa-bed"></i></div>
                   <div class="col-6">{{ prop.baths }} Baños <i class="fa fa-toilet"></i></div>
                   <div class="col-6">{{ prop.parkings }} Cochera <i class="fa fa-car"></i></div>
@@ -49,5 +49,8 @@
     </article>
   </section>
 
+<<<<<<< HEAD
   
   
+=======
+>>>>>>> update-firebase

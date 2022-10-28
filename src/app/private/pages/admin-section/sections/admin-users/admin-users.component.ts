@@ -8,31 +8,29 @@ import { StorageService } from 'src/app/services/storage.service';
   styleUrls: ['./admin-users.component.scss']
 })
 export class AdminUsersComponent implements OnInit {
-  btnText:string = "Agregar usuario + ";
-  showAddUser:boolean = false;
-  users:User[] = [];
-  userToEdit:User;
+  btnText: string = 'Agregar usuario + ';
+  showAddUser: boolean = false;
+  users: any[] = [];
+  userToEdit: User;
 
-  constructor(private storageSVC:StorageService) { }
+  constructor(private storageSVC: StorageService) {}
 
   ngOnInit(): void {
-    this.storageSVC.GetAll('users').subscribe((u)=>this.users = u)
+    this.storageSVC.GetAll('users').subscribe((u) => (this.users = u));
   }
 
-  toggleShowAddUser(){
-    if(this.showAddUser){
-      this.showAddUser = false
-      this.btnText = "Agregar usuario + "
-    }
-    else{
+  toggleShowAddUser() {
+    if (this.showAddUser) {
+      this.showAddUser = false;
+      this.btnText = 'Agregar usuario + ';
+    } else {
       this.showAddUser = true;
-      this.btnText = "Ver usuarios"
+      this.btnText = 'Ver usuarios';
     }
   }
 
-  sendEditUser(user: User | any){
+  sendEditUser(user: User | any) {
     this.showAddUser = true;
     this.userToEdit = user;
   }
-
 }

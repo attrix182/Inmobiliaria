@@ -9,21 +9,22 @@ import { StorageService } from 'src/app/services/storage.service';
   styleUrls: ['./properties.component.scss']
 })
 export class PropertiesComponent implements OnInit {
-propiedades: Property[]
+  propiedades: any[];
 
-  constructor(private router: Router, private storageSvc: StorageService) {
+  constructor(private router: Router, private storageSvc: StorageService) {}
+
+  ngOnInit(): void {
+    this.getAllproperties();
   }
 
   getAllproperties() {
-    this.storageSvc.GetAll("properties").subscribe((p) => {
-      this.propiedades=p
-    })
+    this.storageSvc.GetAll('properties').subscribe((properties) => {
+      this.propiedades = properties;
+      console.log(properties)
+    });
   }
   goToDetails(property: any) {
-    this.router.navigateByUrl("propiedad/" + property.id)
-  }
-  ngOnInit(): void {
-    this.getAllproperties()
+    this.router.navigateByUrl('propiedad/' + property.id);
   }
 
 }
