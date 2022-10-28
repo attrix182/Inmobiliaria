@@ -10,6 +10,7 @@ import { StorageService } from 'src/app/services/storage.service';
 export class PropertyDetailsComponent implements OnInit {
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   prop: any;
+ 
 
   constructor
   (private storageSvc: StorageService, private location:Location) {   }
@@ -26,5 +27,5 @@ export class PropertyDetailsComponent implements OnInit {
     this.getPropertyById(this.location.path().split('/')[2])
   }
 
-
+ 
 }

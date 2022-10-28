@@ -12,12 +12,20 @@ img{
     max-width: 70vw;
   }
   
-  section{
+  article{
     display: flex;
     justify-content: center;
-    flex-direction: column;
   }
   
   button{
     margin-left: 20vw;
+  }
+  
+  .card2{
+    border-radius: 10px !important;
+    box-shadow: 1px 1px 7px #5f5e5e;
+    cursor: pointer;
+    height: auto;
+    padding: 1vw;
+    width: 70vw;
   }

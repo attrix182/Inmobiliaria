@@ -1,0 +1,41 @@
+.inbox{
+    width: 40vw;
+    height: auto;
+    background-color: beige;
+    border-radius: 1vw;
+    padding-bottom: 2.5vw;
+}
+.centrar1{
+
+    display: flex;
+    justify-content: center;
+    margin-top: 6vw;
+}
+.centrar{
+
+    display: flex;
+    justify-content: center;
+
+}
+label{
+    color: black;
+    margin-left: 2vw;
+    margin-top: 2vw;
+}
+.box{
+    width: 35vw;
+    height: 15vw;
+    background-color: white;
+  margin-left: 2.5vw;
+  border-radius: 1vw;
+
+}
+input{
+    width: 30vw;
+    height: 10vw;
+    border-radius: 1vw;
+}
+button{
+    background-color: red;
+    border-color: rgb(94, 1, 1);
+}
