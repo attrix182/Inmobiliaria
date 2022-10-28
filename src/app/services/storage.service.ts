@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { map } from 'rxjs/operators';
-import { trace } from '@angular/fire/compat/performance';
 import * as firebase from 'firebase/app';
 
 @Injectable({
@@ -32,13 +31,29 @@ export class StorageService {
   }
 
   GetAll(collectionName: string) {
-    return this.cloudFireStore.collection(collectionName).valueChanges()
+    return this.cloudFireStore
+      .collection(collectionName)
+      .snapshotChanges()
+      .pipe(
+        map((actions) =>
+          actions.map((a) => {
+            const data: any = a.payload.doc.data();
+            data.id = a.payload.doc.id;
+            return data;
+          })
+        )
+      );
   }
   GetByParameter(collection: string, parametro: string, value: any) {
-    return this.cloudFireStore.collection<any>(collection, (ref) => ref.where(parametro, '==', value))
-    .valueChanges()
-
-
+    return this.cloudFireStore.collection<any>(collection, (ref) => ref.where(parametro, '==', value)).snapshotChanges().pipe(
+      map((actions) =>
+        actions.map((a) => {
+          const data: any = a.payload.doc.data();
+          data.id = a.payload.doc.id;
+          return data;
+        })
+      )
+    );
   }
 
 
@@ -74,25 +89,45 @@ export class StorageService {
         .ref(filePath)
         .putString(property.image, 'base64', { contentType: 'image/jpeg' })
         .then(() => {
-
-          let storageRef = this.storage.ref(property.id);
+          let storages = firebase.default.storage();
+          let storageRef = storages.ref();
           let spaceRef = storageRef.child(filePath);
 
-          let url$ = spaceRef.getDownloadURL().pipe(
-            trace('storage')
-          )
-            this.fotoCargada = url$ ;
+          spaceRef.getDownloadURL().then((url) => {
+            this.fotoCargada = url;
             this.fotoCargada = `${this.fotoCargada}`;
 
             property.images = this.fotoCargada;
 
             return this.InsertCustomID(collectionName, property.id, property);
           });
-
+        });
     }
   }
 
   UpdateProduct(id: string, collectionName: string, product: any) {
+    const filePath = `/products/${id}/image.jpeg`;
+    const ref = this.storage
+      .ref(filePath)
+      .putString(product.image, 'base64', { contentType: 'image/jpeg' })
+      .then(() => {
+        let storages = firebase.default.storage();
+        let storageRef = storages.ref();
+        let spaceRef = storageRef.child(filePath);
 
+        spaceRef.getDownloadURL().then((url) => {
+          this.fotoCargada = url;
+          this.fotoCargada = `${this.fotoCargada}`;
+
+          product.images = this.fotoCargada;
+
+          return this.cloudFireStore.collection(collectionName).doc(id).update({
+            name: product.name,
+            description: product.description,
+            price: product.price,
+            image: product.image
+          });
+        });
+      });
   }
 }

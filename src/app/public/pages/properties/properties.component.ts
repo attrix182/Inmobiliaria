@@ -9,7 +9,7 @@ import { StorageService } from 'src/app/services/storage.service';
   styleUrls: ['./properties.component.scss']
 })
 export class PropertiesComponent implements OnInit {
-  propiedades: any[];
+  propiedades: Property[];
 
   constructor(private router: Router, private storageSvc: StorageService) {}
 

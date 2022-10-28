@@ -8,7 +8,7 @@ import { StorageService } from 'src/app/services/storage.service';
   styleUrls: ['./admin-properties.component.scss']
 })
 export class AdminPropertiesComponent implements OnInit {
-  propierties: any[];
+  propierties: Property[];
   constructor(private storageSVC: StorageService) {}
 
   ngOnInit(): void {

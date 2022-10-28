@@ -10,7 +10,7 @@ import { StorageService } from 'src/app/services/storage.service';
 export class AdminUsersComponent implements OnInit {
   btnText: string = 'Agregar usuario + ';
   showAddUser: boolean = false;
-  users: any[] = [];
+  users: User[] = [];
   userToEdit: User;
 
   constructor(private storageSVC: StorageService) {}

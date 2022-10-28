@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import firebase from 'firebase/app';
 import { first } from 'rxjs/operators';
 import { User } from '../models/user';
 import { AlertService } from './alert.service';
@@ -10,26 +11,26 @@ import { StorageService } from './storage.service';
   providedIn: 'root'
 })
 export class AuthService {
-  public user: any;
+  public user: firebase.User;
 
   currentUser: any;
   public isLogged: any = false;
 
   constructor(
     private alertSvc: AlertService,
-    public afAuth: Auth,
+    public afAuth: AngularFireAuth,
     private router: Router,
     private storageService: StorageService
   ) {
-    this.isLogged = afAuth.currentUser
+    afAuth.authState.subscribe((user) => (this.isLogged = user));
   }
 
   async onLogin(user: any) {
-    return signInWithEmailAndPassword(this.afAuth, user.email, user.password).then((userCredential) => {
+    const result = await this.afAuth.signInWithEmailAndPassword(user.email, user.password).then((userCredential) => {
       localStorage.setItem('token', userCredential.user.uid);
       return true;
     });
-
+    return result;
   }
 
   async registerUser(formUser: User) {
@@ -44,11 +45,36 @@ export class AuthService {
   }
 
   async onRegister(email: string, password: string) {
-    return  createUserWithEmailAndPassword(this.afAuth,email, password)
+    return new Promise<any>((resolve, rejected) => {
+      this.afAuth.createUserWithEmailAndPassword(email, password).then(
+        (response: any) => {
+          resolve(response.user.uid);
+        },
+        (error: any) => {
+          switch (error.code) {
+            case 'auth/weak-password':
+              rejected('Clave muy corta,minimo 6 caracteres');
+              break;
+            case 'auth/invalid-email':
+              rejected('Email invalido');
+              break;
+            case 'auth/wrong-password':
+              rejected('Clave invalida');
+              break;
+            case 'auth/email-already-in-use':
+              rejected('El correo ya se encuentra registrado');
+              break;
+            default:
+              rejected('ERROR');
+              break;
+          }
+        }
+      );
+    });
   }
 
   GetCurrentUser() {
-    return this.afAuth.currentUser
+    return this.afAuth.authState.pipe(first()).toPromise();
   }
 
   LogOutCurrentUser() {
