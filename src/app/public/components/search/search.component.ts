@@ -48,6 +48,7 @@ export class SearchComponent implements OnInit {
         this.claseVender = 'btn btn-dark';
         this.claseComprar = 'btn btn-light';
         this.claseAlquilar = 'btn btn-light';
+        this.router.navigateByUrl('/vender')
         break;
       case 'alquilar':
         this.claseAlquilar = 'btn btn-dark';

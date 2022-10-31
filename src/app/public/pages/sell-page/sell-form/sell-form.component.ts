@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertService } from 'src/app/services/alert.service';
 import { FormValidationAbstract } from 'src/app/shared/form-validation-abstract';
 
@@ -13,6 +13,7 @@ export class SellFormComponent
   implements OnInit
 {
   formGroup: FormGroup;
+  loading:boolean = false;
   constructor(private fb: FormBuilder, private alertSvc: AlertService) {
     super();
   }
@@ -22,8 +23,23 @@ export class SellFormComponent
   }
   initForm() {
     this.formGroup = this.fb.group({
-      name: ['', []],
+      name: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      typeProperty: ['', []],
+      zone: ['', []],
+      comment: ['', [Validators.required]],
+
     });
+  }
+
+  enviarFormulario(){
+    this.loading = true;
+    setTimeout(() => {
+
+      this.alertSvc.alertCenter('success', '¡Pronto nos pondremos en contacto con vos!')
+      this.loading = false;
+    }, 350);
+
   }
 
   setErrorMessages(): void {}
