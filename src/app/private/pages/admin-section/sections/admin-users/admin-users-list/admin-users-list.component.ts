@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/models/user';
 import { AlertService } from 'src/app/services/alert.service';
@@ -7,7 +15,7 @@ import { StorageService } from 'src/app/services/storage.service';
 @Component({
   selector: 'sb-admin-users-list',
   templateUrl: './admin-users-list.component.html',
-  styleUrls: ['./admin-users-list.component.scss']
+  styleUrls: ['./admin-users-list.component.scss'],
 })
 export class AdminUsersListComponent implements OnInit {
   @Input() usuarios: any[];
@@ -23,11 +31,15 @@ export class AdminUsersListComponent implements OnInit {
   detailsModal: TemplateRef<any>;
   disponibilidad: any;
 
-  constructor(private storageSVC: StorageService, private alertSvc: AlertService, private modalSvc: NgbModal) {}
+  constructor(
+    private storageSVC: StorageService,
+    private alertSvc: AlertService,
+    private modalSvc: NgbModal
+  ) {}
 
   ngOnInit(): void {
     if (this.vista == 'grilla') {
-      this.storageSVC.GetAll('users').subscribe((data) => {
+      this.storageSVC.GetAll('users').subscribe(data => {
         this.usuarios = data;
       });
     }
@@ -37,7 +49,7 @@ export class AdminUsersListComponent implements OnInit {
     let previousRol = user.rol;
     console.log(previousRol);
     let rolValue = rol.value;
-    this.alertSvc.confirmAlert().then((a) => {
+    this.alertSvc.confirmAlert().then(a => {
       if (a) {
         user.rol = rolValue;
         this.storageSVC.Update(user.id, 'users', user).then(() => {
@@ -53,7 +65,7 @@ export class AdminUsersListComponent implements OnInit {
 
   toggleActive(user: User) {
     if (user.active) {
-      this.alertSvc.confirmAlert().then((a) => {
+      this.alertSvc.confirmAlert().then(a => {
         if (a) {
           user.active = false;
           this.storageSVC.Update(user.id, 'users', user);
@@ -90,7 +102,9 @@ export class AdminUsersListComponent implements OnInit {
       return;
     }
     const serachParamLower = this.searchParam.toLowerCase();
-    this.usuarios = this.usuariosSearch.filter((item) => this.doSearch(item, serachParamLower));
+    this.usuarios = this.usuariosSearch.filter(item =>
+      this.doSearch(item, serachParamLower)
+    );
   }
 
   doSearch(value, searcher) {
@@ -107,6 +121,8 @@ export class AdminUsersListComponent implements OnInit {
       return false;
     }
 
-    return (typeof value == 'string' ? value.toLocaleLowerCase() : value.toString()).includes(searcher);
+    return (
+      typeof value == 'string' ? value.toLocaleLowerCase() : value.toString()
+    ).includes(searcher);
   }
 }

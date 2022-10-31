@@ -8,7 +8,7 @@ import { AlertService } from './alert.service';
 import { StorageService } from './storage.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   public user: firebase.User;
@@ -22,25 +22,29 @@ export class AuthService {
     private router: Router,
     private storageService: StorageService
   ) {
-    afAuth.authState.subscribe((user) => (this.isLogged = user));
+    afAuth.authState.subscribe(user => (this.isLogged = user));
   }
 
   async onLogin(user: any) {
-    const result = await this.afAuth.signInWithEmailAndPassword(user.email, user.password).then((userCredential) => {
-      localStorage.setItem('token', userCredential.user.uid);
-      return true;
-    });
+    const result = await this.afAuth
+      .signInWithEmailAndPassword(user.email, user.password)
+      .then(userCredential => {
+        localStorage.setItem('token', userCredential.user.uid);
+        return true;
+      });
     return result;
   }
 
   async registerUser(formUser: User) {
-    await this.onRegister(formUser.email, '123456').then((uid) => {
+    await this.onRegister(formUser.email, '123456').then(uid => {
       let user: User;
       user = formUser;
       user.id = uid;
       this.storageService
         .InsertCustomID('users', uid, user)
-        .then(() => this.alertSvc.alertCenter('success', 'Usuario agregado con exito'));
+        .then(() =>
+          this.alertSvc.alertCenter('success', 'Usuario agregado con exito')
+        );
     });
   }
 

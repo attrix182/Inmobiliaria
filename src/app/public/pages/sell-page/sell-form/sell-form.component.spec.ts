@@ -8,7 +8,7 @@ describe('SellFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SellFormComponent]
+      declarations: [SellFormComponent],
     }).compileComponents();
   });
 

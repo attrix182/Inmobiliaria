@@ -8,7 +8,7 @@ describe('PropertiesMapComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PropertiesMapComponent]
+      declarations: [PropertiesMapComponent],
     }).compileComponents();
   });
 

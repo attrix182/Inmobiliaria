@@ -9,9 +9,12 @@ import { FormValidationAbstract } from 'src/app/shared/form-validation-abstract'
 @Component({
   selector: 'sb-admin-properties-add',
   templateUrl: './admin-properties-add.component.html',
-  styleUrls: ['./admin-properties-add.component.scss']
+  styleUrls: ['./admin-properties-add.component.scss'],
 })
-export class AdminPropertiesAddComponent extends FormValidationAbstract implements OnInit {
+export class AdminPropertiesAddComponent
+  extends FormValidationAbstract
+  implements OnInit
+{
   formGroup: FormGroup;
   loading: boolean = false;
   provincias: any[] = [];
@@ -57,10 +60,12 @@ export class AdminPropertiesAddComponent extends FormValidationAbstract implemen
     this.imageCompress.uploadFile().then(({ image, orientation }) => {
       this.imgResultBeforeCompress = image;
       /* console.warn('Size in bytes was:', this.imageCompress.byteCount(image)); */
-      this.imageCompress.compressFile(image, orientation, 50, 40).then((result) => {
-        this.imgResultAfterCompress = result;
-        this.selectImage = false;
-      });
+      this.imageCompress
+        .compressFile(image, orientation, 50, 40)
+        .then(result => {
+          this.imgResultAfterCompress = result;
+          this.selectImage = false;
+        });
     });
   }
 
@@ -75,7 +80,7 @@ export class AdminPropertiesAddComponent extends FormValidationAbstract implemen
       province: this.formGroup.value.province,
       locality: this.formGroup.value.locality,
       street: this.formGroup.value.street,
-      zipCode: this.formGroup.value.zipCode
+      zipCode: this.formGroup.value.zipCode,
     };
     this.storageSVC.InsertPropertyWithImage('properties', prop);
     this.clearForm();
@@ -91,18 +96,18 @@ export class AdminPropertiesAddComponent extends FormValidationAbstract implemen
   }
 
   getProvincias() {
-    this.geoRef.getProvincias().subscribe((result) => {
-      this.provincias = result.provincias.map((prov) => ({
+    this.geoRef.getProvincias().subscribe(result => {
+      this.provincias = result.provincias.map(prov => ({
         nombre: prov.nombre,
-        id: prov.id
+        id: prov.id,
       }));
     });
   }
   getCiudadesByProvincia(provincia: any) {
-    this.geoRef.getCiudades(provincia).subscribe((result) => {
-      this.ciudades = result.municipios.map((munic) => ({
+    this.geoRef.getCiudades(provincia).subscribe(result => {
+      this.ciudades = result.municipios.map(munic => ({
         nombre: munic.nombre,
-        id: munic.id
+        id: munic.id,
       }));
     });
   }
@@ -129,18 +134,18 @@ export class AdminPropertiesAddComponent extends FormValidationAbstract implemen
       offerType: ['', []],
       propertyType: ['', []],
       props: ['', []],
-      images: ['', []]
+      images: ['', []],
     });
   }
 
   setErrorMessages(): void {
     this.errroMessages = {
       nombre: {
-        required: 'El nombre es requerido'
+        required: 'El nombre es requerido',
       },
       apellido: {
-        required: 'El apellido es requerido'
-      }
+        required: 'El apellido es requerido',
+      },
     };
   }
 }

@@ -7,13 +7,20 @@ import { FormValidationAbstract } from 'src/app/shared/form-validation-abstract'
 @Component({
   selector: 'sb-admin-users-add',
   templateUrl: './admin-users-add.component.html',
-  styleUrls: ['./admin-users-add.component.scss']
+  styleUrls: ['./admin-users-add.component.scss'],
 })
-export class AdminUsersAddComponent extends FormValidationAbstract implements OnInit {
+export class AdminUsersAddComponent
+  extends FormValidationAbstract
+  implements OnInit
+{
   formGroup: FormGroup;
   loading: boolean = false;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private alertSvc: AlertService) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private alertSvc: AlertService
+  ) {
     super();
   }
 
@@ -30,7 +37,7 @@ export class AdminUsersAddComponent extends FormValidationAbstract implements On
         this.loading = false;
         this.formGroup.reset();
       })
-      .catch((msg) => {
+      .catch(msg => {
         this.alertSvc.alertCenter('error', msg);
         this.loading = false;
       });
@@ -42,18 +49,18 @@ export class AdminUsersAddComponent extends FormValidationAbstract implements On
       lastname: ['', [Validators.required]],
       rol: ['', [Validators.required]],
       active: ['', []],
-      email: ['', [Validators.required]]
+      email: ['', [Validators.required]],
     });
   }
 
   setErrorMessages(): void {
     this.errroMessages = {
       name: {
-        required: 'El nombre es requerido'
+        required: 'El nombre es requerido',
       },
       lastname: {
-        required: 'El apellido es requerido'
-      }
+        required: 'El apellido es requerido',
+      },
     };
   }
 }

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertService } from 'src/app/services/alert.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -8,7 +13,7 @@ import { FormValidationAbstract } from 'src/app/shared/form-validation-abstract'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent extends FormValidationAbstract implements OnInit {
   public user: any = {};
@@ -38,9 +43,12 @@ export class LoginComponent extends FormValidationAbstract implements OnInit {
     this.formGroup = this.FB.group({
       email: new FormControl('', [
         Validators.required,
-        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
       ]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)])
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+      ]),
     });
   }
 
@@ -48,12 +56,12 @@ export class LoginComponent extends FormValidationAbstract implements OnInit {
     this.errroMessages = {
       email: {
         required: 'El correo es obligatorio',
-        pattern: 'El correo no es válido'
+        pattern: 'El correo no es válido',
       },
       password: {
         required: 'La contraseña es obligatoria',
-        minlength: 'La contraseña debe tener al menos 6 caracteres'
-      }
+        minlength: 'La contraseña debe tener al menos 6 caracteres',
+      },
     };
   }
 

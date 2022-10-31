@@ -1,5 +1,12 @@
 import { Location } from '@angular/common';
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { Route, Router } from '@angular/router';
 
 import { SearchService } from './search.service';
@@ -7,7 +14,7 @@ import { SearchService } from './search.service';
 @Component({
   selector: 'sb-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
   public provincias: any;
@@ -16,7 +23,11 @@ export class SearchComponent implements OnInit {
   claseComprar = 'btn btn-light';
   claseVender = 'btn btn-light';
   claseAlquilar = 'btn btn-light';
-  constructor(private searchSVC: SearchService, private router: Router, private location: Location) {}
+  constructor(
+    private searchSVC: SearchService,
+    private router: Router,
+    private location: Location
+  ) {}
 
   ngOnInit(): void {}
 

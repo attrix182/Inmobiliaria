@@ -26,10 +26,16 @@ import { SellFormComponent } from './pages/sell-page/sell-form/sell-form.compone
     PropertiesComponent,
     PropertyDetailsComponent,
     SellPageComponent,
-    SellFormComponent
+    SellFormComponent,
   ],
-  imports: [CommonModule, PublicRoutingModule, ReactiveFormsModule, FormsModule, NgbModule],
+  imports: [
+    CommonModule,
+    PublicRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    NgbModule,
+  ],
   providers: [NgxImageCompressService],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PublicModule {}

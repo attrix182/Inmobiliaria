@@ -1,12 +1,13 @@
-<div class="container bg-white mt-4 p-4 mb-4 rounded table-desktop" *ngIf="vista !== 'grilla'">
+<div
+  class="container bg-white mt-4 p-4 mb-4 rounded table-desktop"
+  *ngIf="vista !== 'grilla'">
   <h4 class="text-center">Usuarios</h4>
   <input
     [(ngModel)]="searchParam"
     (ngModelChange)="hacerBusqueda()"
     type="text"
     placeholder="Buscador inteligente..."
-    class="form-control mb-2"
-  />
+    class="form-control mb-2" />
 
   <table class="table table-hover text-center">
     <caption></caption>
@@ -39,15 +40,16 @@
               class="form-check-input"
               type="checkbox"
               role="switch"
-              id="flexSwitchCheckDefault"
-            />
+              id="flexSwitchCheckDefault" />
             <span class="slider round"></span>
           </label>
         </td>
 
         <td>
           <div class="table-actions">
-            <button class="btn btn-danger" (click)="delete(uno)"><em class="fa fa-trash"></em></button>
+            <button class="btn btn-danger" (click)="delete(uno)">
+              <em class="fa fa-trash"></em>
+            </button>
           </div>
         </td>
       </tr>
@@ -68,8 +70,7 @@
       (ngModelChange)="hacerBusqueda()"
       type="text"
       placeholder="Buscador inteligente..."
-      class="form-control mb-2"
-    />
+      class="form-control mb-2" />
 
     <div class="row justify-content-center">
       <div class="col-12" *ngFor="let card of usuarios">
@@ -83,7 +84,9 @@
         </div>
       </div>
 
-      <div class="card mt-2 mb-2 p-2 loading-puntos" *ngIf="usuarios.length == 0">
+      <div
+        class="card mt-2 mb-2 p-2 loading-puntos"
+        *ngIf="usuarios.length == 0">
         <div class="spinner-border text-primary mt-1 mb-1" role="status"></div>
       </div>
     </div>
@@ -93,13 +96,17 @@
 <ng-template #detailsModal let-modal>
   <div class="modal-body">
     <div class="btn-exit">
-      <em (click)="modal.dismiss('Cross click')" class="btn btn-white"><em class="fas fa-times"></em> </em>
+      <em (click)="modal.dismiss('Cross click')" class="btn btn-white"
+        ><em class="fas fa-times"></em>
+      </em>
     </div>
     <div class="header-modal">
       {{ selectedUser.name }}
       {{ selectedUser.lastname }}
     </div>
-    <select class="form-control" (change)="selectRol($event.target, selectedUser)">
+    <select
+      class="form-control"
+      (change)="selectRol($event.target, selectedUser)">
       <option selected disabled id="rolOption">{{ selectedUser.rol }}</option>
       <option *ngFor="let r of roles" [ngValue]="r">{{ r }}</option>
     </select>
@@ -113,11 +120,12 @@
           class="form-check-input"
           type="checkbox"
           role="switch"
-          id="flexSwitchCheckDefault"
-        />
+          id="flexSwitchCheckDefault" />
         <span class="slider round"></span>
       </label>
     </div>
-    <button class="btn btn-danger" (click)="delete(selectedUser)"><i class="fa fa-trash"></i></button>
+    <button class="btn btn-danger" (click)="delete(selectedUser)">
+      <i class="fa fa-trash"></i>
+    </button>
   </div>
 </ng-template>

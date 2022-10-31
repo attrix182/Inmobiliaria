@@ -1,8 +1,12 @@
 <div>
   <div>
     <div>
-      <button [class]="claseComprar" (click)="setActive('comprar')">Comprar</button>
-      <button [class]="claseAlquilar" (click)="setActive('alquilar')">Alquilar</button>
+      <button [class]="claseComprar" (click)="setActive('comprar')">
+        Comprar
+      </button>
+      <button [class]="claseAlquilar" (click)="setActive('alquilar')">
+        Alquilar
+      </button>
     </div>
 
     <div class="row">
@@ -14,7 +18,10 @@
         <option>La Falda</option>
       </select>
 
-      <button class="btn btn-danger btn-search col" [disabled]="!enabled" (click)="search()">
+      <button
+        class="btn btn-danger btn-search col"
+        [disabled]="!enabled"
+        (click)="search()">
         <em class="fas fa-search"></em>
       </button>
     </div>

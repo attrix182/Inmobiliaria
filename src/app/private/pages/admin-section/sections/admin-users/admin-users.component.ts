@@ -5,7 +5,7 @@ import { StorageService } from 'src/app/services/storage.service';
 @Component({
   selector: 'sb-admin-users',
   templateUrl: './admin-users.component.html',
-  styleUrls: ['./admin-users.component.scss']
+  styleUrls: ['./admin-users.component.scss'],
 })
 export class AdminUsersComponent implements OnInit {
   btnText: string = 'Agregar usuario + ';
@@ -16,7 +16,7 @@ export class AdminUsersComponent implements OnInit {
   constructor(private storageSVC: StorageService) {}
 
   ngOnInit(): void {
-    this.storageSVC.GetAll('users').subscribe((u) => (this.users = u));
+    this.storageSVC.GetAll('users').subscribe(u => (this.users = u));
   }
 
   toggleShowAddUser() {

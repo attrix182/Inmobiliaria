@@ -6,6 +6,6 @@ export const environment = {
     projectId: 'custom-coupons',
     storageBucket: 'custom-coupons.appspot.com',
     messagingSenderId: '336049378968',
-    appId: '1:336049378968:web:7942338d82eb88624e62ed'
-  }
+    appId: '1:336049378968:web:7942338d82eb88624e62ed',
+  },
 };

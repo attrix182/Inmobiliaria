@@ -5,15 +5,17 @@ import { filter } from 'rxjs/operators';
 @Component({
   selector: 'sb-admin-section',
   templateUrl: './admin-section.component.html',
-  styleUrls: ['./admin-section.component.scss']
+  styleUrls: ['./admin-section.component.scss'],
 })
 export class AdminSectionComponent {
   public section: string;
 
   constructor(private router: Router, private location: Location) {
-    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
-      this.handleSection();
-    });
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.handleSection();
+      });
   }
 
   handleSection() {

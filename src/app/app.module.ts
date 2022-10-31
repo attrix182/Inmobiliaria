@@ -20,9 +20,9 @@ import { NgxImageCompressService } from 'ngx-image-compress';
     PublicModule,
     PrivateModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [NgxImageCompressService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

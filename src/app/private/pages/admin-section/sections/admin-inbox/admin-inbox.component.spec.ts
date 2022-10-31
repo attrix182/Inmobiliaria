@@ -8,7 +8,7 @@ describe('AdminInboxComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AdminInboxComponent]
+      declarations: [AdminInboxComponent],
     }).compileComponents();
   });
 

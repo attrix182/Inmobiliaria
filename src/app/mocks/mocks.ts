@@ -13,14 +13,14 @@ let propierties = [
       province: 'Buenos Aires',
       locality: 'Capital Federal',
       street: 'Belgrano 650',
-      zipCode: '1509'
+      zipCode: '1509',
     },
     offerType: 'compra',
     propertyType: 'casa',
     props: [{ key: 'Aire acondicionado', value: true }],
     images: [
-      'https://static.tokkobroker.com/water_pics/90693648330766303097408924689666580070453156559614122095017522536700902347674.jpg'
-    ]
+      'https://static.tokkobroker.com/water_pics/90693648330766303097408924689666580070453156559614122095017522536700902347674.jpg',
+    ],
   },
   {
     id: '2',
@@ -36,15 +36,15 @@ let propierties = [
       province: 'Buenos Aires',
       locality: 'Quilmes',
       street: '9 de Julio 650',
-      zipCode: '1876'
+      zipCode: '1876',
     },
     offerType: 'alquiler',
     propertyType: 'departamento',
     props: [{ key: 'Aire acondicionado', value: true }],
     images: [
-      'https://static.tokkobroker.com/pictures/76545454326738379067409377005784535971307697001491666557053371854077101959430.jpg'
-    ]
-  }
+      'https://static.tokkobroker.com/pictures/76545454326738379067409377005784535971307697001491666557053371854077101959430.jpg',
+    ],
+  },
 ];
 
 let prop = {
@@ -61,12 +61,12 @@ let prop = {
     province: 'Buenos Aires',
     locality: 'Quilmes',
     street: '9 de Julio 650',
-    zipCode: '1876'
+    zipCode: '1876',
   },
   offerType: 'alquiler',
   propertyType: 'departamento',
   props: [{ key: 'Aire acondicionado', value: true }],
   images: [
-    'https://static.tokkobroker.com/pictures/76545454326738379067409377005784535971307697001491666557053371854077101959430.jpg'
-  ]
+    'https://static.tokkobroker.com/pictures/76545454326738379067409377005784535971307697001491666557053371854077101959430.jpg',
+  ],
 };

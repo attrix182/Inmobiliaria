@@ -6,7 +6,7 @@ import { StorageService } from 'src/app/services/storage.service';
 @Component({
   selector: 'sb-properties',
   templateUrl: './properties.component.html',
-  styleUrls: ['./properties.component.scss']
+  styleUrls: ['./properties.component.scss'],
 })
 export class PropertiesComponent implements OnInit {
   propiedades: Property[];
@@ -18,7 +18,7 @@ export class PropertiesComponent implements OnInit {
   }
 
   getAllproperties() {
-    this.storageSvc.GetAll('properties').subscribe((properties) => {
+    this.storageSvc.GetAll('properties').subscribe(properties => {
       this.propiedades = properties;
       console.log(properties);
     });

@@ -8,7 +8,7 @@ describe('AdminPropertiesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AdminPropertiesComponent]
+      declarations: [AdminPropertiesComponent],
     }).compileComponents();
   });
 

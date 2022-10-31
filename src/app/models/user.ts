@@ -10,5 +10,5 @@ export interface User {
 export enum Roles {
   ADMIN,
   EMPLOYEE,
-  CLIENT
+  CLIENT,
 }

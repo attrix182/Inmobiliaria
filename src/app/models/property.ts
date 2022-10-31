@@ -21,12 +21,12 @@ export enum PropertyType {
   casa,
   departamento,
   oficina,
-  terreno
+  terreno,
 }
 
 export enum Type {
   compra,
-  alquiler
+  alquiler,
 }
 
 export interface Adress {

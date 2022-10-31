@@ -10,7 +10,11 @@ export abstract class FormValidationAbstract {
 
   isValidField(field: string): string {
     const validateField = this.formGroup.get(field);
-    return !validateField.valid && validateField.touched ? 'is-invalid' : validateField.touched ? 'is-valid' : '';
+    return !validateField.valid && validateField.touched
+      ? 'is-invalid'
+      : validateField.touched
+      ? 'is-valid'
+      : '';
   }
 
   showError(field: string): boolean {

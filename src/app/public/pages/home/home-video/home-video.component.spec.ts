@@ -8,7 +8,7 @@ describe('HomeVideoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HomeVideoComponent]
+      declarations: [HomeVideoComponent],
     }).compileComponents();
   });
 

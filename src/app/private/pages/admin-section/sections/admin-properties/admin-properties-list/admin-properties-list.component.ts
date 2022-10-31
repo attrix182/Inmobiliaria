@@ -5,7 +5,7 @@ import { Property } from 'src/app/models/property';
 @Component({
   selector: 'sb-admin-properties-list',
   templateUrl: './admin-properties-list.component.html',
-  styleUrls: ['./admin-properties-list.component.scss']
+  styleUrls: ['./admin-properties-list.component.scss'],
 })
 export class AdminPropertiesListComponent implements OnInit {
   @Input() propierties: any[];
@@ -24,7 +24,9 @@ export class AdminPropertiesListComponent implements OnInit {
       return;
     }
     const serachParamLower = this.searchParam.toLowerCase();
-    this.propierties = this.propiertiesSearch.filter((item) => this.doSearch(item, serachParamLower));
+    this.propierties = this.propiertiesSearch.filter(item =>
+      this.doSearch(item, serachParamLower)
+    );
   }
 
   doSearch(value, searcher) {
@@ -41,7 +43,9 @@ export class AdminPropertiesListComponent implements OnInit {
       return false;
     }
 
-    return (typeof value == 'string' ? value.toLocaleLowerCase() : value.toString()).includes(searcher);
+    return (
+      typeof value == 'string' ? value.toLocaleLowerCase() : value.toString()
+    ).includes(searcher);
   }
 
   clearFilter() {

@@ -8,32 +8,29 @@
         <!-- Nombre -->
         <div class="col-md-6">
           <div class="form-group">
-     <!--        <label for="nombre">Nombre</label> -->
+            <!--        <label for="nombre">Nombre</label> -->
             <input
               type="number"
               [class]="isValidField('name')"
               class="form-control"
               formControlName="name"
-              placeholder="Nombre"
-            />
+              placeholder="Nombre" />
             <span *ngIf="showError('name')" class="invalid-feedback">
               {{ getErrorMessages('name') }}
             </span>
           </div>
         </div>
 
-
-         <!-- Nombre -->
-         <div class="col-md-12">
+        <!-- Nombre -->
+        <div class="col-md-12">
           <div class="form-group">
-     <!--        <label for="nombre">Nombre</label> -->
+            <!--        <label for="nombre">Nombre</label> -->
             <input
               type="number"
               [class]="isValidField('name')"
               class="form-control"
               formControlName="name"
-              placeholder="Nombre"
-            />
+              placeholder="Nombre" />
             <span *ngIf="showError('name')" class="invalid-feedback">
               {{ getErrorMessages('name') }}
             </span>

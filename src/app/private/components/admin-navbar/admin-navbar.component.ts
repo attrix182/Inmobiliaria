@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'sb-admin-navbar',
   templateUrl: './admin-navbar.component.html',
-  styleUrls: ['./admin-navbar.component.scss']
+  styleUrls: ['./admin-navbar.component.scss'],
 })
 export class AdminNavbarComponent implements OnInit {
   constructor(private router: Router) {}

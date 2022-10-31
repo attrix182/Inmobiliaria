@@ -11,8 +11,7 @@
           [class]="isValidField('name')"
           class="form-control"
           formControlName="name"
-          placeholder="Nombre"
-        />
+          placeholder="Nombre" />
         <span *ngIf="showError('name')" class="invalid-feedback">
           {{ getErrorMessages('name') }}
         </span>
@@ -27,8 +26,7 @@
           [class]="isValidField('lastname')"
           id="lastname"
           formControlName="lastname"
-          placeholder="Apellido"
-        />
+          placeholder="Apellido" />
         <span *ngIf="showError('lastname')" class="invalid-feedback">
           {{ getErrorMessages('lastname') }}
         </span>
@@ -47,8 +45,7 @@
           [class]="isValidField('rol')"
           id="rol"
           formControlName="rol"
-          placeholder="Rol"
-        />
+          placeholder="Rol" />
         <span *ngIf="showError('rol')" class="invalid-feedback">
           {{ getErrorMessages('rol') }}
         </span>
@@ -64,8 +61,7 @@
           [class]="isValidField('email')"
           id="email"
           formControlName="email"
-          placeholder="Email"
-        />
+          placeholder="Email" />
         <span *ngIf="showError('rol')" class="invalid-feedback">
           {{ getErrorMessages('rol') }}
         </span>
@@ -74,12 +70,21 @@
   </div>
 
   <div class="row">
-    <div class="msj-info">*Se creara con la contraseña: 123456, por defecto</div>
+    <div class="msj-info">
+      *Se creara con la contraseña: 123456, por defecto
+    </div>
 
     <div class="col-md-12 text-center mt-4">
-      <button type="submit" class="btn btn-danger btn-block" [disabled]="!formGroup.valid" (click)="saveUser()">
+      <button
+        type="submit"
+        class="btn btn-danger btn-block"
+        [disabled]="!formGroup.valid"
+        (click)="saveUser()">
         <div *ngIf="!loading">Guardar</div>
-        <div *ngIf="loading" class="spinner-border btn-block text-dark" role="status"></div>
+        <div
+          *ngIf="loading"
+          class="spinner-border btn-block text-dark"
+          role="status"></div>
       </button>
     </div>
   </div>

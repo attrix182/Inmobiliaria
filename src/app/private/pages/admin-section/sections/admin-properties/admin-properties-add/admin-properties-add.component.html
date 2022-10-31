@@ -13,8 +13,7 @@
           class="form-control"
           [class]="isValidField('propertyType')"
           formControlName="propertyType"
-          placeholder="Tipo de propiedad"
-        >
+          placeholder="Tipo de propiedad">
           <option disabled>Tipo</option>
           <option *ngFor="let tipo of tipos" [ngValue]="tipo">
             {{ tipo }}
@@ -35,8 +34,7 @@
           class="form-control"
           [class]="isValidField('offerType')"
           formControlName="offerType"
-          placeholder="Tipo de oferta"
-        >
+          placeholder="Tipo de oferta">
           <option disabled>Oferta</option>
           <option *ngFor="let tipo of oferta" [ngValue]="tipo">
             {{ tipo }}
@@ -59,8 +57,7 @@
           class="form-control"
           [class]="isValidField('currency')"
           formControlName="currency"
-          placeholder="Moneda"
-        >
+          placeholder="Moneda">
           <option disabled>Moneda</option>
           <option *ngFor="let tipo of ['ARS', 'USD']" [ngValue]="tipo">
             {{ tipo }}
@@ -80,8 +77,7 @@
           [class]="isValidField('price')"
           class="form-control"
           formControlName="price"
-          placeholder="Precio"
-        />
+          placeholder="Precio" />
         <span *ngIf="showError('price')" class="invalid-feedback">
           {{ getErrorMessages('price') }}
         </span>
@@ -99,8 +95,7 @@
           class="form-control"
           [class]="isValidField('yearBuilt')"
           formControlName="yearBuilt"
-          placeholder="Año de construcción"
-        >
+          placeholder="Año de construcción">
           <option disabled>Año</option>
           <option *ngFor="let tipo of anios" [ngValue]="tipo">
             {{ tipo }}
@@ -120,8 +115,7 @@
           class="form-control"
           [class]="isValidField('squareFeet')"
           formControlName="squareFeet"
-          placeholder="Metros cuadrados"
-        />
+          placeholder="Metros cuadrados" />
         <span *ngIf="showError('squareFeet')" class="invalid-feedback">
           {{ getErrorMessages('squareFeet') }}
         </span>
@@ -137,8 +131,7 @@
           class="form-control"
           [class]="isValidField('squareFeetCover')"
           formControlName="squareFeetCover"
-          placeholder="Metros cuadrados cubiertos"
-        />
+          placeholder="Metros cuadrados cubiertos" />
         <span *ngIf="showError('squareFeetCover')" class="invalid-feedback">
           {{ getErrorMessages('squareFeetCover') }}
         </span>
@@ -156,8 +149,7 @@
           class="form-control"
           [class]="isValidField('parkings')"
           formControlName="parkings"
-          placeholder="Cocheras"
-        />
+          placeholder="Cocheras" />
         <span *ngIf="showError('parkings')" class="invalid-feedback">
           {{ getErrorMessages('parkings') }}
         </span>
@@ -172,8 +164,7 @@
           class="form-control"
           [class]="isValidField('bedrooms')"
           formControlName="bedrooms"
-          placeholder="Dormitorios"
-        />
+          placeholder="Dormitorios" />
         <span *ngIf="showError('bedrooms')" class="invalid-feedback">
           {{ getErrorMessages('bedrooms') }}
         </span>
@@ -188,8 +179,7 @@
           class="form-control"
           [class]="isValidField('baths')"
           formControlName="baths"
-          placeholder="Baños"
-        />
+          placeholder="Baños" />
         <span *ngIf="showError('baths')" class="invalid-feedback">
           {{ getErrorMessages('baths') }}
         </span>
@@ -209,8 +199,7 @@
           class="form-control"
           [class]="isValidField('province')"
           formControlName="province"
-          placeholder="Provincia"
-        >
+          placeholder="Provincia">
           <option disabled>Provincia</option>
           <option *ngFor="let prov of provincias" [ngValue]="prov.id">
             {{ prov.nombre }}
@@ -230,8 +219,7 @@
           class="form-control"
           [class]="isValidField('locality')"
           formControlName="locality"
-          placeholder="Localidad"
-        >
+          placeholder="Localidad">
           >
           <option disabled>Ciudad</option>
           <option *ngFor="let ciud of ciudades" [ngValue]="ciud.id">
@@ -252,8 +240,7 @@
           class="form-control"
           [class]="isValidField('street')"
           formControlName="street"
-          placeholder="Calle y altura"
-        />
+          placeholder="Calle y altura" />
         <span *ngIf="showError('street')" class="invalid-feedback">
           {{ getErrorMessages('street') }}
         </span>
@@ -268,8 +255,7 @@
           class="form-control"
           [class]="isValidField('zipCode')"
           formControlName="zipCode"
-          placeholder="CP"
-        />
+          placeholder="CP" />
         <span *ngIf="showError('zipCode')" class="invalid-feedback">
           {{ getErrorMessages('zipCode') }}
         </span>
@@ -296,9 +282,16 @@
   </div>
   <div class="row">
     <div class="col-md-12 text-center mt-6">
-      <button type="submit" class="btn btn-danger btn-block" [disabled]="!formGroup.valid" (click)="saveProperty()">
+      <button
+        type="submit"
+        class="btn btn-danger btn-block"
+        [disabled]="!formGroup.valid"
+        (click)="saveProperty()">
         <div *ngIf="!loading">Guardar</div>
-        <div *ngIf="loading" class="spinner-border btn-block text-dark" role="status"></div>
+        <div
+          *ngIf="loading"
+          class="spinner-border btn-block text-dark"
+          role="status"></div>
       </button>
     </div>
   </div>

@@ -1,7 +1,14 @@
 <section class="text-center" *ngIf="!loged">
   <div [formGroup]="formGroup" class="form-signin">
     <img class="mb-4" alt="" width="85" />
-    <h3 class="m-2" style="margin: -10p; text-align: center; font-size: 38px; font-family: Parisienne">
+    <h3
+      class="m-2"
+      style="
+        margin: -10p;
+        text-align: center;
+        font-size: 38px;
+        font-family: Parisienne;
+      ">
       <span class=""></span>Sanchez <br />
       Berenguez
     </h3>
@@ -14,8 +21,7 @@
       placeholder="Email"
       formControlName="email"
       required
-      autofocus
-    />
+      autofocus />
     <span *ngIf="showError('email')" class="invalid-feedback">
       {{ getErrorMessages('email') }}
     </span>
@@ -27,8 +33,7 @@
       class="form-control"
       formControlName="password"
       placeholder="Clave"
-      required
-    />
+      required />
     <span *ngIf="showError('password')" class="invalid-feedback">
       {{ getErrorMessages('password') }}
     </span>
@@ -36,7 +41,10 @@
       <a href=""> ¿Recuperar contraseña?</a>
     </div>
 
-    <button [disabled]="formGroup.invalid" class="btn btn-lg btn-primary btn-block" (click)="onLogin()">
+    <button
+      [disabled]="formGroup.invalid"
+      class="btn btn-lg btn-primary btn-block"
+      (click)="onLogin()">
       INICIAR SESIÓN
     </button>
 

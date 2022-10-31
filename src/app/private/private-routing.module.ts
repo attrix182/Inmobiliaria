@@ -7,11 +7,11 @@ import { AdminPropertiesPageComponent } from './pages/admin-section/sections/adm
 
 const routes: Routes = [
   { path: '', component: AdminSectionComponent, canActivate: [AuthGuard] },
-  { path: '**', component: AdminSectionComponent, canActivate: [AuthGuard] }
+  { path: '**', component: AdminSectionComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class PrivateRoutingModule {}
