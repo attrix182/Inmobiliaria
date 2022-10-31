@@ -1,13 +1,8 @@
 <sb-navbar></sb-navbar>
-
-<div class="contenedor">
-  <div *ngFor="let producto of propiedades">
+<div class="properties" *ngIf="!loading">
+  <div class="contenedor" *ngFor="let producto of propiedades">
     <div class="card" (click)="goToDetails(producto)">
-      <img
-        [src]="producto.images"
-        loading="lazy"
-        class="card-img-top"
-        alt="..." />
+      <img [src]="producto.images" loading="lazy" class="card-img-top" alt="..." />
       <div class="card-body">
         <h5 class="card-title">{{ producto.adress.street }}</h5>
         <p class="card-text">
@@ -18,3 +13,18 @@
     </div>
   </div>
 </div>
+
+<div align="center">
+  <div class="contenedor" *ngIf="loading">
+    <div *ngFor="let producto of [0, 1, 2, 3, 4, 5, 6]">
+      <ngx-skeleton-loader
+        count="1"
+        appearance="line"
+        animation="pulse"
+        [theme]="{ height: '22rem', width: '18rem' }"
+      ></ngx-skeleton-loader>
+    </div>
+  </div>
+</div>
+
+<sb-footer></sb-footer>

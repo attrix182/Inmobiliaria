@@ -6,6 +6,15 @@
   justify-content: center;
   margin-top: 15px;
   margin-bottom: 15px;
+  max-width: 80vw;
+}
+
+.properties{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  height: 80vh;
 }
 
 .card {

@@ -10,6 +10,7 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class PropertiesComponent implements OnInit {
   propiedades: Property[];
+  loading:boolean = true;
 
   constructor(private router: Router, private storageSvc: StorageService) {}
 
@@ -18,9 +19,11 @@ export class PropertiesComponent implements OnInit {
   }
 
   getAllproperties() {
+    this.loading = true;
     this.storageSvc.GetAll('properties').subscribe(properties => {
       this.propiedades = properties;
       console.log(properties);
+      this.loading = false;
     });
   }
   goToDetails(property: any) {

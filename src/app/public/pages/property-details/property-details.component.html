@@ -15,57 +15,91 @@
 
 <button class="btn btn-danger btn-back" (click)="back()"><i class="fa fa-arrow-left"></i> Volver</button>
 
-<div (click)="openImage()">
-  <img [src]="prop?.images" class="img-fluid mb-4" alt="Foto" />
-</div>
+<section *ngIf="loading">
+  <div class="img-skeleton">
+    <ngx-skeleton-loader
+      count="1"
+      appearance="line"
+      animation="pulse"
+      [theme]="{ height: '60vh', width: '100vw' }"
+    ></ngx-skeleton-loader>
+  </div>
 
-<section *ngIf="prop" class="container-fluid bg-white mt-4 p-4 mb-4 rounded" style="width: 90vw; z-index: 100">
-  <article>
-    <div class="card mb-3 mt-3 list">
-      <div class="row">
-        <div class="col">
-          <div class="card2">
-            <h5 class="card-title text-center">
-              {{ prop.propertyType | titlecase }} - {{ prop.adress.street }},
-              {{ prop.adress.locality }}
-            </h5>
-            <p class="card-text text-center">
-              <span class="font-weight-bold font-price">{{ prop.price }} {{ prop.currency }}</span>
-            </p>
-            <div class="card-text">
-              <div class="row">
-                <div class="col-6">{{ prop.squareFeet }} m² totales</div>
-                <div class="col-6">{{ prop.squareFeetCover }} m² cubiertos</div>
+  <div class="card-prop-skeleton mt-4">
+    <ngx-skeleton-loader
+      count="1"
+      appearance="line"
+      animation="pulse"
+      [theme]="{ height: '25vh', width: '80vw' }"
+    ></ngx-skeleton-loader>
+  </div>
 
-                <div class="col-6">{{ prop.bedrooms }} Habitaciones <i class="fa fa-bed"></i></div>
-                <div class="col-6">{{ prop.baths }} Baños <i class="fa fa-toilet"></i></div>
-                <div class="col-6">{{ prop.parkings }} Cochera <i class="fa fa-car"></i></div>
+  <div class="card-prop-skeleton mt-4">
+    <ngx-skeleton-loader
+      count="1"
+      appearance="line"
+      animation="pulse"
+      [theme]="{ height: '10vh', width: '80vw' }"
+    ></ngx-skeleton-loader>
+  </div>
+
+
+</section>
+
+<section *ngIf="!loading">
+  <div (click)="openImage()">
+    <img [src]="prop?.images" loading="lazy" class="img-fluid mb-4" alt="Foto" />
+  </div>
+
+  <section *ngIf="prop" class="container-fluid bg-white mt-4 p-4 mb-4 rounded" style="width: 90vw; z-index: 100">
+    <article>
+      <div class="card mb-3 mt-3 list">
+        <div class="row">
+          <div class="col">
+            <div class="card2">
+              <h5 class="card-title text-center">
+                {{ prop.propertyType | titlecase }} - {{ prop.adress.street }},
+                {{ prop.adress.locality }}
+              </h5>
+              <p class="card-text text-center">
+                <span class="font-weight-bold font-price">{{ prop.price }} {{ prop.currency }}</span>
+              </p>
+              <div class="card-text">
+                <div class="row">
+                  <div class="col-6">{{ prop.squareFeet }} m² totales</div>
+                  <div class="col-6">{{ prop.squareFeetCover }} m² cubiertos</div>
+
+                  <div class="col-6">{{ prop.bedrooms }} Habitaciones <i class="fa fa-bed"></i></div>
+                  <div class="col-6">{{ prop.baths }} Baños <i class="fa fa-toilet"></i></div>
+                  <div class="col-6">{{ prop.parkings }} Cochera <i class="fa fa-car"></i></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </article>
-  <article>
-    <div class="card2 mt-2 mb-2">
-      {{ prop.description }}
-    </div>
-  </article>
-</section>
+    </article>
+    <article>
+      <div class="card2 mt-2 mb-2">
+        {{ prop.description }}
+      </div>
+    </article>
+  </section>
 
-<section *ngIf="prop" class="container-fluid card bg-white mt-4 p-4 mb-4 rounded">
-  <h6 class="text-center">¿Tenes alguna consulta sobre esta propiedad?</h6>
-  <div class="row">
-  <div class="col-6">
-    <input type="text" class="form-control" placeholder="Nombre completo" type="text" />
-  </div>
-  <div class="col-6">
-    <input type="text" class="form-control" placeholder="Email o teléfono" type="text" />
-  </div>
-</div>
-  <textarea type="text" class="form-control mt-2" placeholder="Escribe tu consulta..." cols="30" rows="3"></textarea>
-  <button class="btn btn-danger mt-2">Enviar</button>
+  <section *ngIf="prop" class="container-fluid card bg-white mt-4 p-4 mb-4 rounded">
+    <h6 class="text-center">¿Tenes alguna consulta sobre esta propiedad?</h6>
+    <div class="row">
+      <div class="col-6">
+        <input type="text" class="form-control" placeholder="Nombre completo" type="text" />
+      </div>
+      <div class="col-6">
+        <input type="text" class="form-control" placeholder="Email o teléfono" type="text" />
+      </div>
+    </div>
+    <textarea type="text" class="form-control mt-2" placeholder="Escribe tu consulta..." cols="30" rows="3"></textarea>
+    <button class="btn btn-danger mt-2">Enviar</button>
+  </section>
+  <sb-footer></sb-footer>
 </section>
 
 <ng-template #fotoModal let-modal>

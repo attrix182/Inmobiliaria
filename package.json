@@ -28,6 +28,7 @@
     "jquery": "^3.6.0",
     "leaflet": "^1.9.2",
     "ngx-image-compress": "^13.1.13",
+    "ngx-skeleton-loader": "^6.0.0",
     "prettier": "^2.7.1",
     "rxjs": "~6.6.0",
     "sweetalert2": "^11.1.4",

@@ -13,13 +13,16 @@ export class PropertyDetailsComponent implements OnInit {
   prop: any;
   @ViewChild('fotoModal', { read: TemplateRef })
   fotoModal: TemplateRef<any>;
+  loading:boolean;
 
   constructor(    private modalSvc: NgbModal, private storageSvc: StorageService, private location: Location, private router:Router) {}
 
   getPropertyById(id: string) {
+    this.loading = true;
     this.storageSvc.GetByParameter('properties', 'id', id).subscribe(p => {
       this.prop = p[0];
       console.log(p);
+      this.loading = false;
     });
     console.log(id);
   }

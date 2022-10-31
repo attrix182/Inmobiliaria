@@ -14,6 +14,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxImageCompressService } from 'ngx-image-compress';
 import { SellPageComponent } from './pages/sell-page/sell-page.component';
 import { SellFormComponent } from './pages/sell-page/sell-form/sell-form.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { SellFormComponent } from './pages/sell-page/sell-form/sell-form.compone
     PropertyDetailsComponent,
     SellPageComponent,
     SellFormComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -34,6 +37,7 @@ import { SellFormComponent } from './pages/sell-page/sell-form/sell-form.compone
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
+    NgxSkeletonLoaderModule
   ],
   providers: [NgxImageCompressService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
