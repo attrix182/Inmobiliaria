@@ -32,7 +32,7 @@ import { NgxImageCompressService } from 'ngx-image-compress';
     AdminPropertiesAddComponent,
     AdminPropertiesPageComponent,
     AdminUsersAddComponent,
-    AdminUsersListComponent,
+    AdminUsersListComponent
   ],
   providers: [NgxImageCompressService],
   imports: [PrivateRoutingModule, CommonModule, FormsModule, ReactiveFormsModule, NgbModule]

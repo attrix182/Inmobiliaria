@@ -8,9 +8,8 @@ describe('HomeVideoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeVideoComponent ]
-    })
-    .compileComponents();
+      declarations: [HomeVideoComponent]
+    }).compileComponents();
   });
 
   beforeEach(() => {

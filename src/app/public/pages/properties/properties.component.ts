@@ -20,11 +20,10 @@ export class PropertiesComponent implements OnInit {
   getAllproperties() {
     this.storageSvc.GetAll('properties').subscribe((properties) => {
       this.propiedades = properties;
-      console.log(properties)
+      console.log(properties);
     });
   }
   goToDetails(property: any) {
     this.router.navigateByUrl('propiedad/' + property.id);
   }
-
 }

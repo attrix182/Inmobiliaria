@@ -38,48 +38,43 @@
 
   <div class="row">
     <!-- ROL -->
-  <div class="col-md-6">
-    <div class="form-group">
-      <label for="rol">Rol</label>
-      <input
-        type="text"
-        class="form-control"
-        [class]="isValidField('rol')"
-        id="rol"
-        formControlName="rol"
-        placeholder="Rol"
-      />
-      <span *ngIf="showError('rol')" class="invalid-feedback">
-        {{ getErrorMessages('rol') }}
-      </span>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="rol">Rol</label>
+        <input
+          type="text"
+          class="form-control"
+          [class]="isValidField('rol')"
+          id="rol"
+          formControlName="rol"
+          placeholder="Rol"
+        />
+        <span *ngIf="showError('rol')" class="invalid-feedback">
+          {{ getErrorMessages('rol') }}
+        </span>
+      </div>
+    </div>
+    <!-- EMAIL -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="rol">Email</label>
+        <input
+          type="text"
+          class="form-control"
+          [class]="isValidField('email')"
+          id="email"
+          formControlName="email"
+          placeholder="Email"
+        />
+        <span *ngIf="showError('rol')" class="invalid-feedback">
+          {{ getErrorMessages('rol') }}
+        </span>
+      </div>
     </div>
   </div>
-<!-- EMAIL -->
-  <div class="col-md-6">
-    <div class="form-group">
-      <label for="rol">Email</label>
-      <input
-        type="text"
-        class="form-control"
-        [class]="isValidField('email')"
-        id="email"
-        formControlName="email"
-        placeholder="Email"
-      />
-      <span *ngIf="showError('rol')" class="invalid-feedback">
-        {{ getErrorMessages('rol') }}
-      </span>
-    </div>
-  </div>
-</div>
 
   <div class="row">
-    <div class="msj-info">
-
-      *Se creara con la contraseña: 123456, por defecto
-
-    </div>
-
+    <div class="msj-info">*Se creara con la contraseña: 123456, por defecto</div>
 
     <div class="col-md-12 text-center mt-4">
       <button type="submit" class="btn btn-danger btn-block" [disabled]="!formGroup.valid" (click)="saveUser()">

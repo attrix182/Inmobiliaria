@@ -59,11 +59,10 @@ export class AdminUsersListComponent implements OnInit {
           this.storageSVC.Update(user.id, 'users', user);
         }
       });
-    }else{
+    } else {
       user.active = true;
     }
     this.storageSVC.Update(user.id, 'users', user);
-
   }
 
   openModalDetails(user: User) {

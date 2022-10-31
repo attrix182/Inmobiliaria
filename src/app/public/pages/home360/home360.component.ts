@@ -6,13 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home360.component.scss']
 })
 export class Home360Component implements OnInit {
+  isVisible = true;
 
-  isVisible = true
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-
+  ngOnInit(): void {}
 }

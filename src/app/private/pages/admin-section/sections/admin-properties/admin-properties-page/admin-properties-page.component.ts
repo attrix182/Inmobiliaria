@@ -11,19 +11,19 @@ import { StorageService } from 'src/app/services/storage.service';
 export class AdminPropertiesPageComponent implements OnInit {
   id: string;
   prop: Property;
-  loading:boolean = true;
+  loading: boolean = true;
 
   constructor(private _Activatedroute: ActivatedRoute, private router: Router, private storageSVC: StorageService) {}
 
   ngOnInit(): void {
-    this.load()
+    this.load();
     this._Activatedroute.paramMap.subscribe((params) => {
       let id = params.get('id');
       this.getPropertyByID(id);
     });
   }
 
-  load(){
+  load() {
     this.loading = true;
     setTimeout(() => {
       this.loading = false;

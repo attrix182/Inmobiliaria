@@ -7,10 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-navbar.component.scss']
 })
 export class AdminNavbarComponent implements OnInit {
+  constructor(private router: Router) {}
 
-  constructor(private router:Router) { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -62,7 +62,7 @@
           placeholder="Moneda"
         >
           <option disabled>Moneda</option>
-          <option *ngFor="let tipo of ['ARS','USD']" [ngValue]="tipo">
+          <option *ngFor="let tipo of ['ARS', 'USD']" [ngValue]="tipo">
             {{ tipo }}
           </option>
         </select>
@@ -101,10 +101,10 @@
           formControlName="yearBuilt"
           placeholder="Año de construcción"
         >
-        <option disabled>Año</option>
-        <option *ngFor="let tipo of anios" [ngValue]="tipo">
-          {{ tipo }}
-        </option>
+          <option disabled>Año</option>
+          <option *ngFor="let tipo of anios" [ngValue]="tipo">
+            {{ tipo }}
+          </option>
         </select>
         <span *ngIf="showError('yearBuilt')" class="invalid-feedback">
           {{ getErrorMessages('yearBuilt') }}

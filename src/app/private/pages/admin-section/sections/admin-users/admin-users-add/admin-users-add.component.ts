@@ -26,7 +26,10 @@ export class AdminUsersAddComponent extends FormValidationAbstract implements On
     let newUser: User = this.formGroup.value;
     this.authService
       .registerUser(newUser)
-      .then(() => {this.loading = false; this.formGroup.reset()})
+      .then(() => {
+        this.loading = false;
+        this.formGroup.reset();
+      })
       .catch((msg) => {
         this.alertSvc.alertCenter('error', msg);
         this.loading = false;

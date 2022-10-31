@@ -9,10 +9,9 @@ describe('AdminNavbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminNavbarComponent ],
+      declarations: [AdminNavbarComponent],
       imports: [RouterTestingModule]
-    })
-    .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {

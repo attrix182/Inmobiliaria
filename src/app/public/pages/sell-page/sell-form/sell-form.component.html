@@ -1,0 +1,45 @@
+<div>
+  <section class="card">
+    <form [formGroup]="formGroup">
+      <div class="row">
+        <div class="col-md-12 text-center"><h4>Formulario de contacto</h4></div>
+      </div>
+      <div class="row">
+        <!-- Nombre -->
+        <div class="col-md-6">
+          <div class="form-group">
+     <!--        <label for="nombre">Nombre</label> -->
+            <input
+              type="number"
+              [class]="isValidField('name')"
+              class="form-control"
+              formControlName="name"
+              placeholder="Nombre"
+            />
+            <span *ngIf="showError('name')" class="invalid-feedback">
+              {{ getErrorMessages('name') }}
+            </span>
+          </div>
+        </div>
+
+
+         <!-- Nombre -->
+         <div class="col-md-12">
+          <div class="form-group">
+     <!--        <label for="nombre">Nombre</label> -->
+            <input
+              type="number"
+              [class]="isValidField('name')"
+              class="form-control"
+              formControlName="name"
+              placeholder="Nombre"
+            />
+            <span *ngIf="showError('name')" class="invalid-feedback">
+              {{ getErrorMessages('name') }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+</div>

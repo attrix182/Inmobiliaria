@@ -12,10 +12,22 @@ import { PropertiesComponent } from './pages/properties/properties.component';
 import { PropertyDetailsComponent } from './pages/property-details/property-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxImageCompressService } from 'ngx-image-compress';
-
+import { SellPageComponent } from './pages/sell-page/sell-page.component';
+import { SellFormComponent } from './pages/sell-page/sell-form/sell-form.component';
 
 @NgModule({
-  declarations: [Home360Component, HomeComponent, HomeVideoComponent, NavbarComponent, LoginComponent, SearchComponent, PropertiesComponent, PropertyDetailsComponent],
+  declarations: [
+    Home360Component,
+    HomeComponent,
+    HomeVideoComponent,
+    NavbarComponent,
+    LoginComponent,
+    SearchComponent,
+    PropertiesComponent,
+    PropertyDetailsComponent,
+    SellPageComponent,
+    SellFormComponent
+  ],
   imports: [CommonModule, PublicRoutingModule, ReactiveFormsModule, FormsModule, NgbModule],
   providers: [NgxImageCompressService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

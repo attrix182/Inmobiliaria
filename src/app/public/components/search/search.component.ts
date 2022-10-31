@@ -22,8 +22,7 @@ export class SearchComponent implements OnInit {
 
   search() {
     this.router.navigate(['propiedades']);
-    document.querySelector('.a-fullscreen').classList.remove('a-fullscreen')
-
+    document.querySelector('.a-fullscreen').classList.remove('a-fullscreen');
   }
 
   setActive(accion: string) {

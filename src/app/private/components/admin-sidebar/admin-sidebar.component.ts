@@ -13,7 +13,7 @@ export class AdminSidebarComponent implements AfterViewInit {
   actualSection = this.router.url.split('/')[1];
   sideItems: any[];
 
-  constructor(private router: Router, private location: Location, private AuthSVC:AuthService) {
+  constructor(private router: Router, private location: Location, private AuthSVC: AuthService) {
     this.setSideItems();
   }
 
@@ -27,7 +27,6 @@ export class AdminSidebarComponent implements AfterViewInit {
     this.actualSection = section;
     this.changeSection.emit();
   }
-
 
   setSideItems() {
     this.sideItems = [
@@ -47,20 +46,19 @@ export class AdminSidebarComponent implements AfterViewInit {
         link: 'admin-properties'
       },
       {
-        name:'Consultas',
+        name: 'Consultas',
         icon: 'fas fa-message',
         link: 'admin-inbox'
       },
       {
-        name:'Ajustes',
+        name: 'Ajustes',
         icon: 'fas fa-cog',
         link: 'admin-preferences'
       }
-
-    ]
+    ];
   }
 
-  logout(){
+  logout() {
     this.AuthSVC.LogOutCurrentUser();
   }
 }

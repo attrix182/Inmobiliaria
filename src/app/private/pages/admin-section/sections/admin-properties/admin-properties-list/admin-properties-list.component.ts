@@ -12,9 +12,9 @@ export class AdminPropertiesListComponent implements OnInit {
   @Input() propiertiesSearch: Property[];
   searchParam: string;
   showAddProperty: boolean = false; //Cambiar a False
-  btnText:string = "Agregar propiedad + ";
+  btnText: string = 'Agregar propiedad + ';
 
-  constructor(private router:Router) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -44,23 +44,22 @@ export class AdminPropertiesListComponent implements OnInit {
     return (typeof value == 'string' ? value.toLocaleLowerCase() : value.toString()).includes(searcher);
   }
 
-  clearFilter(){
-    this.searchParam = ''
+  clearFilter() {
+    this.searchParam = '';
     this.hacerBusqueda();
   }
 
-  goToDetail(id:string){
-    this.router.navigate(['admin/propiedad/' + `${id}`])
+  goToDetail(id: string) {
+    this.router.navigate(['admin/propiedad/' + `${id}`]);
   }
 
-  toggleShowAddProperty(){
-    if(this.showAddProperty){
-      this.showAddProperty = false
-      this.btnText = "Agregar propiedad + "
-    }
-    else{
+  toggleShowAddProperty() {
+    if (this.showAddProperty) {
+      this.showAddProperty = false;
+      this.btnText = 'Agregar propiedad + ';
+    } else {
       this.showAddProperty = true;
-      this.btnText = "Ver propiedades"
+      this.btnText = 'Ver propiedades';
     }
   }
 }

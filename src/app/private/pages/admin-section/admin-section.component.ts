@@ -16,11 +16,7 @@ export class AdminSectionComponent {
     });
   }
 
-
   handleSection() {
     this.section = this.location.path().split('/')[1];
-
   }
-
-
 }

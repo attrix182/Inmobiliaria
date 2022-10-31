@@ -16,9 +16,7 @@ export class GeorefService {
     return this.httpClient.get(`https://apis.datos.gob.ar/georef/api/municipios?provincia=${idProvincia}&max=800`);
   }
 
-  getCodigoPostal(){
+  getCodigoPostal() {
     return this.httpClient.get(`https://ws.usig.buenosaires.gob.ar/datos_utiles?calle=fleming&altura=1141`);
   }
-
-
 }

@@ -9,21 +9,18 @@ import * as L from 'leaflet';
 export class PropertiesMapComponent implements OnInit, AfterViewInit {
   private map;
 
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-
+  ngAfterViewInit(): void {
+    this.initMap();
   }
-
-  ngAfterViewInit(): void { this.initMap()}
   private initMap(): void {
     this.map = L.map('map', {
-      center: [ 39.8282, -98.5795 ],
+      center: [39.8282, -98.5795],
       zoom: 1
     });
-
-
 
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
@@ -34,5 +31,4 @@ export class PropertiesMapComponent implements OnInit, AfterViewInit {
 
     tiles.addTo(this.map);
   }
-
 }

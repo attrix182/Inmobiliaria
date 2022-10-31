@@ -10,12 +10,8 @@ import { PrivateModule } from './private/private.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxImageCompressService } from 'ngx-image-compress';
-
-
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,6 +23,6 @@ import { NgxImageCompressService } from 'ngx-image-compress';
     HttpClientModule
   ],
   providers: [NgxImageCompressService],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -2,7 +2,7 @@ let propierties = [
   {
     id: '1',
     price: 123414,
-    currency: "USD",
+    currency: 'USD',
     squareFeet: 500,
     squareFeetCover: 350,
     baths: 2,
@@ -15,8 +15,8 @@ let propierties = [
       street: 'Belgrano 650',
       zipCode: '1509'
     },
-    offerType: "compra",
-    propertyType: "casa",
+    offerType: 'compra',
+    propertyType: 'casa',
     props: [{ key: 'Aire acondicionado', value: true }],
     images: [
       'https://static.tokkobroker.com/water_pics/90693648330766303097408924689666580070453156559614122095017522536700902347674.jpg'
@@ -25,7 +25,7 @@ let propierties = [
   {
     id: '2',
     price: 50000,
-    currency: "ARS",
+    currency: 'ARS',
     squareFeet: 600,
     squareFeetCover: 300,
     baths: 1,
@@ -38,8 +38,8 @@ let propierties = [
       street: '9 de Julio 650',
       zipCode: '1876'
     },
-    offerType: "alquiler",
-    propertyType: "departamento",
+    offerType: 'alquiler',
+    propertyType: 'departamento',
     props: [{ key: 'Aire acondicionado', value: true }],
     images: [
       'https://static.tokkobroker.com/pictures/76545454326738379067409377005784535971307697001491666557053371854077101959430.jpg'
@@ -47,10 +47,10 @@ let propierties = [
   }
 ];
 
-let prop =  {
+let prop = {
   id: '1',
   price: 50000,
-  currency: "ARS",
+  currency: 'ARS',
   squareFeet: 600,
   squareFeetCover: 300,
   baths: 1,
@@ -63,10 +63,10 @@ let prop =  {
     street: '9 de Julio 650',
     zipCode: '1876'
   },
-  offerType: "alquiler",
-  propertyType: "departamento",
+  offerType: 'alquiler',
+  propertyType: 'departamento',
   props: [{ key: 'Aire acondicionado', value: true }],
   images: [
     'https://static.tokkobroker.com/pictures/76545454326738379067409377005784535971307697001491666557053371854077101959430.jpg'
   ]
-}
+};

@@ -4,6 +4,12 @@
   position: relative;
   transition: 0.5s;
   z-index: 999;
+  a {
+    font-size: 18px !important;
+  }
+  .navbar-brand {
+    font-size: 40px !important;
+  }
 }
 
 .navbar.nav-sticky {
@@ -38,7 +44,7 @@
   .navbar {
     position: relative;
     width: 100%;
-    padding: 30px 60px;
+    padding: 20px 60px;
     //background: transparent !important;
     border-bottom: 1px dashed rgba(256, 256, 256, 0.2);
     z-index: 9;
@@ -105,6 +111,6 @@ a:hover {
   color: #d12626 !important;
 }
 
-a:active{
+a:active {
   background-color: rgba(255, 255, 255, 0) !important;
 }

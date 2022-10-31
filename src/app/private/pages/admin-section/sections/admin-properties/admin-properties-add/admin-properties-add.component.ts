@@ -25,7 +25,7 @@ export class AdminPropertiesAddComponent extends FormValidationAbstract implemen
   property: any;
   tipos = ['Casa', 'Departamento', 'Oficina', 'Terreno'];
   oferta = ['Venta', 'Alquiler', 'Consultar'];
-  anios:any = [];
+  anios: any = [];
   constructor(
     private fb: FormBuilder,
     private geoRef: GeorefService,
@@ -42,7 +42,7 @@ export class AdminPropertiesAddComponent extends FormValidationAbstract implemen
     this.inicializarAnios();
   }
 
-  inicializarAnios(){
+  inicializarAnios() {
     let anioActual = new Date().getFullYear();
     let anioInicial = anioActual - 120;
 
@@ -72,11 +72,11 @@ export class AdminPropertiesAddComponent extends FormValidationAbstract implemen
     prop.image = this.imgResultAfterCompress.split(/,(.+)/)[1];
 
     prop.adress = {
-      "province": this.formGroup.value.province,
-      "locality": this.formGroup.value.locality,
-      "street": this.formGroup.value.street,
-      "zipCode": this.formGroup.value.zipCode,
-    }
+      province: this.formGroup.value.province,
+      locality: this.formGroup.value.locality,
+      street: this.formGroup.value.street,
+      zipCode: this.formGroup.value.zipCode
+    };
     this.storageSVC.InsertPropertyWithImage('properties', prop);
     this.clearForm();
     this.loading = false;

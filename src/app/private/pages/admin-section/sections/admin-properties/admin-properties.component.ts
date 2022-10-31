@@ -18,8 +18,7 @@ export class AdminPropertiesComponent implements OnInit {
   getProperties() {
     this.storageSVC.GetAll('properties').subscribe((p) => {
       this.propierties = p;
-      console.log(this.propierties)
+      console.log(this.propierties);
     });
   }
-
 }

@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { map } from 'rxjs/operators';
 import * as firebase from 'firebase/app';
+import { NgxImageCompressService } from 'ngx-image-compress';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,28 @@ export class StorageService {
 
   public fotoCargada: any;
   public foto: any;
-  imgResultBeforeCompress: string;
-  imgResultAfterCompress: string;
+  imgResultBeforeCompression: string;
+  imgResultAfterCompression: string;
 
-  constructor(private cloudFireStore: AngularFirestore, private storage: AngularFireStorage) {}
+  constructor(
+    private cloudFireStore: AngularFirestore,
+    private storage: AngularFireStorage,
+    private imageCompress: NgxImageCompressService
+  ) {}
+
+  compressFile() {
+    this.imageCompress.uploadFile().then(({ image, orientation }) => {
+      this.imgResultBeforeCompression = image;
+      console.log('Size in bytes of the uploaded image was:', this.imageCompress.byteCount(image));
+
+      this.imageCompress
+        .compressFile(image, orientation, 50, 50) // 50% ratio, 50% quality
+        .then((compressedImage) => {
+          this.imgResultAfterCompression = compressedImage;
+          console.log('Size in bytes after compression is now:', this.imageCompress.byteCount(compressedImage));
+        });
+    });
+  }
 
   Insert(collectionName: string, data: any) {
     data.id = this.cloudFireStore.createId();
@@ -45,17 +64,19 @@ export class StorageService {
       );
   }
   GetByParameter(collection: string, parametro: string, value: any) {
-    return this.cloudFireStore.collection<any>(collection, (ref) => ref.where(parametro, '==', value)).snapshotChanges().pipe(
-      map((actions) =>
-        actions.map((a) => {
-          const data: any = a.payload.doc.data();
-          data.id = a.payload.doc.id;
-          return data;
-        })
-      )
-    );
+    return this.cloudFireStore
+      .collection<any>(collection, (ref) => ref.where(parametro, '==', value))
+      .snapshotChanges()
+      .pipe(
+        map((actions) =>
+          actions.map((a) => {
+            const data: any = a.payload.doc.data();
+            data.id = a.payload.doc.id;
+            return data;
+          })
+        )
+      );
   }
-
 
   Update(id: string, collectionName: string, data: any) {
     return this.cloudFireStore
