@@ -1,5 +1,7 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
@@ -8,10 +10,11 @@ import { StorageService } from 'src/app/services/storage.service';
   styleUrls: ['./property-details.component.scss'],
 })
 export class PropertyDetailsComponent implements OnInit {
-  images = [944, 1011, 984].map(n => `https://picsum.photos/id/${n}/900/500`);
   prop: any;
+  @ViewChild('fotoModal', { read: TemplateRef })
+  fotoModal: TemplateRef<any>;
 
-  constructor(private storageSvc: StorageService, private location: Location) {}
+  constructor(    private modalSvc: NgbModal, private storageSvc: StorageService, private location: Location, private router:Router) {}
 
   getPropertyById(id: string) {
     this.storageSvc.GetByParameter('properties', 'id', id).subscribe(p => {
@@ -23,5 +26,13 @@ export class PropertyDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPropertyById(this.location.path().split('/')[2]);
+  }
+
+  back(){
+    this.router.navigateByUrl('propiedades')
+  }
+
+  openImage(){
+    this.modalSvc.open(this.fotoModal);
   }
 }

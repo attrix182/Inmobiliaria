@@ -1,6 +1,6 @@
 <sb-navbar></sb-navbar>
 
-<ngb-carousel *ngIf="images">
+<!-- <ngb-carousel>
   <ng-template ngbSlide>
     <div class="picsum-img-wrapper">
       <img
@@ -11,15 +11,15 @@
     </div>
     <div class="carousel-caption"></div>
   </ng-template>
-</ngb-carousel>
-<br />
-<br />
+</ngb-carousel> -->
 
-<button class="btn btn-danger"><i class="fa fa-arrow-left"></i> Volver</button>
-<section
-  *ngIf="prop"
-  class="container-fluid bg-white mt-4 p-4 mb-4 rounded"
-  style="width: 90vw; z-index: 100">
+<button class="btn btn-danger btn-back" (click)="back()"><i class="fa fa-arrow-left"></i> Volver</button>
+
+<div (click)="openImage()">
+  <img [src]="prop?.images" class="img-fluid mb-4" alt="Foto" />
+</div>
+
+<section *ngIf="prop" class="container-fluid bg-white mt-4 p-4 mb-4 rounded" style="width: 90vw; z-index: 100">
   <article>
     <div class="card mb-3 mt-3 list">
       <div class="row">
@@ -30,24 +30,16 @@
               {{ prop.adress.locality }}
             </h5>
             <p class="card-text text-center">
-              <span class="font-weight-bold font-price"
-                >{{ prop.price }} {{ prop.currency }}</span
-              >
+              <span class="font-weight-bold font-price">{{ prop.price }} {{ prop.currency }}</span>
             </p>
             <div class="card-text">
               <div class="row">
                 <div class="col-6">{{ prop.squareFeet }} m² totales</div>
                 <div class="col-6">{{ prop.squareFeetCover }} m² cubiertos</div>
 
-                <div class="col-6">
-                  {{ prop.bedrooms }} Habitaciones <i class="fa fa-bed"></i>
-                </div>
-                <div class="col-6">
-                  {{ prop.baths }} Baños <i class="fa fa-toilet"></i>
-                </div>
-                <div class="col-6">
-                  {{ prop.parkings }} Cochera <i class="fa fa-car"></i>
-                </div>
+                <div class="col-6">{{ prop.bedrooms }} Habitaciones <i class="fa fa-bed"></i></div>
+                <div class="col-6">{{ prop.baths }} Baños <i class="fa fa-toilet"></i></div>
+                <div class="col-6">{{ prop.parkings }} Cochera <i class="fa fa-car"></i></div>
               </div>
             </div>
           </div>
@@ -56,10 +48,20 @@
     </div>
   </article>
   <article>
-    <div class="card2">
+    <div class="card2 mt-2 mb-2">
       {{ prop.description }}
     </div>
   </article>
 </section>
 
-<<<<<<< HEAD ======= >>>>>>> update-firebase
+
+<ng-template #fotoModal let-modal>
+  <div class="modal-body" >
+    <div class="btn-exit">
+      <em (click)="modal.dismiss('Cross click')" class="btn btn-white"
+        ><em class="fas fa-times"></em>
+      </em>
+    </div>
+    <img [src]="prop?.images" class="img-fluid mb-4" alt="Foto" />
+  </div>
+</ng-template>

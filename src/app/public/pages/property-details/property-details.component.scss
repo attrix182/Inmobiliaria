@@ -25,6 +25,13 @@ button {
   box-shadow: 1px 1px 7px #5f5e5e;
   cursor: pointer;
   height: auto;
-  padding: 1vw;
+  padding: 1.4vw;
   width: 70vw;
+}
+
+.btn-back {
+  position: fixed;
+  z-index: 30;
+  top: 13vh;
+  margin: 5px;
 }
