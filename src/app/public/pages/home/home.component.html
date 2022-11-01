@@ -1,3 +1,18 @@
 <sb-navbar></sb-navbar>
-<sb-home-video></sb-home-video>
+<div>
+  <a-scene
+    vr-mode-ui="enabled: false"
+    class="vr-background"
+    [ngClass]="isVisible ? '' : 'hide'">
+    <a-entity>
+      <a-sky src="../../../assets/360Room.jpeg"></a-sky>
+    </a-entity>
+  </a-scene>
+</div>
 
+<div class="container-search">
+  <sb-search></sb-search>
+</div>
+
+
+<sb-whatsapp-button></sb-whatsapp-button>

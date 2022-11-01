@@ -1,8 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Home360Component } from './pages/home360/home360.component';
 import { HomeComponent } from './pages/home/home.component';
-import { HomeVideoComponent } from './pages/home/home-video/home-video.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -17,12 +15,12 @@ import { SellFormComponent } from './pages/sell-page/sell-form/sell-form.compone
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { WhatsappButtonComponent } from './components/whatsapp-button/whatsapp-button.component';
+import { PropertyCardComponent } from './pages/properties/components/property-card/property-card.component';
 
 @NgModule({
   declarations: [
-    Home360Component,
     HomeComponent,
-    HomeVideoComponent,
     NavbarComponent,
     LoginComponent,
     SearchComponent,
@@ -30,7 +28,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
     PropertyDetailsComponent,
     SellPageComponent,
     SellFormComponent,
-    FooterComponent
+    FooterComponent,
+    WhatsappButtonComponent,
+    PropertyCardComponent,
   ],
   imports: [
     CommonModule,
@@ -42,6 +42,6 @@ import { NgSelectModule } from '@ng-select/ng-select';
     NgSelectModule
   ],
   providers: [NgxImageCompressService],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PublicModule {}
