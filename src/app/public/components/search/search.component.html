@@ -1,30 +1,28 @@
 <div>
   <div>
     <div class="row">
-      <button class="col" [class]="claseComprar" (click)="setActive('comprar')">
-        Comprar
-      </button>
-      <button class="col" [class]="claseAlquilar" (click)="setActive('alquilar')">
-        Alquilar
-      </button>
-      <button class="col" [class]="claseVender" (click)="setActive('vender')">
-        Vender
-      </button>
+      <button class="col" [class]="claseComprar" (click)="setActive('comprar')">Quiero comprar</button>
+
+      <button class="col" [class]="claseVender" (click)="setActive('vender')">Quiero vender</button>
     </div>
 
     <div class="row">
       <select type="text" class="form-control col">
-        <option>Localidad</option>
+        <option disabled selected>Localidad</option>
         <option>Quilmes</option>
         <option>Capital federal</option>
         <option>Cosquin</option>
         <option>La Falda</option>
       </select>
 
-      <button
-        class="btn btn-danger btn-search col"
-        [disabled]="!enabled"
-        (click)="search()">
+      <select type="text" class="form-control col">
+        <option disabled selected>Tipo de propiedad</option>
+        <option>Casa</option>
+        <option>Terreno</option>
+        <option>Oficina</option>
+      </select>
+
+      <button class="btn btn-danger btn-search col" [disabled]="!enabled" (click)="search()">
         <em class="fas fa-search"></em>
       </button>
     </div>

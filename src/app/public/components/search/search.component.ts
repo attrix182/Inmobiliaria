@@ -19,6 +19,8 @@ import { SearchService } from './search.service';
 export class SearchComponent implements OnInit {
   public provincias: any;
   enabled = false;
+  propType: any;
+  selectProp:any
 
   claseComprar = 'btn btn-light';
   claseVender = 'btn btn-light';
@@ -29,7 +31,9 @@ export class SearchComponent implements OnInit {
     private location: Location
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.propType = ['Casa', 'Terreno', 'Oficina']
+  }
 
   search() {
     this.router.navigate(['propiedades']);

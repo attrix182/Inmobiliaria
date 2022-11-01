@@ -9,6 +9,19 @@
   max-width: 80vw;
 }
 
+.rounded {
+  border-radius: 20px !important;
+  box-shadow: 1px 1px 15px #8f8c8c;
+}
+
+.searcher{
+  width: 100vw;
+ display: flex;
+ justify-content: center;
+
+}
+
+
 .properties{
   display: flex;
   justify-content: center;

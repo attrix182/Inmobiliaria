@@ -16,6 +16,7 @@ import { SellPageComponent } from './pages/sell-page/sell-page.component';
 import { SellFormComponent } from './pages/sell-page/sell-form/sell-form.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { FooterComponent } from './components/footer/footer.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    NgSelectModule
   ],
   providers: [NgxImageCompressService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

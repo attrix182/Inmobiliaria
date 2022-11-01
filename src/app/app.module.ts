@@ -10,6 +10,7 @@ import { PrivateModule } from './private/private.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxImageCompressService } from 'ngx-image-compress';
+import { NgSelectModule } from '@ng-select/ng-select';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -20,7 +21,7 @@ import { NgxImageCompressService } from 'ngx-image-compress';
     PublicModule,
     PrivateModule,
     NgbModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [NgxImageCompressService],
   bootstrap: [AppComponent],

@@ -1,5 +1,22 @@
 <sb-navbar></sb-navbar>
 <div class="properties" *ngIf="!loading">
+
+<!--
+  <div class="row searcher">
+    <div class="col-9">
+      <input
+
+        type="text"
+        placeholder="Buscador inteligente..."
+        class="form-control mb-2" />
+    </div>
+    <div class="col-3 btn-clear">
+      <button class="btn btn-danger mb-2"  type="button">
+        <em class="fa fa-times"></em>
+      </button>
+    </div>
+  </div> -->
+
   <div class="contenedor" *ngFor="let producto of propiedades">
     <div class="card" (click)="goToDetails(producto)">
       <img [src]="producto.images" loading="lazy" class="card-img-top" alt="..." />
