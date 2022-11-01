@@ -1,7 +1,32 @@
-<sb-navbar></sb-navbar>
-<div class="properties mt-4" *ngIf="!loading">
-  <div class="contenedor" *ngFor="let prop of propiedades">
-    <sb-property-card [property]="prop"></sb-property-card>
+<sb-navbar [searcher]="true"></sb-navbar>
+<div class="row p-0 m-0" id="searcher">
+  <div class="searcher col-9">
+    <input class="form-control" type="text" placeholder="¿Que estas buscando?..." />
+  </div>
+  <div class="btn-search col-3">
+    <button class="btn btn-danger"><i class="fa fa-search"></i></button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-2" id="filters">
+    <div class="filters-container">
+      <section>
+        Filtrar por precio:
+        <div class="row m-0">
+          <div class="col-6"><input class="form-control" placeholder="Desde" type="text"></div>
+          <div class="col-6"><input class="form-control" placeholder="Hasta" type="text"></div>
+          <div class="col-12"><button class="btn btn-danger btn-block mt-2"><i class="fa fa-check"></i></button></div>
+        </div>
+
+      </section>
+
+    </div>
+  </div>
+  <div class="properties col" *ngIf="!loading">
+    <div class="contenedor" *ngFor="let prop of propiedades">
+      <sb-property-card [property]="prop"></sb-property-card>
+    </div>
   </div>
 </div>
 

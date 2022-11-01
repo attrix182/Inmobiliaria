@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/internal/operators/filter';
 
@@ -10,6 +10,7 @@ import { filter } from 'rxjs/internal/operators/filter';
 @HostListener('scroll', ['$event'])
 export class NavbarComponent implements OnInit {
   public toggle: boolean = false;
+@Input() searcher:boolean;
   constructor(private router: Router) {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))

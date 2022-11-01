@@ -1,16 +1,19 @@
-<div
-  id="navbar"
-  class="navbar navbar-expand-lg bg-light navbar-light"
-  (window:scroll)="onWindowScroll($event)">
+<div id="navbar" class="navbar navbar-expand-lg bg-light navbar-light" (window:scroll)="onWindowScroll($event)">
   <div class="container-fluid">
     <a href="index.html" class="navbar-brand">SB</a>
     <button (click)="toggleNavbar()" type="button" class="navbar-toggler">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div
-      class="navCol collapse navbar-collapse justify-content-between"
-      id="navbarCollapse">
+    <div class="navCol collapse navbar-collapse justify-content-between" id="navbarCollapse">
       <div class="navbar-nav ml-auto">
+        <div class="row" *ngIf="searcher">
+          <div class="nav-item searcher ml-4 col-9">
+            <input class="form-control" type="text" placeholder="¿Que estas buscando?..." />
+          </div>
+          <div class="btn-search col-2">
+            <button class="btn btn-danger"><i class="fa fa-search"></i></button>
+          </div>
+        </div>
         <a class="nav-item nav-link" (click)="goToHome()">Home</a>
         <li class="nav-item dropdown">
           <a
@@ -19,14 +22,13 @@
             id="navbarDropdownMenuLink"
             role="button"
             data-bs-toggle="dropdown"
-            aria-expanded="false">
+            aria-expanded="false"
+          >
             Comprar
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li>
-              <a class="dropdown-item" (click)="goToProperties()"
-                >Propiedades</a
-              >
+              <a class="dropdown-item" (click)="goToProperties()">Propiedades</a>
             </li>
             <li><a class="dropdown-item" href="#">Terrenos</a></li>
           </ul>
