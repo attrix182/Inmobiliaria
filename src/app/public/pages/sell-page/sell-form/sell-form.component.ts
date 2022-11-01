@@ -42,5 +42,19 @@ export class SellFormComponent
 
   }
 
-  setErrorMessages(): void {}
+  setErrorMessages(): void {
+    this.errroMessages = {
+      name: {
+        required: 'El nombre es obligatorio',
+      },
+      email: {
+        required: 'El correo es obligatorio',
+        pattern: 'El correo no es válido',
+      },
+      comment: {
+        required: 'El comentario es obligatorio',
+        minlength: 'La contraseña debe tener al menos 6 caracteres',
+      },
+    };
+  }
 }
