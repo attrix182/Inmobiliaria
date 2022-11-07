@@ -10,6 +10,7 @@ import { PrivateModule } from './private/private.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxImageCompressService } from 'ngx-image-compress';
+import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -19,6 +20,7 @@ import { NgxImageCompressService } from 'ngx-image-compress';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     PublicModule,
     PrivateModule,
+    SharedModule,
     NgbModule,
     HttpClientModule
   ],

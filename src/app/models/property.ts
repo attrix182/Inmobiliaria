@@ -13,7 +13,7 @@ export interface Property {
   offerType: string;
   propertyType: string;
   props: Prop[];
-  images: string[];
+  images: string;
   image?: string;
 }
 

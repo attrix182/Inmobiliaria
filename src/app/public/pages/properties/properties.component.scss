@@ -1,26 +1,7 @@
-.contenedor {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-  margin-bottom: 15px;
-  max-width: 80vw;
-}
-
 .rounded {
   border-radius: 20px !important;
   box-shadow: 1px 1px 15px #8f8c8c;
 }
-
-.properties{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 20px;
-}
-
 
 .searcher {
   width: 50vw;
@@ -69,4 +50,8 @@
   #filters{
     display: none;
   }
+}
+
+.loader-props{
+  display: flex; justify-content: center
 }

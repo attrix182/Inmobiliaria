@@ -80,10 +80,11 @@
   }
 }
 
+//MOBILE
 @media (max-width: 991.98px) {
   .navbar {
     padding: 15px;
-    background: #ffffff !important;
+    background: #f6f3f3 !important;
   }
   .navbar .navbar-brand {
     color: #000000;
@@ -96,6 +97,10 @@
   }
   .navbar .dropdown-menu {
     box-shadow: none;
+  }
+
+  #searcher{
+    display: none;
   }
 }
 

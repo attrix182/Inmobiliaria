@@ -16,7 +16,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { WhatsappButtonComponent } from './components/whatsapp-button/whatsapp-button.component';
-import { PropertyCardComponent } from './pages/properties/components/property-card/property-card.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,6 @@ import { PropertyCardComponent } from './pages/properties/components/property-ca
     SellFormComponent,
     FooterComponent,
     WhatsappButtonComponent,
-    PropertyCardComponent,
   ],
   imports: [
     CommonModule,
@@ -39,7 +38,8 @@ import { PropertyCardComponent } from './pages/properties/components/property-ca
     FormsModule,
     NgbModule,
     NgxSkeletonLoaderModule,
-    NgSelectModule
+    NgSelectModule,
+    SharedModule
   ],
   providers: [NgxImageCompressService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

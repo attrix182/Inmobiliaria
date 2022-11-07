@@ -1,23 +1,22 @@
 .whatsapp {
-  position:fixed;
-  width:60px;
-  height:60px;
-  bottom:40px;
-  right:40px;
-  background-color:#27c15f;
-  color:#FFF;
-  border-radius:50px;
-  text-align:center;
-  font-size:30px;
-  z-index:100;
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #27c15f;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  z-index: 100;
 }
 
 .whatsapp-icon {
-  margin-top:13px;
+  margin-top: 15px;
 }
 
 .whatsapp:hover {
   transition: all 0.3s linear;
-  background-color:#1a9748;
-
+  background-color: #1a9748;
 }
