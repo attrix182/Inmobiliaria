@@ -19,6 +19,7 @@ import { NgbModule, NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { NgxImageCompressService } from 'ngx-image-compress';
 import { SharedModule } from '../shared/shared.module';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { AdminSellComponent } from './pages/admin-section/sections/admin-sells/admin-sell.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     AdminPropertiesAddComponent,
     AdminPropertiesPageComponent,
     AdminUsersAddComponent,
-    AdminUsersListComponent
+    AdminUsersListComponent,
+    AdminSellComponent
   ],
   providers: [NgxImageCompressService],
   imports: [

@@ -17,7 +17,7 @@
  -->
 
 <section class="container rounded mt-4 mb-4" *ngIf="!loading">
-  <h3>Consultas de propiedades</h3>
+  <h3>Contactos de venta</h3>
   <div class="row">
     <div class="col">
 <button class="btn btn-block btn-danger" (click)="setFilter(false)">Sin leer</button>
@@ -26,20 +26,18 @@
       <button class="btn btn-block  btn-info" (click)="setFilter(true)">Leidas</button>
     </div>
   </div>
-  <div *ngFor="let c of consults">
+  <div *ngFor="let c of consults" class="mt-4">
     <article class="card mt-2 p-4" (click)="markAsRead(c)" *ngIf="c.read == filter" [ngClass]="c.read ? 'read': ''">
       <h5>Nombre: {{ c.name }} - Fecha: {{c.date}}</h5>
       <div>Contacto:</div>
-      <a *ngIf="c.email" [href]="'mailto:' + c.email" class="mt-2 mb-2">Email: {{ c.email }}</a>
-      <a *ngIf="c.phone" [href]="'tel:' + c.phone" class="mt-2 mb-2">Telefono: {{ c.phone }}</a>
+      <a [href]="'mailto:' + c.email" class="mt-2 mb-2">Email: {{ c.email }}</a>
       <div>
         Propiedad: <br />
-        {{ c.property.title }}
-        <a target="_blank" [href]="'#/propiedad/'+c.property.id">Ir a la propiedad</a>
+        {{ c.typeProperty }}. En {{ c.zone }}
       </div>
-      <div>
-        Consulta: <br />
-        {{ c.message }}
+      <div class="mt-2">
+        Comentario: <br />
+        {{ c.comment }}
       </div>
     </article>
   </div>

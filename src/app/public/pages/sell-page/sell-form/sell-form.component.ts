@@ -26,7 +26,8 @@ export class SellFormComponent extends FormValidationAbstract implements OnInit 
       email: ['', [Validators.required]],
       typeProperty: ['', []],
       zone: ['', []],
-      comment: ['', [Validators.required]]
+      comment: ['', [Validators.required]],
+      read:[false]
     });
   }
 

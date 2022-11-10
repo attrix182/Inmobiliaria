@@ -67,6 +67,11 @@ export class AdminSidebarComponent implements AfterViewInit {
         link: 'admin-inbox',
       },
       {
+        name: 'Ventas',
+        icon: 'fas fa-phone',
+        link: 'admin-sells',
+      },
+      {
         name: 'Ajustes',
         icon: 'fas fa-cog',
         link: 'admin-preferences',
