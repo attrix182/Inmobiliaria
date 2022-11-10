@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'sb-admin-inbox',
@@ -6,7 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-inbox.component.scss'],
 })
 export class AdminInboxComponent implements OnInit {
-  constructor() {}
+  consults:any[] = [];
+  constructor(private storageSvc:StorageService) {}
 
-  ngOnInit(): void {}
+  getConsults(){
+    this.storageSvc.GetAll('consults').subscribe(consults => {
+      this.consults = consults;
+      console.log(this.consults);
+      this.formatContact();
+    })
+  }
+
+  formatContact(){
+    this.consults.forEach(consult => {
+      consult.emailOrPhone.includes('@') ? consult.email = consult.emailOrPhone : consult.phone = consult.emailOrPhone;
+    });
+
+  }
+
+  ngOnInit(): void {this.getConsults()}
 }

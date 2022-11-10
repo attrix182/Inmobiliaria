@@ -9,6 +9,7 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class AdminPropertiesComponent implements OnInit {
   propierties: Property[];
+  loading:boolean = true;
   constructor(private storageSVC: StorageService) {}
 
   ngOnInit(): void {
@@ -19,6 +20,7 @@ export class AdminPropertiesComponent implements OnInit {
     this.storageSVC.GetAll('properties').subscribe(p => {
       this.propierties = p;
       console.log(this.propierties);
+      this.loading = false;
     });
   }
 }

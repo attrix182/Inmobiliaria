@@ -1,4 +1,4 @@
-<div class="centrar1">
+<!-- <div class="centrar1">
   <div class="inbox">
     <label>Pregunta</label>
     <br />
@@ -14,3 +14,20 @@
   <button type="button" class="btn btn-primary">Contestar</button>
   <button type="button" class="btn btn-primary">siguiente pregunta</button>
 </div>
+ -->
+
+<section class="container rounded mt-4">
+  <h3>Consultas</h3>
+  <div *ngFor="let c of consults">
+    <article class="card mt-2 p-4">
+      <h5>Nombre: {{ c.name }}</h5>
+      <div>Contacto:</div>
+      <a *ngIf="c.email" [href]="'mailto:' + c.email" class="mt-2 mb-2">Email: {{ c.email }}</a>
+      <a *ngIf="c.phone" [href]="'tel:' + c.phone" class="mt-2 mb-2">Telefono: {{ c.phone }}</a>
+      <div>
+        Consulta: <br />
+        {{ c.message }}
+      </div>
+    </article>
+  </div>
+</section>

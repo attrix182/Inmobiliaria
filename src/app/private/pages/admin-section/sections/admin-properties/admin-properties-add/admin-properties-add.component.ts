@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxImageCompressService } from 'ngx-image-compress';
+import { Property } from 'src/app/models/property';
 import { AlertService } from 'src/app/services/alert.service';
 import { GeorefService } from 'src/app/services/georef.service';
 import { StorageService } from 'src/app/services/storage.service';
@@ -25,7 +26,7 @@ export class AdminPropertiesAddComponent
   imgResultBeforeCompress: string;
   imgResultAfterCompress: string;
   imageUrl: string;
-  property: any;
+  property: Property;
   tipos = ['Casa', 'Departamento', 'Oficina', 'Terreno'];
   oferta = ['Venta', 'Alquiler', 'Consultar'];
   anios: any = [];
@@ -119,6 +120,8 @@ export class AdminPropertiesAddComponent
   initForm() {
     this.formGroup = this.fb.group({
       id: ['', []],
+      title: ['', []],
+      description: ['', []],
       price: ['', []],
       currency: ['', []],
       squareFeet: ['', []],

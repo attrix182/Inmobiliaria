@@ -18,6 +18,7 @@ import { AdminUsersListComponent } from './pages/admin-section/sections/admin-us
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxImageCompressService } from 'ngx-image-compress';
 import { SharedModule } from '../shared/shared.module';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
+    NgxSkeletonLoaderModule,
     SharedModule
   ],
 })

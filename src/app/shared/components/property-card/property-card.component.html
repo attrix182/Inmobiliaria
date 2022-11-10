@@ -13,7 +13,12 @@
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">
+            {{ property.title | titlecase }}
+
+          </h5>
+          <h5 class="card-title">
             {{ property.propertyType | titlecase }} - {{ property.adress.street }},
+            {{ property.adress.province }}
             {{ property.adress.locality }}
           </h5>
           <p class="card-text">

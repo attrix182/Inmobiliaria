@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { PropertyCardComponent } from './components/property-card/property-card.component';
 
 const components = [PropertyCardComponent]
@@ -12,7 +13,8 @@ const components = [PropertyCardComponent]
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    LazyLoadImageModule
+    LazyLoadImageModule,
+    NgxSkeletonLoaderModule
   ],
   exports: [...components]
 })

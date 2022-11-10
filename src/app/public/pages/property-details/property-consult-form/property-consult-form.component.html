@@ -1,0 +1,13 @@
+<section [formGroup]="formGroup" *ngIf="prop" class="container-fluid card bg-white mt-4 p-4 mb-4 rounded">
+  <h6 class="text-center">¿Tenes alguna consulta sobre esta propiedad?</h6>
+  <div class="row">
+    <div class="col-6">
+      <input formControlName="name" type="text" class="form-control" placeholder="Nombre completo" type="text" />
+    </div>
+    <div class="col-6">
+      <input  formControlName="emailOrPhone" type="text" class="form-control" placeholder="Email o teléfono" type="text" />
+    </div>
+  </div>
+  <textarea  formControlName="message" type="text" class="form-control mt-2" placeholder="Escribe tu consulta..." cols="30" rows="3"></textarea>
+  <button class="btn btn-danger mt-2" (click)="sendConsult()" [disabled]="loading">Enviar</button>
+</section>

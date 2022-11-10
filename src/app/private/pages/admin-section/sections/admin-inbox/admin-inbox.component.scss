@@ -1,4 +1,4 @@
-.inbox {
+/* .inbox {
   width: 40vw;
   height: auto;
   background-color: beige;
@@ -34,4 +34,14 @@ input {
 button {
   background-color: red;
   border-color: rgb(94, 1, 1);
+} */
+
+.rounded {
+  border-radius: 20px !important;
+  box-shadow: 1px 1px 15px #8f8c8c;
+  padding: 20px;
+}
+
+.card{
+  box-shadow: 1px 1px 10px #bebcbc;
 }

@@ -2,3 +2,18 @@
   [propierties]="propierties"
   [propiertiesSearch]="propierties">
 </sb-admin-properties-list>
+
+
+<article class="container mr-4">
+  <div *ngIf="loading">
+    <div *ngFor="let i of [0, 1, 2, 3, 4, 5]">
+      <ngx-skeleton-loader
+        class="loader-props mt-4"
+        count="1"
+        appearance="line"
+        animation="pulse"
+        [theme]="{ height: '18rem', width: '60vw' }"
+      ></ngx-skeleton-loader>
+    </div>
+  </div>
+</article>

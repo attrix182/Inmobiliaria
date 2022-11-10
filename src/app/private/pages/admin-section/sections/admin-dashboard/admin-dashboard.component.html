@@ -1,1 +1,7 @@
-<p>admin-dashboard works!</p>
+<article class="container rounded mt-4 p-4 text-center">
+  <h4>Bienvenido al panel de administracion</h4>
+  <h5 *ngIf="user">Estas logeado como: {{user.email}}</h5>
+  <p>
+    Puedes seleccionar una opcion del menu para administrar la web
+  </p>
+</article>

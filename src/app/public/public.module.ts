@@ -17,6 +17,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { WhatsappButtonComponent } from './components/whatsapp-button/whatsapp-button.component';
 import { SharedModule } from '../shared/shared.module';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { PropertyConsultFormComponent } from './pages/property-details/property-consult-form/property-consult-form.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { SharedModule } from '../shared/shared.module';
     SellPageComponent,
     SellFormComponent,
     FooterComponent,
+    PropertyConsultFormComponent,
     WhatsappButtonComponent,
   ],
   imports: [
@@ -39,7 +42,8 @@ import { SharedModule } from '../shared/shared.module';
     NgbModule,
     NgxSkeletonLoaderModule,
     NgSelectModule,
-    SharedModule
+    SharedModule,
+    LazyLoadImageModule
   ],
   providers: [NgxImageCompressService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
