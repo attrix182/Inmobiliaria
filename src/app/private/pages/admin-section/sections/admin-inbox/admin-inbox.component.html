@@ -16,14 +16,27 @@
 </div>
  -->
 
-<section class="container rounded mt-4">
+<section class="container rounded mt-4 mb-4" *ngIf="!loading">
   <h3>Consultas</h3>
+  <div class="row">
+    <div class="col">
+<button class="btn btn-block btn-danger" (click)="setFilter(false)">Sin leer</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-block  btn-info" (click)="setFilter(true)">Leidas</button>
+    </div>
+  </div>
   <div *ngFor="let c of consults">
-    <article class="card mt-2 p-4">
-      <h5>Nombre: {{ c.name }}</h5>
+    <article class="card mt-2 p-4" (click)="markAsRead(c)" *ngIf="c.read == filter">
+      <h5>Nombre: {{ c.name }} - Fecha: {{c.date}}</h5>
       <div>Contacto:</div>
       <a *ngIf="c.email" [href]="'mailto:' + c.email" class="mt-2 mb-2">Email: {{ c.email }}</a>
       <a *ngIf="c.phone" [href]="'tel:' + c.phone" class="mt-2 mb-2">Telefono: {{ c.phone }}</a>
+      <div>
+        Propiedad: <br />
+        {{ c.property.title }}
+        <a target="_blank" [href]="'#/propiedad/'+c.property.id">Ir a la propiedad</a>
+      </div>
       <div>
         Consulta: <br />
         {{ c.message }}
@@ -31,3 +44,18 @@
     </article>
   </div>
 </section>
+
+
+<article class="container mt-4">
+  <div *ngIf="loading">
+    <div *ngFor="let i of [0]">
+      <ngx-skeleton-loader
+        class="loader-props mt-4"
+        count="1"
+        appearance="line"
+        animation="pulse"
+        [theme]="{ height: '38rem', width: '65vw' }"
+      ></ngx-skeleton-loader>
+    </div>
+  </div>
+</article>

@@ -29,7 +29,8 @@ export class PropertyConsultFormComponent extends FormValidationAbstract impleme
       emailOrPhone: [''],
       message: [''],
       property: [this.prop],
-      date: [new Date().toLocaleDateString()]
+      read:[false],
+      date: [new Date().toLocaleDateString()],
     })
   }
 
