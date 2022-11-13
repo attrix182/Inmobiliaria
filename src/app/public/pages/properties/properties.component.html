@@ -32,6 +32,9 @@
           <div *ngFor="let prop of propiedades">
             <sb-property-card [property]="prop"></sb-property-card>
           </div>
+          <section class="card rounded p-4 mt-4 text-center" *ngIf="!loading && propiedades.length == 0">
+            <h3>No hay resultados :(</h3>
+          </section>
         </div>
 
         <div *ngIf="loading">
