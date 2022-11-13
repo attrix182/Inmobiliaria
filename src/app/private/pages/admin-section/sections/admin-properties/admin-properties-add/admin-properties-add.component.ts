@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxImageCompressService } from 'ngx-image-compress';
-import { Property } from 'src/app/models/property';
+import { Property } from 'src/app/models/property.model';
 import { AlertService } from 'src/app/services/alert.service';
 import { GeorefService } from 'src/app/services/georef.service';
 import { StorageService } from 'src/app/services/storage.service';

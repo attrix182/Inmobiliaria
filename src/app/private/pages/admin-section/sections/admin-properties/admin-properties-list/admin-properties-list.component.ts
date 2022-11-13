@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Property } from 'src/app/models/property';
+import { Property } from 'src/app/models/property.model';
 
 @Component({
   selector: 'sb-admin-properties-list',

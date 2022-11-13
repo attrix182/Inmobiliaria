@@ -1,4 +1,4 @@
-<sb-navbar [searcher]="true" [inputData]="propiedades"></sb-navbar>
+<sb-navbar [searcher]="true"  [inputData]="propiedades" (onSearch)="handleOnSearch($event)"></sb-navbar>
 
 <div class="row m-0">
   <div class="col-2 m-0 p-0" id="filters">

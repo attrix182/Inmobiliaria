@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Property } from 'src/app/models/property';
+import { Property } from 'src/app/models/property.model';
 import { StorageService } from 'src/app/services/storage.service';
 
 @Component({

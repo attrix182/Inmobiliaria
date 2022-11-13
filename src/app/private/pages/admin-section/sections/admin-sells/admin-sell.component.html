@@ -1,34 +1,20 @@
-<!-- <div class="centrar1">
-  <div class="inbox">
-    <label>Pregunta</label>
-    <br />
-    <div class="box"></div>
-    <br />
-    <label>Respuesta</label>
-    <input type="text" />
-  </div>
-</div>
-
-<div class="centrar">
-  <button type="button" class="btn btn-primary">Pregunta anterior</button>
-  <button type="button" class="btn btn-primary">Contestar</button>
-  <button type="button" class="btn btn-primary">siguiente pregunta</button>
-</div>
- -->
-
 <section class="container rounded mt-4 mb-4" *ngIf="!loading">
   <h3>Contactos de venta</h3>
   <div class="row">
     <div class="col">
-<button class="btn btn-block btn-danger" (click)="setFilter(false)">Sin leer</button>
+      <button class="btn btn-block btn-info" (click)="setFilter(false)" [ngClass]="filter ? 'no-selected' : 'selected'">
+        Sin leer
+      </button>
     </div>
     <div class="col">
-      <button class="btn btn-block  btn-info" (click)="setFilter(true)">Leidas</button>
+      <button class="btn btn-block btn-info" (click)="setFilter(true)" [ngClass]="filter ? 'selected' : 'no-selected'">
+        Leidas
+      </button>
     </div>
   </div>
   <div *ngFor="let c of consults" class="mt-4">
-    <article class="card mt-2 p-4" (click)="markAsRead(c)" *ngIf="c.read == filter" [ngClass]="c.read ? 'read': ''">
-      <h5>Nombre: {{ c.name }} - Fecha: {{c.date}}</h5>
+    <article class="card mt-2 p-4" (click)="markAsRead(c)" *ngIf="c.read == filter" [ngClass]="c.read ? 'read' : ''">
+      <h5>Nombre: {{ c.name }} - Fecha: {{ c.date }}</h5>
       <div>Contacto:</div>
       <a [href]="'mailto:' + c.email" class="mt-2 mb-2">Email: {{ c.email }}</a>
       <div>
@@ -43,7 +29,6 @@
   </div>
 </section>
 
-
 <article class="container mt-4">
   <div *ngIf="loading">
     <div *ngFor="let i of [0]">
@@ -52,7 +37,7 @@
         count="1"
         appearance="line"
         animation="pulse"
-        [theme]="{ height: '38rem', width: '65vw' }"
+        [theme]="{ height: '38rem', width: '75vw' }"
       ></ngx-skeleton-loader>
     </div>
   </div>

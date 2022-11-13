@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import firebase from 'firebase/app';
 import { first } from 'rxjs/operators';
-import { User } from '../models/user';
+import { User } from '../models/user.model';
 import { AlertService } from './alert.service';
 import { StorageService } from './storage.service';
 

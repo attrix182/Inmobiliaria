@@ -75,6 +75,7 @@ export class StorageService {
         )
       );
   }
+
   GetByParameter(collection: string, parametro: string, value: any) {
     return this.cloudFireStore
       .collection<any>(collection, ref => ref.where(parametro, '==', value))

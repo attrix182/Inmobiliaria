@@ -8,8 +8,10 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class AdminInboxComponent implements OnInit {
   consults: any[] = [];
-  filter:boolean = false;
+  filter: boolean = false;
   loading: boolean = false;
+  read: boolean = false;
+  noRead: boolean = true;
   constructor(private storageSvc: StorageService) {}
 
   getConsults() {
@@ -31,12 +33,19 @@ export class AdminInboxComponent implements OnInit {
   }
 
   markAsRead(consult: any) {
-    this.storageSvc.Update(consult.id, 'consults', { read: true }).then(() => {
-      consult.read = true;
-    });
+    console.log(consult.read)
+    if (consult.read) {
+      this.storageSvc.Update(consult.id, 'consults', { read: false }).then(() => {
+        consult.read = false;
+      });
+    } else {
+      this.storageSvc.Update(consult.id, 'consults', { read: true }).then(() => {
+        consult.read = true;
+      });
+    }
   }
 
-  setFilter(state:boolean){
+  setFilter(state: boolean) {
     this.filter = state;
   }
 

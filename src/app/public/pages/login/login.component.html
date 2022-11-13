@@ -1,6 +1,6 @@
-<section class="text-center" *ngIf="!loged">
+<section class="text-center mt-4" *ngIf="!loged">
   <div [formGroup]="formGroup" class="form-signin">
-    <img class="mb-4" alt="" width="85" />
+    <img class="mb-4 mt-4" alt="" width="85" />
     <h3
       class="m-2"
       style="
@@ -39,6 +39,9 @@
     </span>
     <div class="m-3">
       <a href=""> ¿Recuperar contraseña?</a>
+    </div>
+    <div class="m-3">
+      <a routerLink=""> Volver al inicio</a>
     </div>
 
     <button

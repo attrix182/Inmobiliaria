@@ -71,7 +71,7 @@ export class LoginComponent extends FormValidationAbstract implements OnInit {
     try {
       const user = await this.authSVC.onLogin(this.user);
       if (user) {
-        this.router.navigate(['/admin']);
+        this.router.navigate(['/admin-dashboard']);
       }
     } catch (error) {
       switch (error.code) {

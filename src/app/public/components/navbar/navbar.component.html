@@ -8,10 +8,10 @@
       <div class="navbar-nav ml-auto">
         <div class="row" *ngIf="searcher" id="searcher">
           <div class="nav-item searcher ml-4 col-9">
-            <input class="form-control" type="text" placeholder="¿Que estas buscando?..." />
+            <input class="form-control" type="text" (keydown.enter)="onSearch.emit(searchValue)" [(ngModel)]="searchValue" placeholder="¿Que estas buscando?..." />
           </div>
           <div class="btn-search col-2">
-            <button class="btn btn-danger"><i class="fa fa-search"></i></button>
+            <button class="btn btn-danger" (click)="onSearch.emit(searchValue)"><i class="fa fa-search"></i></button>
           </div>
         </div>
         <a class="nav-item nav-link" (click)="goToHome()">Home</a>

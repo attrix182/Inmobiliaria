@@ -1,4 +1,4 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/internal/operators/filter';
 
@@ -10,8 +10,10 @@ import { filter } from 'rxjs/internal/operators/filter';
 @HostListener('scroll', ['$event'])
 export class NavbarComponent implements OnInit {
   public toggle: boolean = false;
+
   @Input() searcher: boolean;
-  @Input() inputData: any;
+  public searchValue: string = '';
+  @Output() onSearch: any = new EventEmitter();
 
   constructor(private router: Router) {
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe((event: NavigationEnd) => {
@@ -21,6 +23,8 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+
 
   onWindowScroll(event: any) {
     let element = document.querySelector('.navbar') as HTMLElement;
@@ -76,5 +80,5 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl('propiedades');
   }
 
-  
+
 }
