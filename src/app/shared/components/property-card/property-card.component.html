@@ -16,12 +16,12 @@
             {{ property.title | titlecase }}
 
           </h5>
-          <h5 class="card-title">
+          <h6 class="card-subtitle">
             {{ property.propertyType | titlecase }} - {{ property.adress.street }},
             {{ property.adress.province }}
             {{ property.adress.locality }}
-          </h5>
-          <p class="card-text">
+          </h6>
+          <p class="card-text mt-2">
             <span class="font-weight-bold font-price"
               >{{ property.price }} {{ property.currency }}</span
             >
