@@ -33,6 +33,10 @@ export class PropertiesComponent implements OnInit {
     this.router.navigateByUrl('propiedad/' + property.id);
   }
 
+  insertSearchWord() {
+    this.storageSvc.Insert('searchWords', this.searchWord);
+  }
+
   handleOnSearch(value: any) {
     this.searchWord = value;
     this.hacerBusqueda();

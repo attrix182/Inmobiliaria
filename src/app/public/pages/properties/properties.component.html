@@ -3,11 +3,27 @@
 <div class="row m-0">
   <div class="col-2 m-0 p-0" id="filters">
     <div class="filters-container">
-      <section>
-        Filtrar por precio:
+      <section class="space">
+        Precio:
         <div class="row m-0">
-          <div class="col-6"><input class="form-control" placeholder="Desde" type="text" /></div>
-          <div class="col-6"><input class="form-control" placeholder="Hasta" type="text" /></div>
+          <div class="col-6"><input class="form-control" placeholder="Desde" type="number" /></div>
+          <div class="col-6"><input class="form-control" placeholder="Hasta" type="number" /></div>
+          <div class="col-12">
+            <button class="btn btn-danger btn-block mt-2"><i class="fa fa-check"></i></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-4">
+        Localidad:
+        <div class="row m-0">
+          <select type="text" class="form-control col-11 text-center" style="margin:auto;">
+            <option disabled selected>Localidad</option>
+            <option>Quilmes</option>
+            <option>Capital federal</option>
+            <option>Cosquin</option>
+            <option>La Falda</option>
+          </select>
           <div class="col-12">
             <button class="btn btn-danger btn-block mt-2"><i class="fa fa-check"></i></button>
           </div>
@@ -20,10 +36,10 @@
     <div id="properties-component">
       <div class="row p-0 m-0 mt-2" id="searcher">
         <div class="searcher col-9">
-          <input class="form-control" type="text" placeholder="¿Que estas buscando?..." />
+          <input class="form-control" [(ngModel)]="searchWord" (keydown.enter)="hacerBusqueda()" type="text" placeholder="¿Que estas buscando?..." />
         </div>
         <div class="btn-search col-3">
-          <button class="btn btn-danger"><i class="fa fa-search"></i></button>
+          <button class="btn btn-danger" (click)="hacerBusqueda()"><i class="fa fa-search"></i></button>
         </div>
       </div>
 

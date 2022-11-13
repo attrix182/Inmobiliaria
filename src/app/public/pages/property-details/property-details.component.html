@@ -12,88 +12,86 @@
     <div class="carousel-caption"></div>
   </ng-template>
 </ngb-carousel> -->
+<div class="container-detail">
+  <button class="btn btn-danger btn-back" (click)="back()"><i class="fa fa-arrow-left"></i> Volver</button>
 
-<button class="btn btn-danger btn-back" (click)="back()"><i class="fa fa-arrow-left"></i> Volver</button>
+  <section *ngIf="loading">
+    <div class="img-skeleton">
+      <ngx-skeleton-loader
+        count="1"
+        appearance="line"
+        animation="pulse"
+        [theme]="{ height: '60vh', width: '100vw' }"
+      ></ngx-skeleton-loader>
+    </div>
 
-<section *ngIf="loading">
-  <div class="img-skeleton">
-    <ngx-skeleton-loader
-      count="1"
-      appearance="line"
-      animation="pulse"
-      [theme]="{ height: '60vh', width: '100vw' }"
-    ></ngx-skeleton-loader>
-  </div>
+    <div class="card-prop-skeleton mt-4">
+      <ngx-skeleton-loader
+        count="1"
+        appearance="line"
+        animation="pulse"
+        [theme]="{ height: '25vh', width: '80vw' }"
+      ></ngx-skeleton-loader>
+    </div>
 
-  <div class="card-prop-skeleton mt-4">
-    <ngx-skeleton-loader
-      count="1"
-      appearance="line"
-      animation="pulse"
-      [theme]="{ height: '25vh', width: '80vw' }"
-    ></ngx-skeleton-loader>
-  </div>
+    <div class="card-prop-skeleton mt-4">
+      <ngx-skeleton-loader
+        count="1"
+        appearance="line"
+        animation="pulse"
+        [theme]="{ height: '10vh', width: '80vw' }"
+      ></ngx-skeleton-loader>
+    </div>
+  </section>
 
-  <div class="card-prop-skeleton mt-4">
-    <ngx-skeleton-loader
-      count="1"
-      appearance="line"
-      animation="pulse"
-      [theme]="{ height: '10vh', width: '80vw' }"
-    ></ngx-skeleton-loader>
-  </div>
+  <section *ngIf="!loading">
+    <div (click)="openImage()">
+      <img [src]="prop?.images" loading="lazy" class="img-fluid mb-4" alt="Foto" />
+    </div>
 
+    <section *ngIf="prop" class="container-fluid bg-white mt-4 p-4 mb-4 rounded" style="width: 90vw; z-index: 100">
+      <article>
+        <div class="card mb-3 mt-3 list">
+          <div class="row">
+            <div class="col">
+              <div class="card2">
+                <h5 class="card-title text-center">
+                  {{ prop.propertyType | titlecase }} - {{ prop.adress.street }},
+                  {{ prop.adress.locality }}
+                </h5>
+                <p class="card-text text-center">
+                  <span class="font-weight-bold font-price">{{ prop.price }} {{ prop.currency }}</span>
+                </p>
+                <div class="card-text text-center">
+                  <div class="row">
+                    <div class="col-6">{{ prop.squareFeet }} m² totales</div>
+                    <div class="col-6">{{ prop.squareFeetCover }} m² cubiertos</div>
 
-</section>
-
-<section *ngIf="!loading">
-  <div (click)="openImage()">
-    <img [src]="prop?.images" loading="lazy" class="img-fluid mb-4" alt="Foto" />
-  </div>
-
-  <section *ngIf="prop" class="container-fluid bg-white mt-4 p-4 mb-4 rounded" style="width: 90vw; z-index: 100">
-    <article>
-      <div class="card mb-3 mt-3 list">
-        <div class="row">
-          <div class="col">
-            <div class="card2">
-              <h5 class="card-title text-center">
-                {{ prop.propertyType | titlecase }} - {{ prop.adress.street }},
-                {{ prop.adress.locality }}
-              </h5>
-              <p class="card-text text-center">
-                <span class="font-weight-bold font-price">{{ prop.price }} {{ prop.currency }}</span>
-              </p>
-              <div class="card-text">
-                <div class="row">
-                  <div class="col-6">{{ prop.squareFeet }} m² totales</div>
-                  <div class="col-6">{{ prop.squareFeetCover }} m² cubiertos</div>
-
-                  <div class="col-6">{{ prop.bedrooms }} Habitaciones <i class="fa fa-bed"></i></div>
-                  <div class="col-6">{{ prop.baths }} Baños <i class="fa fa-toilet"></i></div>
-                  <div class="col-6">{{ prop.parkings }} Cochera <i class="fa fa-car"></i></div>
+                    <div class="col-6">{{ prop.bedrooms }} Habitaciones <i class="fa fa-bed"></i></div>
+                    <div class="col-6">{{ prop.baths }} Baños <i class="fa fa-toilet"></i></div>
+                    <div class="col-6">{{ prop.parkings }} Cochera <i class="fa fa-car"></i></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </article>
-    <article>
-      <div class="card2 mt-2 mb-2">
-        {{ prop.description }}
-      </div>
-    </article>
+      </article>
+      <article>
+        <div class="card2 mt-2 mb-2 text-center">
+          {{ prop.description }}
+        </div>
+      </article>
+    </section>
+
+    <sb-property-consult-form [prop]="prop"></sb-property-consult-form>
+
+    <sb-footer></sb-footer>
   </section>
+</div>
 
-<sb-property-consult-form [prop]="prop"></sb-property-consult-form>
-
-
-  <sb-footer></sb-footer>
-</section>
-
-<ng-template #fotoModal let-modal >
-  <div class="modal-body" >
+<ng-template #fotoModal let-modal>
+  <div class="modal-body">
     <div class="btn-exit">
       <em (click)="modal.dismiss('Cross click')" class="btn btn-white"><em class="fas fa-times"></em> </em>
     </div>
