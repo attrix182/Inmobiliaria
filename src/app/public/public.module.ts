@@ -14,7 +14,6 @@ import { SellPageComponent } from './pages/sell-page/sell-page.component';
 import { SellFormComponent } from './pages/sell-page/sell-form/sell-form.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { FooterComponent } from './components/footer/footer.component';
-import { NgSelectModule } from '@ng-select/ng-select';
 import { WhatsappButtonComponent } from './components/whatsapp-button/whatsapp-button.component';
 import { SharedModule } from '../shared/shared.module';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
@@ -41,7 +40,6 @@ import { PropertyConsultFormComponent } from './pages/property-details/property-
     FormsModule,
     NgbModule,
     NgxSkeletonLoaderModule,
-    NgSelectModule,
     SharedModule,
     LazyLoadImageModule
   ],
