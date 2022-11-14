@@ -11,7 +11,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxImageCompressService } from 'ngx-image-compress';
 import { SharedModule } from './shared/shared.module';
-import { DARK_MODE_OPTIONS } from 'angular-dark-mode';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -25,8 +24,7 @@ import { DARK_MODE_OPTIONS } from 'angular-dark-mode';
     NgbModule,
     HttpClientModule
   ],
-  providers: [NgxImageCompressService
-],
+  providers: [NgxImageCompressService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

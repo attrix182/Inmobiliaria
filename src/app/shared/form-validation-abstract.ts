@@ -1,7 +1,7 @@
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 
 export abstract class FormValidationAbstract {
-  public formGroup: FormGroup;
+  public formGroup: UntypedFormGroup;
   public errroMessages: any;
 
   constructor() {

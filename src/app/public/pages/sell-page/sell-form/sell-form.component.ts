@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertService } from 'src/app/services/alert.service';
 import { StorageService } from 'src/app/services/storage.service';
@@ -11,9 +11,9 @@ import { FormValidationAbstract } from 'src/app/shared/form-validation-abstract'
   styleUrls: ['./sell-form.component.scss']
 })
 export class SellFormComponent extends FormValidationAbstract implements OnInit {
-  formGroup: FormGroup;
+  formGroup: UntypedFormGroup;
   loading: boolean = false;
-  constructor(private fb: FormBuilder, private alertSvc: AlertService, private storageSvc: StorageService, private router:Router) {
+  constructor(private fb: UntypedFormBuilder, private alertSvc: AlertService, private storageSvc: StorageService, private router:Router) {
     super();
   }
 

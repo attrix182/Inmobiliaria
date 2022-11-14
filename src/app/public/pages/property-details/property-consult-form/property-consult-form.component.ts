@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { Property } from 'src/app/models/property.model';
 import { AlertService } from 'src/app/services/alert.service';
 import { StorageService } from 'src/app/services/storage.service';
@@ -12,10 +12,10 @@ import { FormValidationAbstract } from 'src/app/shared/form-validation-abstract'
 })
 export class PropertyConsultFormComponent extends FormValidationAbstract implements OnInit {
   @Input() prop: Property;
-  formGroup:FormGroup
+  formGroup:UntypedFormGroup
   loading:boolean = false;
 
-  constructor(private storageSvc: StorageService, private formBuilder:FormBuilder, private alertSvc:AlertService) {
+  constructor(private storageSvc: StorageService, private formBuilder:UntypedFormBuilder, private alertSvc:AlertService) {
     super()
   }
 

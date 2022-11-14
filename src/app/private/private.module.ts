@@ -15,7 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminPropertiesPageComponent } from './pages/admin-section/sections/admin-properties/admin-properties-page/admin-properties-page.component';
 import { AdminUsersAddComponent } from './pages/admin-section/sections/admin-users/admin-users-add/admin-users-add.component';
 import { AdminUsersListComponent } from './pages/admin-section/sections/admin-users/admin-users-list/admin-users-list.component';
-import { NgbModule, NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxImageCompressService } from 'ngx-image-compress';
 import { SharedModule } from '../shared/shared.module';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
@@ -47,6 +47,6 @@ import { AdminSellComponent } from './pages/admin-section/sections/admin-sells/a
     NgbModule,
     NgxSkeletonLoaderModule,
     SharedModule
-  ],
+  ]
 })
 export class PrivateModule {}

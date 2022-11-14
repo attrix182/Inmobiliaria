@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user.model';
 import { AlertService } from 'src/app/services/alert.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -13,11 +13,11 @@ export class AdminUsersAddComponent
   extends FormValidationAbstract
   implements OnInit
 {
-  formGroup: FormGroup;
+  formGroup: UntypedFormGroup;
   loading: boolean = false;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private authService: AuthService,
     private alertSvc: AlertService
   ) {

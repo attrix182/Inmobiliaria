@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgxImageCompressService } from 'ngx-image-compress';
 import { Property } from 'src/app/models/property.model';
 import { AlertService } from 'src/app/services/alert.service';
@@ -16,7 +16,7 @@ export class AdminPropertiesAddComponent
   extends FormValidationAbstract
   implements OnInit
 {
-  formGroup: FormGroup;
+  formGroup: UntypedFormGroup;
   loading: boolean = false;
   provincias: any[] = [];
   ciudades: any[] = [];
@@ -31,7 +31,7 @@ export class AdminPropertiesAddComponent
   oferta = ['Venta', 'Alquiler', 'Consultar'];
   anios: any = [];
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private geoRef: GeorefService,
     private storageSVC: StorageService,
     private imageCompress: NgxImageCompressService,
