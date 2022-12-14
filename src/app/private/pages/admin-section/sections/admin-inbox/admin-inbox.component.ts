@@ -40,7 +40,7 @@ export class AdminInboxComponent implements OnInit {
       });
     } else {
       this.storageSvc.Update(consult.id, 'consults', { read: true }).then(() => {
-        consult.read = true;
+          consult.read = true;
       });
     }
   }

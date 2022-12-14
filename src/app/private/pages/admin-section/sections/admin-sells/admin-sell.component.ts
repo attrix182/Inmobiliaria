@@ -23,9 +23,15 @@ export class AdminSellComponent implements OnInit {
 
 
   markAsRead(consult: any) {
-    this.storageSvc.Update(consult.id, 'sell-contact', { read: true }).then(() => {
-      consult.read = true;
-    });
+    if (consult.read) {
+      this.storageSvc.Update(consult.id, 'sell-contact', { read: false }).then(() => {
+        consult.read = false;
+      });
+    } else {
+      this.storageSvc.Update(consult.id, 'sell-contact', { read: true }).then(() => {
+          consult.read = true;
+      });
+    }
   }
 
   setFilter(state:boolean){

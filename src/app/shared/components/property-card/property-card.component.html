@@ -19,6 +19,7 @@
           <h6 class="card-subtitle">
             {{ property.propertyType | titlecase }} - {{ property.adress.street }},
             {{ property.adress.province }}
+            <b *ngIf="property.adress.locality">-</b>
             {{ property.adress.locality }}
           </h6>
           <p class="card-text mt-2">

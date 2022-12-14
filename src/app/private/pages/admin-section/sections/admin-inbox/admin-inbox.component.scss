@@ -42,19 +42,20 @@ button {
   padding: 20px;
 }
 
-.card:hover{
-  box-shadow: 1px 1px 10px #8f8c8c;
-}
-
 .read{
-  background-color: #59d36f;
+  background-color: #41be5e;
 }
 
 .selected{
-  background-color: #ff1314;
+  background-color: #f83a29;
 }
 
 .no-selected{
-  background-color: #2096f3;
+  background-color: #090909;
 }
 
+.footer-actions{
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+}

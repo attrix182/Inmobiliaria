@@ -31,9 +31,8 @@
     </div>
   </div>
   <div *ngFor="let c of consults">
-    <article class="card mt-2 p-4" (click)="markAsRead(c)" *ngIf="c.read == filter" [ngClass]="c.read ? 'read' : ''">
-      <!-- <button class="btn btn-primary" type="button">Marcar como leida</button> -->
-      <h5>Nombre: {{ c.name }} - Fecha: {{ c.date }}</h5>
+    <article class="card mt-2 p-4" *ngIf="c.read == filter" [ngClass]="c.read ? 'read' : ''">
+      <h5 class="text-center">Nombre: {{ c.name }} - Fecha: {{ c.date }}</h5>
       <div>Contacto:</div>
       <a *ngIf="c.email" [href]="'mailto:' + c.email" class="mt-2 mb-2">Email: {{ c.email }}</a>
       <a *ngIf="c.phone" [href]="'tel:' + c.phone" class="mt-2 mb-2">Telefono: {{ c.phone }}</a>
@@ -46,6 +45,13 @@
         Consulta: <br />
         {{ c.message }}
       </div>
+      <footer class="footer-actions">
+        <button (click)="markAsRead(c)" class="btn" [ngClass]="c.read ? 'btn-dark' : 'btn-success'" type="button">
+          <div *ngIf="!c.read">Marcar como leida <i class="fa fa-check"></i> <i class="fa fa-check"></i></div>
+
+          <div *ngIf="c.read">Marcar como no leida</div>
+        </button>
+      </footer>
     </article>
   </div>
 </section>
