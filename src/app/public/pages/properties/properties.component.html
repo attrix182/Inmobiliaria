@@ -44,7 +44,21 @@
       </div>
 
       <div id="properties">
+
+        <div *ngIf="loading" class="col mt-4">
+          <div *ngFor="let i of [0, 1, 2, 3, 4, 5]">
+            <ngx-skeleton-loader
+              class="loader-props mt-4"
+              count="1"
+              appearance="line"
+              animation="pulse"
+              [theme]="{ height: '20rem', width: '75vw' }"
+            ></ngx-skeleton-loader>
+          </div>
+        </div>
         <div class="col mt-4" *ngIf="!loading">
+
+
           <div *ngFor="let prop of propiedades">
             <sb-property-card [property]="prop"></sb-property-card>
           </div>
@@ -53,17 +67,7 @@
           </section>
         </div>
 
-        <div *ngIf="loading">
-          <div *ngFor="let i of [0, 1, 2, 3, 4, 5]">
-            <ngx-skeleton-loader
-              class="loader-props mt-4"
-              count="1"
-              appearance="line"
-              animation="pulse"
-              [theme]="{ height: '23rem', width: '98vw' }"
-            ></ngx-skeleton-loader>
-          </div>
-        </div>
+
       </div>
     </div>
   </section>

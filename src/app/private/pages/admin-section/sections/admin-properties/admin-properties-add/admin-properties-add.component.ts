@@ -27,6 +27,7 @@ export class AdminPropertiesAddComponent
   imgResultAfterCompress: string;
   imageUrl: string;
   property: Property;
+  propsAmount: number = 1;
   tipos = ['Casa', 'Departamento', 'Oficina', 'Terreno'];
   oferta = ['Venta', 'Alquiler', 'Consultar'];
   anios: any = [];

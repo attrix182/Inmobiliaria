@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DarkModeService } from 'angular-dark-mode';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'sb-admin-preferences',
@@ -9,15 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class AdminPreferencesComponent implements OnInit {
 
-  darkMode$: Observable<boolean> = this.darkModeService.darkMode$;
 
-  constructor(private darkModeService: DarkModeService) {}
+  constructor() {}
 
   ngOnInit(): void {
 
   }
 
-  onToggle(): void {
-    this.darkModeService.toggle();
-  }
 }

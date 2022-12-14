@@ -97,7 +97,7 @@
           placeholder="Moneda"
         >
           <option disabled>Moneda</option>
-          <option *ngFor="let tipo of ['ARS', 'USD']" [ngValue]="tipo">
+          <option *ngFor="let tipo of ['ARS', 'USD', 'A consultar']" [ngValue]="tipo">
             {{ tipo }}
           </option>
         </select>
@@ -311,6 +311,7 @@
       </div>
     </div>
   </div>
+
 
   <div class="row">
     <!-- Imagenes -->
