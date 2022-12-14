@@ -11,6 +11,10 @@ import { StorageService } from 'src/app/services/storage.service';
 export class PropertiesComponent implements OnInit {
   propiedades: Property[];
   propiedadesAux: Property[];
+  localidades: string[];
+  provincias: string[];
+  provinceSelected:string;
+  localitySelected:string;
   loading: boolean = true;
   searchWord: string;
   constructor(private router: Router, private storageSvc: StorageService) {}
@@ -24,8 +28,8 @@ export class PropertiesComponent implements OnInit {
     this.storageSvc.GetAll('properties').subscribe((properties) => {
       this.propiedades = properties;
       this.propiedadesAux = properties;
-
-      console.log(properties);
+      this.getAllLocalities();
+      this.getAllProvinces();
       this.loading = false;
     });
   }
@@ -49,6 +53,55 @@ export class PropertiesComponent implements OnInit {
     }
     const serachParamLower = this.searchWord.toLowerCase();
     this.propiedades = this.propiedadesAux.filter((item) => this.doSearch(item, serachParamLower));
+  }
+
+  searchByProvince(){
+    let selectLocalidad = document.getElementById('selectLocalidad') as HTMLSelectElement;
+    selectLocalidad.selectedIndex = 0;
+    this.localitySelected = ''
+    this.searchWord = this.provinceSelected
+    this.hacerBusqueda();
+  }
+
+  searchByLocality(){
+    let selectProvincia = document.getElementById('selectProvincia') as HTMLSelectElement;
+    selectProvincia.selectedIndex = 0;
+    this.provinceSelected = ''
+    this.searchWord = this.localitySelected
+    this.hacerBusqueda();
+  }
+
+  clearFilters(){
+    this.searchWord = ''
+    this.provinceSelected = ''
+    this.localitySelected = ''
+    let selectLocalidad = document.getElementById('selectLocalidad') as HTMLSelectElement;
+    let selectProvincia = document.getElementById('selectProvincia') as HTMLSelectElement;
+    selectLocalidad.selectedIndex = 0;
+    selectProvincia.selectedIndex = 0;
+
+
+    this.hacerBusqueda();
+  }
+
+  getAllLocalities() {
+    this.localidades = this.propiedades.map((item) => item.adress.locality);
+    this.localidades = [...new Set(this.localidades)];
+    let empty = this.localidades.indexOf('');
+    this.localidades.splice(empty, 1);
+}
+
+  getAllProvinces() {
+    this.provincias = this.propiedades.map((item) => item.adress.province);
+    this.provincias = [...new Set(this.provincias)];
+  }
+
+  setProvince(prov:any){
+    this.provinceSelected = prov.value;
+  }
+
+  setLocality(loc:any){
+    this.localitySelected = loc.value;
   }
 
   doSearch(value, searcher) {
