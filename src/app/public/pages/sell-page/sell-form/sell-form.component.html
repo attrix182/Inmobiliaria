@@ -3,79 +3,80 @@
     <form [formGroup]="formGroup">
       <div class="row">
         <div class="col-12 image-container">
-          <img src="../../../../../assets/foto-contacto-2.jpeg" loading="lazy" class="img-fluid" alt="" />
+          <div class="wrapper">
+            <img height="250vh" width="290vw" src="'../../../../../../assets/Loading_icon.gif" />
+            <div class="fanart" [lazyLoad]="'../../../../../assets/casa-contacto.jpg'"></div>
+          </div>
         </div>
         <div class="col-md-12 text-center mt-2"><h4>Vendé tu propiedad</h4></div>
       </div>
       <div class="row form-container">
         <!-- Nombre -->
-          <div class="col-12">
-            <div class="form-group">
-              <label for="name">Nombre completo</label>
-              <input
-                type="text"
-                [class]="isValidField('name')"
-                class="form-control"
-                formControlName="name"
-                placeholder="Nombre"
-              />
-              <span *ngIf="showError('name')" class="invalid-feedback">
-                {{ getErrorMessages('name') }}
-              </span>
-            </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label for="name">Nombre completo</label>
+            <input
+              type="text"
+              [class]="isValidField('name')"
+              class="form-control"
+              formControlName="name"
+              placeholder="Nombre"
+            />
+            <span *ngIf="showError('name')" class="invalid-feedback">
+              {{ getErrorMessages('name') }}
+            </span>
           </div>
-          <!-- Email -->
-          <div class="col-12">
-            <div class="form-group">
-              <label for="lastname">Email</label>
-              <input
-                type="text"
-                class="form-control"
-                [class]="isValidField('email')"
-                id="email"
-                formControlName="email"
-                placeholder="Email"
-              />
-              <span *ngIf="showError('email')" class="invalid-feedback">
-                {{ getErrorMessages('email') }}
-              </span>
-            </div>
+        </div>
+        <!-- Email -->
+        <div class="col-12">
+          <div class="form-group">
+            <label for="lastname">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              [class]="isValidField('email')"
+              id="email"
+              formControlName="email"
+              placeholder="Email"
+            />
+            <span *ngIf="showError('email')" class="invalid-feedback">
+              {{ getErrorMessages('email') }}
+            </span>
           </div>
+        </div>
 
-          <!-- Localidad -->
-          <div class="col-12">
-            <div class="form-group">
-              <label for="name">Localidad/Provincia</label>
-              <input
-                type="text"
-                [class]="isValidField('zone')"
-                class="form-control"
-                formControlName="zone"
-                placeholder="Localidad/Provincia"
-              />
-              <span *ngIf="showError('zone')" class="invalid-feedback">
-                {{ getErrorMessages('zone') }}
-              </span>
-            </div>
+        <!-- Localidad -->
+        <div class="col-12">
+          <div class="form-group">
+            <label for="name">Localidad/Provincia</label>
+            <input
+              type="text"
+              [class]="isValidField('zone')"
+              class="form-control"
+              formControlName="zone"
+              placeholder="Localidad/Provincia"
+            />
+            <span *ngIf="showError('zone')" class="invalid-feedback">
+              {{ getErrorMessages('zone') }}
+            </span>
           </div>
+        </div>
 
-          <div class="col-12">
-            <div class="form-group">
-              <label for="name">Tipo de propiedad</label>
-              <input
-                type="text"
-                [class]="isValidField('typeProperty')"
-                class="form-control"
-                formControlName="typeProperty"
-                placeholder="Tipo de propiedad"
-              />
-              <span *ngIf="showError('typeProperty')" class="invalid-feedback">
-                {{ getErrorMessages('typeProperty') }}
-              </span>
-            </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label for="name">Tipo de propiedad</label>
+            <input
+              type="text"
+              [class]="isValidField('typeProperty')"
+              class="form-control"
+              formControlName="typeProperty"
+              placeholder="Tipo de propiedad"
+            />
+            <span *ngIf="showError('typeProperty')" class="invalid-feedback">
+              {{ getErrorMessages('typeProperty') }}
+            </span>
           </div>
-
-
+        </div>
 
         <div class="col-12">
           <div class="form-group">
@@ -93,11 +94,18 @@
           </div>
         </div>
         <div class="col-12">
-          <button class="btn btn-danger col-12" type="button" [disabled]="!formGroup.valid" (click)="enviarFormulario()">
+          <button
+            class="btn btn-danger col-12"
+            type="button"
+            [disabled]="!formGroup.valid"
+            (click)="enviarFormulario()"
+          >
             <div class="div" *ngIf="!loading">Enviar</div>
-            <div class="div" *ngIf="loading"> <div class="spinner-border text-light" role="status">
-              <span class="sr-only">Loading...</span>
-            </div></div>
+            <div class="div" *ngIf="loading">
+              <div class="spinner-border text-light" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
           </button>
         </div>
       </div>

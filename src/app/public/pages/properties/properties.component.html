@@ -3,7 +3,7 @@
 <div class="row m-0">
   <div class="col-2 m-0 p-0" id="filters">
     <div class="filters-container">
-     <!--  <section class="space">
+      <!--  <section class="space">
         Precio:
         <div class="row m-0">
           <div class="col-6"><input class="form-control" placeholder="Desde" type="number" /></div>
@@ -17,35 +17,60 @@
       <section class="mt-4">
         Provincia:
         <div class="row m-0">
-          <select id="selectProvincia" (change)="setProvince($event.target)" type="text" class="form-control col-11 text-center" style="margin: auto">
+          <select
+            id="selectProvincia"
+            (change)="setProvince($event.target)"
+            type="text"
+            class="form-control col-11 text-center"
+            style="margin: auto"
+          >
             <option disabled selected>Provincia</option>
-            <option *ngFor="let opt of provincias"  [ngValue]="opt">{{opt}}</option>
+            <option *ngFor="let opt of provincias" [ngValue]="opt">{{ opt }}</option>
           </select>
           <div class="col-12">
-            <button class="btn btn-danger btn-block mt-2" (click)="searchByProvince()"><i class="fa fa-check"></i></button>
+            <button class="btn btn-danger btn-block mt-2"
+            [disabled]="!provinceSelected"
+            (click)="searchByProvince()">
+              <i class="fa fa-check"></i>
+            </button>
           </div>
         </div>
       </section>
-
 
       <section class="mt-4">
         Localidad:
         <div class="row m-0">
-          <select id="selectLocalidad" (change)="setLocality($event.target)" type="text" class="form-control col-11 text-center" style="margin: auto">
+          <select
+            id="selectLocalidad"
+            (change)="setLocality($event.target)"
+            type="text"
+            class="form-control col-11 text-center"
+            style="margin: auto"
+          >
             <option disabled selected>Localidad</option>
-            <option *ngFor="let opt of localidades" (click)="setLocality(opt)">{{opt}}</option>
+            <option *ngFor="let opt of localidades"
+            (click)="setLocality(opt)">{{ opt }}</option>
           </select>
           <div class="col-12">
-            <button class="btn btn-danger btn-block mt-2" (click)="searchByLocality()"><i class="fa fa-check"></i></button>
+            <button
+              [disabled]="!localitySelected"
+              class="btn btn-danger btn-block mt-2" (click)="searchByLocality()">
+              <i class="fa fa-check"></i>
+            </button>
           </div>
         </div>
       </section>
       <section class="mt-4">
-      <div class="col-12">
-        <button class="btn btn-danger btn-block mt-2" (click)="clearFilters()">Eliminar filtros</button>
-      </div>
+        <div class="col-12">
+          <button
+            class="btn btn-danger btn-block mt-2"
+            [disabled]="!localitySelected && !provinceSelected"
+            (click)="clearFilters()"
+          >
+            Eliminar filtros
+          </button>
+        </div>
       </section>
-
     </div>
   </div>
 

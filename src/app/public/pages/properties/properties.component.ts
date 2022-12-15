@@ -13,8 +13,8 @@ export class PropertiesComponent implements OnInit {
   propiedadesAux: Property[];
   localidades: string[];
   provincias: string[];
-  provinceSelected:string;
-  localitySelected:string;
+  provinceSelected:string = null;
+  localitySelected:string = null;
   loading: boolean = true;
   searchWord: string;
   constructor(private router: Router, private storageSvc: StorageService) {}
