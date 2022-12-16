@@ -7,19 +7,24 @@ import { StorageService } from 'src/app/services/storage.service';
 @Component({
   selector: 'sb-property-details',
   templateUrl: './property-details.component.html',
-  styleUrls: ['./property-details.component.scss'],
+  styleUrls: ['./property-details.component.scss']
 })
 export class PropertyDetailsComponent implements OnInit {
   prop: any;
   @ViewChild('fotoModal', { read: TemplateRef })
   fotoModal: TemplateRef<any>;
-  loading:boolean;
+  loading: boolean;
 
-  constructor(    private modalSvc: NgbModal, private storageSvc: StorageService, private location: Location, private router:Router) {}
+  constructor(
+    private modalSvc: NgbModal,
+    private storageSvc: StorageService,
+    private location: Location,
+    private router: Router
+  ) {}
 
   getPropertyById(id: string) {
     this.loading = true;
-    this.storageSvc.GetByParameter('properties', 'id', id).subscribe(p => {
+    this.storageSvc.GetByParameter('properties', 'id', id).subscribe((p) => {
       this.prop = p[0];
       console.log(p);
       this.loading = false;
@@ -31,11 +36,11 @@ export class PropertyDetailsComponent implements OnInit {
     this.getPropertyById(this.location.path().split('/')[2]);
   }
 
-  back(){
-    this.router.navigateByUrl('propiedades')
+  back() {
+    this.router.navigateByUrl('propiedades');
   }
 
-  openImage(){
+  openImage() {
     this.modalSvc.open(this.fotoModal);
   }
 }

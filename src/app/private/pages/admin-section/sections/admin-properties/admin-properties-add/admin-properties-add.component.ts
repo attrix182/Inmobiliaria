@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { NgxImageCompressService } from 'ngx-image-compress';
+import { NgxImageCompressService, UploadResponse } from 'ngx-image-compress';
 import { Property } from 'src/app/models/property.model';
 import { AlertService } from 'src/app/services/alert.service';
 import { GeorefService } from 'src/app/services/georef.service';
@@ -10,12 +10,9 @@ import { FormValidationAbstract } from 'src/app/shared/form-validation-abstract'
 @Component({
   selector: 'sb-admin-properties-add',
   templateUrl: './admin-properties-add.component.html',
-  styleUrls: ['./admin-properties-add.component.scss'],
+  styleUrls: ['./admin-properties-add.component.scss']
 })
-export class AdminPropertiesAddComponent
-  extends FormValidationAbstract
-  implements OnInit
-{
+export class AdminPropertiesAddComponent extends FormValidationAbstract implements OnInit {
   formGroup: UntypedFormGroup;
   loading: boolean = false;
   provincias: any[] = [];
@@ -23,8 +20,8 @@ export class AdminPropertiesAddComponent
   filePath: string;
   image: File;
   selectImage: boolean = true;
-  imgResultBeforeCompress: string;
-  imgResultAfterCompress: string;
+  imgResultBeforeCompress: string[] = [];
+  imgResultAfterCompress: string[] = [];
   imageUrl: string;
   property: Property;
   propsAmount: number = 1;
@@ -57,32 +54,33 @@ export class AdminPropertiesAddComponent
     this.anios = this.anios.reverse();
   }
 
-  compressFile() {
-    this.selectImage = true;
-    this.imageCompress.uploadFile().then(({ image, orientation }) => {
-      this.imgResultBeforeCompress = image;
-      /* console.warn('Size in bytes was:', this.imageCompress.byteCount(image)); */
-      this.imageCompress
-        .compressFile(image, orientation, 100, 100)
-        .then(result => {
-          this.imgResultAfterCompress = result;
+  uploadMultipleFiles() {
+    this.imageCompress.uploadMultipleFiles().then((multipleFiles: UploadResponse[]) => {
+      console.warn(`${multipleFiles.length} files selected`);
+      multipleFiles.forEach((one) => {
+        this.imgResultBeforeCompress.push( one.image);
+        this.imageCompress.compressFile(one.image, one.orientation, 100, 100).then((result) => {
+          this.imgResultAfterCompress.push(result);
           this.selectImage = false;
         });
+      });
     });
   }
+
+
 
   saveProperty() {
     this.loading = true;
     console.log(this.formGroup.value);
 
     let prop = this.formGroup.value;
-    prop.image = this.imgResultAfterCompress.split(/,(.+)/)[1];
-
+    prop.imagesRaw = this.imgResultAfterCompress.map((one)=> one.split(/,(.+)/)[1])
+    console.log(prop.imagesRaw)
     prop.adress = {
       province: this.formGroup.value.province,
       locality: this.formGroup.value.locality,
       street: this.formGroup.value.street,
-      zipCode: this.formGroup.value.zipCode,
+      zipCode: this.formGroup.value.zipCode
     };
     this.storageSVC.InsertPropertyWithImage('properties', prop);
     this.clearForm();
@@ -94,22 +92,22 @@ export class AdminPropertiesAddComponent
 
   clearForm() {
     this.formGroup.reset();
-    this.imgResultAfterCompress = '';
+    this.imgResultAfterCompress.splice(0,this.imgResultAfterCompress.length)
   }
 
   getProvincias() {
-    this.geoRef.getProvincias().subscribe(result => {
-      this.provincias = result.provincias.map(prov => ({
+    this.geoRef.getProvincias().subscribe((result) => {
+      this.provincias = result.provincias.map((prov) => ({
         nombre: prov.nombre,
-        id: prov.id,
+        id: prov.id
       }));
     });
   }
   getCiudadesByProvincia(provincia: any) {
-    this.geoRef.getCiudades(provincia).subscribe(result => {
-      this.ciudades = result.municipios.map(munic => ({
+    this.geoRef.getCiudades(provincia).subscribe((result) => {
+      this.ciudades = result.municipios.map((munic) => ({
         nombre: munic.nombre,
-        id: munic.id,
+        id: munic.id
       }));
     });
   }
@@ -138,18 +136,18 @@ export class AdminPropertiesAddComponent
       offerType: ['', []],
       propertyType: ['', []],
       props: ['', []],
-      images: ['', []],
+      images: ['', []]
     });
   }
 
   setErrorMessages(): void {
     this.errroMessages = {
       nombre: {
-        required: 'El nombre es requerido',
+        required: 'El nombre es requerido'
       },
       apellido: {
-        required: 'El apellido es requerido',
-      },
+        required: 'El apellido es requerido'
+      }
     };
   }
 }

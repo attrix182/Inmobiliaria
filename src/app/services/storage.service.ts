@@ -6,7 +6,7 @@ import * as firebase from 'firebase/app';
 import { NgxImageCompressService } from 'ngx-image-compress';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class StorageService {
   public loadedImage: any;
@@ -25,29 +25,20 @@ export class StorageService {
   compressFile() {
     this.imageCompress.uploadFile().then(({ image, orientation }) => {
       this.imgResultBeforeCompression = image;
-      console.log(
-        'Size in bytes of the uploaded image was:',
-        this.imageCompress.byteCount(image)
-      );
+      console.log('Size in bytes of the uploaded image was:', this.imageCompress.byteCount(image));
 
       this.imageCompress
         .compressFile(image, orientation, 50, 50) // 50% ratio, 50% quality
-        .then(compressedImage => {
+        .then((compressedImage) => {
           this.imgResultAfterCompression = compressedImage;
-          console.log(
-            'Size in bytes after compression is now:',
-            this.imageCompress.byteCount(compressedImage)
-          );
+          console.log('Size in bytes after compression is now:', this.imageCompress.byteCount(compressedImage));
         });
     });
   }
 
   Insert(collectionName: string, data: any) {
     data.id = this.cloudFireStore.createId();
-    return this.cloudFireStore
-      .collection(collectionName)
-      .doc(data.id)
-      .set(data);
+    return this.cloudFireStore.collection(collectionName).doc(data.id).set(data);
   }
 
   ReturnFirestore() {
@@ -55,10 +46,7 @@ export class StorageService {
   }
 
   InsertCustomID(collectionName: string, idCustom: any, data: any) {
-    return this.cloudFireStore
-      .collection(collectionName)
-      .doc(idCustom)
-      .set(data);
+    return this.cloudFireStore.collection(collectionName).doc(idCustom).set(data);
   }
 
   GetAll(collectionName: string) {
@@ -66,8 +54,8 @@ export class StorageService {
       .collection(collectionName)
       .snapshotChanges()
       .pipe(
-        map(actions =>
-          actions.map(a => {
+        map((actions) =>
+          actions.map((a) => {
             const data: any = a.payload.doc.data();
             data.id = a.payload.doc.id;
             return data;
@@ -78,11 +66,11 @@ export class StorageService {
 
   GetByParameter(collection: string, parametro: string, value: any) {
     return this.cloudFireStore
-      .collection<any>(collection, ref => ref.where(parametro, '==', value))
+      .collection<any>(collection, (ref) => ref.where(parametro, '==', value))
       .snapshotChanges()
       .pipe(
-        map(actions =>
-          actions.map(a => {
+        map((actions) =>
+          actions.map((a) => {
             const data: any = a.payload.doc.data();
             data.id = a.payload.doc.id;
             return data;
@@ -103,8 +91,8 @@ export class StorageService {
       .collection(collectionName)
       .get()
       .toPromise()
-      .then(querySnapshot => {
-        querySnapshot.forEach(doc => {
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
           doc.ref.delete();
         });
       });
@@ -116,26 +104,29 @@ export class StorageService {
 
   InsertPropertyWithImage(collectionName: string, property: any) {
     property.id = this.cloudFireStore.createId();
+    property.images = []
+console.log(property.imagesRaw)
+    if (property.imagesRaw) {
+      property.imagesRaw.forEach((one) => {
+        const filePath = `/properties/${property.id}/image.jpeg`;
+        const ref = this.storage
+          .ref(filePath)
+          .putString(one, 'base64', { contentType: 'image/jpeg' })
+          .then(() => {
+            let storages = firebase.default.storage();
+            let storageRef = storages.ref();
+            let spaceRef = storageRef.child(filePath);
 
-    if (property.image) {
-      const filePath = `/properties/${property.id}/image.jpeg`;
-      const ref = this.storage
-        .ref(filePath)
-        .putString(property.image, 'base64', { contentType: 'image/jpeg' })
-        .then(() => {
-          let storages = firebase.default.storage();
-          let storageRef = storages.ref();
-          let spaceRef = storageRef.child(filePath);
+            spaceRef.getDownloadURL().then((url) => {
+              this.fotoCargada = url;
+              this.fotoCargada = `${this.fotoCargada}`;
 
-          spaceRef.getDownloadURL().then(url => {
-            this.fotoCargada = url;
-            this.fotoCargada = `${this.fotoCargada}`;
+              property.images.push(this.fotoCargada);
 
-            property.images = this.fotoCargada;
-
-            return this.InsertCustomID(collectionName, property.id, property);
+              return this.InsertCustomID(collectionName, property.id, property);
+            });
           });
-        });
+      });
     }
   }
 
@@ -149,7 +140,7 @@ export class StorageService {
         let storageRef = storages.ref();
         let spaceRef = storageRef.child(filePath);
 
-        spaceRef.getDownloadURL().then(url => {
+        spaceRef.getDownloadURL().then((url) => {
           this.fotoCargada = url;
           this.fotoCargada = `${this.fotoCargada}`;
 
@@ -159,7 +150,7 @@ export class StorageService {
             name: product.name,
             description: product.description,
             price: product.price,
-            image: product.image,
+            image: product.image
           });
         });
       });

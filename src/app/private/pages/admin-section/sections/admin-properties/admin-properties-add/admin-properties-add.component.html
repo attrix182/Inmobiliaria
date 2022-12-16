@@ -316,17 +316,21 @@
   <div class="row">
     <!-- Imagenes -->
     <div class="col-12">
+      <br>
       <div>
-        <button id="banner-upload" (click)="compressFile()" hidden></button>
+        <button id="banner-upload" (click)="uploadMultipleFiles()" hidden></button>
         <label for="banner-upload" class="banner-upload-btn btn btn-danger mt-2"
           ><em class="fa fa-upload"> Imagen</em></label
         >
+        <br>
+        <button *ngIf="imgResultAfterCompress.length > 0" class="btn btn-danger" (click)="imgResultAfterCompress.splice(0, imgResultAfterCompress.length)" >    <em class="fa fa-trash"> Eliminar imagenes</em></button>
+        <br>
       </div>
     </div>
 
     <div class="col 12">
-      <div class="col-12 mb-2 text-center">
-        <img [src]="imgResultAfterCompress" width="300px" alt="" />
+      <div class="col-12 mb-2 text-center" *ngFor="let image of imgResultAfterCompress">
+        <img [src]="image" width="300px" alt="" />
       </div>
     </div>
 
