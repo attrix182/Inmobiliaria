@@ -20,9 +20,7 @@
             <button class="btn btn-danger" (click)="onSearch.emit(searchValue)"><i class="fa fa-search"></i></button>
           </div>
         </div>
-        <a class="nav-item nav-link"
-        [ngClass]="actualSection == '' ? 'active' : ''"
-        (click)="goToHome()">Home</a>
+        <a class="nav-item nav-link" [ngClass]="actualSection == '' ? 'active' : ''" (click)="goToHome()">Home</a>
         <!-- <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
@@ -47,8 +45,7 @@
           [ngClass]="actualSection == 'propiedades' ? 'active' : ''"
           >Comprar</a
         >
-        <a href="#vender" class="nav-item nav-link"
-        [ngClass]="actualSection == 'vender' ? 'active' : ''">Vender</a>
+        <a href="#vender" class="nav-item nav-link" [ngClass]="actualSection == 'vender' ? 'active' : ''">Vender</a>
         <a (click)="signIn()" class="nav-item nav-link">Ingresar</a>
       </div>
     </div>
