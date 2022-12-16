@@ -8,14 +8,22 @@
       <div class="navbar-nav ml-auto">
         <div class="row" *ngIf="searcher" id="searcher">
           <div class="nav-item searcher ml-4 col-9">
-            <input class="form-control" type="text" (keydown.enter)="onSearch.emit(searchValue)" [(ngModel)]="searchValue" placeholder="¿Que estas buscando?..." />
+            <input
+              class="form-control"
+              type="text"
+              (keydown.enter)="onSearch.emit(searchValue)"
+              [(ngModel)]="searchValue"
+              placeholder="¿Que estas buscando?..."
+            />
           </div>
           <div class="btn-search col-2">
             <button class="btn btn-danger" (click)="onSearch.emit(searchValue)"><i class="fa fa-search"></i></button>
           </div>
         </div>
-        <a class="nav-item nav-link" (click)="goToHome()">Home</a>
-        <li class="nav-item dropdown">
+        <a class="nav-item nav-link"
+        [ngClass]="actualSection == '' ? 'active' : ''"
+        (click)="goToHome()">Home</a>
+        <!-- <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
             href="#"
@@ -32,8 +40,15 @@
             </li>
             <li><a class="dropdown-item" href="#">Terrenos</a></li>
           </ul>
-        </li>
-        <a href="#vender" class="nav-item nav-link">Vender</a>
+        </li> -->
+        <a
+          (click)="goToProperties()"
+          class="nav-item nav-link"
+          [ngClass]="actualSection == 'propiedades' ? 'active' : ''"
+          >Comprar</a
+        >
+        <a href="#vender" class="nav-item nav-link"
+        [ngClass]="actualSection == 'vender' ? 'active' : ''">Vender</a>
         <a (click)="signIn()" class="nav-item nav-link">Ingresar</a>
       </div>
     </div>

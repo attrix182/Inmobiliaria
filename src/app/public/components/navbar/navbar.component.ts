@@ -10,14 +10,16 @@ import { filter } from 'rxjs/internal/operators/filter';
 @HostListener('scroll', ['$event'])
 export class NavbarComponent implements OnInit {
   public toggle: boolean = false;
-
   @Input() searcher: boolean;
   public searchValue: string = '';
   @Output() onSearch: any = new EventEmitter();
+  actualSection:string;
 
   constructor(private router: Router) {
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe((event: NavigationEnd) => {
       let doc = document.querySelector('html') as HTMLElement;
+      this.actualSection = event.url.replace('/','')
+      console.log(this.actualSection)
       doc.classList.remove('a-fullscreen');
     });
   }
