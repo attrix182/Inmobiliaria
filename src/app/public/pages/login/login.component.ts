@@ -32,7 +32,7 @@ export class LoginComponent extends FormValidationAbstract implements OnInit {
   ngOnInit(): void {
     this.initForm();
     this.loged = this.isLogged();
-    this.isLogged() ? this.router.navigate(['/admin']) : null;
+    this.isLogged() ? this.router.navigate(['/admin-dashboard']) : null;
   }
 
   isLogged() {

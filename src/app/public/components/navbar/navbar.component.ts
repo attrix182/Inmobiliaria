@@ -70,7 +70,7 @@ export class NavbarComponent implements OnInit {
   }
 
   signIn() {
-    this.router.navigateByUrl('admin');
+    this.router.navigateByUrl('admin-dashboard');
   }
 
   goToHome() {
