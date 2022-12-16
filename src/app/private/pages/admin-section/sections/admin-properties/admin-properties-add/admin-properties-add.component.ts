@@ -63,7 +63,7 @@ export class AdminPropertiesAddComponent
       this.imgResultBeforeCompress = image;
       /* console.warn('Size in bytes was:', this.imageCompress.byteCount(image)); */
       this.imageCompress
-        .compressFile(image, orientation, 50, 40)
+        .compressFile(image, orientation, 100, 100)
         .then(result => {
           this.imgResultAfterCompress = result;
           this.selectImage = false;
