@@ -16,6 +16,7 @@
   font-weight: 300;
 }
 
+
 .font-price{
   font-weight: 400;
   font-size: 1.2em;
@@ -48,4 +49,11 @@ img {
 }
 .ng-lazyloaded {
   opacity: 1;
+}
+
+
+@media screen and (max-width: 500px) {
+  .card-text{
+    font-size: 0.8em;
+  }
 }
