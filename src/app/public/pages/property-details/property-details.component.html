@@ -1,17 +1,4 @@
 <sb-navbar></sb-navbar>
-
-<!-- <ngb-carousel>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img
-        [src]="prop?.images"
-        loading="lazy"
-        alt="Random first slide"
-        class="img-fluid" />
-    </div>
-    <div class="carousel-caption"></div>
-  </ng-template>
-</ngb-carousel> -->
 <div class="container-detail">
   <button class="btn btn-danger btn-back" (click)="back()"><i class="fa fa-arrow-left"></i> Volver</button>
 
@@ -45,9 +32,18 @@
   </section>
 
   <section *ngIf="!loading">
-    <div (click)="openImage()">
+    <div (click)="openImage(prop?.images)" *ngIf="!hasMultipleImages">
       <img [src]="prop?.images" loading="lazy" class="img-fluid mb-4" alt="Foto" />
     </div>
+
+    <ngb-carousel *ngIf="hasMultipleImages">
+      <ng-template *ngFor="let pic of prop.images" ngbSlide>
+        <div (click)="openImage(pic)">
+          <img [src]="pic" loading="lazy" class="img-fluid" />
+        </div>
+        <div class="carousel-caption"></div>
+      </ng-template>
+    </ngb-carousel>
 
     <section *ngIf="prop" class="container-fluid bg-white mt-4 p-4 mb-4 rounded" style="width: 90vw; z-index: 100">
       <article>
@@ -84,8 +80,6 @@
       </article>
     </section>
 
-
-
     <sb-property-consult-form [prop]="prop"></sb-property-consult-form>
 
     <sb-footer></sb-footer>
@@ -93,10 +87,16 @@
 </div>
 
 <ng-template #fotoModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title"></h4>
+    <em type="button" class="btn btn-danger btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"
+      ><em class="fa fa-times"></em
+    ></em>
+  </div>
   <div class="modal-body">
-    <div class="btn-exit">
-      <em (click)="modal.dismiss('Cross click')" class="btn btn-white"><em class="fas fa-times"></em> </em>
+    <div class="wrapper">
+      <img src="'../../../../../../assets/Loading_icon.gif" />
+      <div class="fanart" [lazyLoad]="imageToOpen"></div>
     </div>
-    <img [src]="prop?.images" class="img-fluid mb-4" alt="Foto" />
   </div>
 </ng-template>

@@ -104,12 +104,12 @@ export class StorageService {
 
   InsertPropertyWithImage(collectionName: string, property: any) {
     property.id = this.cloudFireStore.createId();
-    property.images = []
-console.log(property.imagesRaw)
+    property.images = [];
+    console.log(property.imagesRaw);
     if (property.imagesRaw) {
-      property.imagesRaw.forEach((one) => {
-        const filePath = `/properties/${property.id}/image.jpeg`;
-        const ref = this.storage
+      property.imagesRaw.forEach((one, index) => {
+        const filePath = `/properties/${property.id}/image-${index}.jpeg`;
+        this.storage
           .ref(filePath)
           .putString(one, 'base64', { contentType: 'image/jpeg' })
           .then(() => {
@@ -122,7 +122,7 @@ console.log(property.imagesRaw)
               this.fotoCargada = `${this.fotoCargada}`;
 
               property.images.push(this.fotoCargada);
-
+              delete property.imagesRaw
               return this.InsertCustomID(collectionName, property.id, property);
             });
           });

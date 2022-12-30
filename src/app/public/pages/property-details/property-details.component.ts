@@ -13,7 +13,9 @@ export class PropertyDetailsComponent implements OnInit {
   prop: any;
   @ViewChild('fotoModal', { read: TemplateRef })
   fotoModal: TemplateRef<any>;
+  imageToOpen: string = '';
   loading: boolean;
+  hasMultipleImages: boolean = false;
 
   constructor(
     private modalSvc: NgbModal,
@@ -26,7 +28,9 @@ export class PropertyDetailsComponent implements OnInit {
     this.loading = true;
     this.storageSvc.GetByParameter('properties', 'id', id).subscribe((p) => {
       this.prop = p[0];
-      console.log(p);
+      if (typeof this.prop.images !== 'string') {
+        this.hasMultipleImages = true;
+      }
       this.loading = false;
     });
     console.log(id);
@@ -40,7 +44,8 @@ export class PropertyDetailsComponent implements OnInit {
     this.router.navigateByUrl('propiedades');
   }
 
-  openImage() {
-    this.modalSvc.open(this.fotoModal);
+  openImage(img: string) {
+    this.imageToOpen = img;
+    this.modalSvc.open(this.fotoModal, { size: 'xl' });
   }
 }
