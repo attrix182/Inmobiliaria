@@ -9,7 +9,7 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./navbar.component.scss']
 })
 @HostListener('scroll', ['$event'])
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   public toggle: boolean = false;
   @Input() searcher: boolean;
   public searchValue: string = '';
@@ -23,10 +23,6 @@ export class NavbarComponent implements OnInit {
       doc.classList.remove('a-fullscreen');
     });
   }
-
-  ngOnInit(): void {}
-
-
 
   onWindowScroll(event: any) {
     let element = document.querySelector('.navbar') as HTMLElement;

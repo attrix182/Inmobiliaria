@@ -23,12 +23,12 @@ export class SearchComponent implements OnInit {
   constructor(private searchSVC: SearchService, private router: Router, private location: Location) {}
 
   ngOnInit(): void {
-    this.propType = ['Casa', 'Terreno', 'Oficina'];
+    this.propType = ['Casa', 'Departamento', 'Oficina'];
   }
 
   search() {
     let query = 'propiedades';
-    this.typeOfProperty =  (document.getElementById('typeProperties') as HTMLSelectElement).value;
+    this.typeOfProperty = (document.getElementById('typeProperties') as HTMLSelectElement).value;
     this.typeOfProperty ? (query += `?type=${this.typeOfProperty}`) : 'propiedades/';
     this.provincia = (document.getElementById('province') as HTMLSelectElement).value;
     this.provincia !== 'Todas' ? (query += `&province=${this.provincia}`) : '';

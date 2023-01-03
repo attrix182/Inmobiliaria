@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Property } from 'src/app/models/property.model';
@@ -17,7 +18,7 @@ export class PropertiesComponent implements OnInit {
   localitySelected: string = null;
   loading: boolean = true;
   searchWord: string;
-  constructor(private router: Router, private storageSvc: StorageService) {}
+  constructor(private router: Router, private storageSvc: StorageService, private location:Location) {}
 
   ngOnInit(): void {
     this.getAllproperties();
@@ -32,16 +33,23 @@ export class PropertiesComponent implements OnInit {
     let url = this.router.url.split('/')[1];
 
 
-    if (query || url) {
+    if (query || this.isTypeOrProvince(url)) {
       this.searchWord = query?.replaceAll('%20', ' ');
       if(url.includes('type')) {
         let type = url.split('?type=')[1].split('&')[0];
         this.searchWord = type;
         this.hacerBusqueda();
+      }else if(url.includes('?q=')){
+        this.searchWord = url.split('?q=')[1];
+        this.hacerBusqueda();
       }
 
       this.hacerBusqueda();
     }
+  }
+
+  isTypeOrProvince(url:string){
+    return url.includes('type') || url.includes('province');
   }
 
   getAllproperties() {
@@ -63,16 +71,19 @@ export class PropertiesComponent implements OnInit {
   }
 
   handleOnSearch(value: any) {
+    console.log(value);
     this.searchWord = value;
+    this.location.replaceState('/propiedades' );
     this.hacerBusqueda();
   }
 
   hacerBusqueda() {
+    console.log(this.searchWord);
     if (this.searchWord === '') {
+      console.log('no hay nada');
       this.propiedades = this.propiedadesAux;
       return;
     }
-
     let searchWords = this.searchWord.split(' ');
     if (searchWords.length >= 2) {
       searchWords.forEach((word) => {
@@ -80,11 +91,8 @@ export class PropertiesComponent implements OnInit {
       });
       return;
     }
-
     const serachParamLower = this.searchWord.toLowerCase();
     this.propiedades = this.propiedadesAux.filter((item) => this.doSearch(item, serachParamLower));
-
-
   }
 
   searchByProvince() {
