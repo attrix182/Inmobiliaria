@@ -1,6 +1,6 @@
 <sb-navbar></sb-navbar>
 <div class="container-detail">
-  <button class="btn btn-danger btn-back" (click)="back()"><i class="fa fa-arrow-left"></i> Volver</button>
+<!--  <button class="btn btn-success btn-back" (click)="back()"><i class="fa fa-share"></i> Compartir</button> -->
 
   <section *ngIf="loading">
     <div class="img-skeleton">
@@ -50,7 +50,7 @@
         <div class="card mb-3 mt-3 list">
           <div class="row">
             <div class="col">
-              <div class="card2">
+              <div id="info">
                 <h5 class="card-title text-center">
                   {{ prop.propertyType | titlecase }} - {{ prop.adress.street }},
                   {{ prop.adress.locality }}
@@ -74,7 +74,7 @@
         </div>
       </article>
       <article>
-        <div class="card2 mt-2 mb-2 text-center">
+        <div class="card mt-2 mb-2 text-center">
           {{ prop.description }}
         </div>
       </article>

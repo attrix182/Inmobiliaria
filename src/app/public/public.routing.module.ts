@@ -4,7 +4,6 @@ import { AdminPropertiesPageComponent } from '../private/pages/admin-section/sec
 import { AuthGuard } from '../shared/authguard.guard';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
-import { PropertiesMapComponent } from './pages/properties/components/properties-map/properties-map.component';
 import { PropertiesComponent } from './pages/properties/properties.component';
 import { PropertyDetailsComponent } from './pages/property-details/property-details.component';
 import { SellPageComponent } from './pages/sell-page/sell-page.component';
@@ -16,7 +15,7 @@ const routes: Routes = [
   { path: 'vender', component: SellPageComponent },
   { path: 'propiedades', component: PropertiesComponent },
   { path: 'propiedad/:id', component: PropertyDetailsComponent },
-  { path: 'propiedades/mapa', component: PropertiesMapComponent },
+  { path: 'propiedades/:query', component: PropertiesComponent },
   {
     path: 'admin',
     loadChildren: () =>

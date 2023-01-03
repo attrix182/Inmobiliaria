@@ -13,14 +13,35 @@ export class PropertiesComponent implements OnInit {
   propiedadesAux: Property[];
   localidades: string[];
   provincias: string[];
-  provinceSelected:string = null;
-  localitySelected:string = null;
+  provinceSelected: string = null;
+  localitySelected: string = null;
   loading: boolean = true;
   searchWord: string;
   constructor(private router: Router, private storageSvc: StorageService) {}
 
   ngOnInit(): void {
     this.getAllproperties();
+  }
+
+  ngAfterContentChecked() {
+    this.getQueryByUrl();
+  }
+
+  getQueryByUrl() {
+    let query = this.router.url.split('/')[2];
+    let url = this.router.url.split('/')[1];
+
+
+    if (query || url) {
+      this.searchWord = query?.replaceAll('%20', ' ');
+      if(url.includes('type')) {
+        let type = url.split('?type=')[1].split('&')[0];
+        this.searchWord = type;
+        this.hacerBusqueda();
+      }
+
+      this.hacerBusqueda();
+    }
   }
 
   getAllproperties() {
@@ -51,35 +72,45 @@ export class PropertiesComponent implements OnInit {
       this.propiedades = this.propiedadesAux;
       return;
     }
+
+    let searchWords = this.searchWord.split(' ');
+    if (searchWords.length >= 2) {
+      searchWords.forEach((word) => {
+        this.propiedades = this.propiedadesAux.filter((item) => this.doSearch(item, word.toLocaleLowerCase()));
+      });
+      return;
+    }
+
     const serachParamLower = this.searchWord.toLowerCase();
     this.propiedades = this.propiedadesAux.filter((item) => this.doSearch(item, serachParamLower));
+
+
   }
 
-  searchByProvince(){
+  searchByProvince() {
     let selectLocalidad = document.getElementById('selectLocalidad') as HTMLSelectElement;
     selectLocalidad.selectedIndex = 0;
-    this.localitySelected = ''
-    this.searchWord = this.provinceSelected
+    this.localitySelected = '';
+    this.searchWord = this.provinceSelected;
     this.hacerBusqueda();
   }
 
-  searchByLocality(){
+  searchByLocality() {
     let selectProvincia = document.getElementById('selectProvincia') as HTMLSelectElement;
     selectProvincia.selectedIndex = 0;
-    this.provinceSelected = ''
-    this.searchWord = this.localitySelected
+    this.provinceSelected = '';
+    this.searchWord = this.localitySelected;
     this.hacerBusqueda();
   }
 
-  clearFilters(){
-    this.searchWord = ''
-    this.provinceSelected = ''
-    this.localitySelected = ''
+  clearFilters() {
+    this.searchWord = '';
+    this.provinceSelected = '';
+    this.localitySelected = '';
     let selectLocalidad = document.getElementById('selectLocalidad') as HTMLSelectElement;
     let selectProvincia = document.getElementById('selectProvincia') as HTMLSelectElement;
     selectLocalidad.selectedIndex = 0;
     selectProvincia.selectedIndex = 0;
-
 
     this.hacerBusqueda();
   }
@@ -89,18 +120,18 @@ export class PropertiesComponent implements OnInit {
     this.localidades = [...new Set(this.localidades)];
     let empty = this.localidades.indexOf('');
     this.localidades.splice(empty, 1);
-}
+  }
 
   getAllProvinces() {
     this.provincias = this.propiedades.map((item) => item.adress.province);
     this.provincias = [...new Set(this.provincias)];
   }
 
-  setProvince(prov:any){
+  setProvince(prov: any) {
     this.provinceSelected = prov.value;
   }
 
-  setLocality(loc:any){
+  setLocality(loc: any) {
     this.localitySelected = loc.value;
   }
 

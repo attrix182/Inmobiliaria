@@ -1,42 +1,38 @@
 import { Location } from '@angular/common';
-import {
-  Component,
-  ElementRef,
-  EventEmitter,
-  OnInit,
-  Output,
-  ViewChild,
-} from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { SearchService } from './search.service';
 
 @Component({
   selector: 'sb-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss'],
+  styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
   public provincias: any;
+  provincia: string = 'Todas';
+  typeOfProperty: string;
   enabled = false;
   propType: any;
-  selectProp:any
+  selectProp: any;
 
   claseComprar = 'btn btn-light';
   claseVender = 'btn btn-light';
   claseAlquilar = 'btn btn-light';
-  constructor(
-    private searchSVC: SearchService,
-    private router: Router,
-    private location: Location
-  ) {}
+  constructor(private searchSVC: SearchService, private router: Router, private location: Location) {}
 
   ngOnInit(): void {
-    this.propType = ['Casa', 'Terreno', 'Oficina']
+    this.propType = ['Casa', 'Terreno', 'Oficina'];
   }
 
   search() {
-    this.router.navigate(['propiedades']);
+    let query = 'propiedades';
+    this.typeOfProperty =  (document.getElementById('typeProperties') as HTMLSelectElement).value;
+    this.typeOfProperty ? (query += `?type=${this.typeOfProperty}`) : 'propiedades/';
+    this.provincia = (document.getElementById('province') as HTMLSelectElement).value;
+    this.provincia !== 'Todas' ? (query += `&province=${this.provincia}`) : '';
+    this.router.navigateByUrl(query);
     document.querySelector('.a-fullscreen').classList.remove('a-fullscreen');
   }
 
@@ -52,7 +48,7 @@ export class SearchComponent implements OnInit {
         this.claseVender = 'btn btn-dark';
         this.claseComprar = 'btn btn-light';
         this.claseAlquilar = 'btn btn-light';
-        this.router.navigateByUrl('/vender')
+        this.router.navigateByUrl('/vender');
         break;
       case 'alquilar':
         this.claseAlquilar = 'btn btn-dark';
