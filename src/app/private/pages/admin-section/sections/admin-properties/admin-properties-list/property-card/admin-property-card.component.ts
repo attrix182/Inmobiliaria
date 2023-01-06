@@ -6,7 +6,6 @@ import { Property } from 'src/app/models/property.model';
   selector: 'sb-admin-property-card',
   templateUrl: './admin-property-card.component.html',
   styleUrls: ['./admin-property-card.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AdminPropertyCardComponent implements OnInit {
   @Input('property') property: Property;

@@ -21,6 +21,7 @@ import { SharedModule } from '../shared/shared.module';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { AdminSellComponent } from './pages/admin-section/sections/admin-sells/admin-sell.component';
 import { AdminPropertyCardComponent } from './pages/admin-section/sections/admin-properties/admin-properties-list/property-card/admin-property-card.component';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { AdminPropertyCardComponent } from './pages/admin-section/sections/admin
     ReactiveFormsModule,
     NgbModule,
     NgxSkeletonLoaderModule,
-    SharedModule
+    SharedModule,
+    LazyLoadImageModule
   ]
 })
 export class PrivateModule {}
