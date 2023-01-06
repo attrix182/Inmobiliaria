@@ -27,12 +27,15 @@ export class SearchComponent implements OnInit {
   }
 
   search() {
-    let query = 'propiedades';
+    let path = 'propiedades';
     this.typeOfProperty = (document.getElementById('typeProperties') as HTMLSelectElement).value;
+    this.provincia = (document.getElementById('province') as HTMLSelectElement).value;
+
+  /*   this.typeOfProperty = (document.getElementById('typeProperties') as HTMLSelectElement).value;
     this.typeOfProperty ? (query += `?type=${this.typeOfProperty}`) : 'propiedades/';
     this.provincia = (document.getElementById('province') as HTMLSelectElement).value;
-    this.provincia !== 'Todas' ? (query += `&province=${this.provincia}`) : '';
-    this.router.navigateByUrl(query);
+    this.provincia !== 'Todas' ? (query += `&province=${this.provincia}`) : ''; */
+    this.router.navigate([path], { queryParams: { type: this.typeOfProperty, province: this.provincia } });
     document.querySelector('.a-fullscreen').classList.remove('a-fullscreen');
   }
 

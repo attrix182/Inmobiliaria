@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Property } from 'src/app/models/property.model';
 import { StorageService } from 'src/app/services/storage.service';
 
@@ -18,14 +18,17 @@ export class PropertiesComponent implements OnInit {
   localitySelected: string = null;
   loading: boolean = true;
   searchWord: string;
-  constructor(private router: Router, private storageSvc: StorageService, private location:Location) {}
+  constructor(private router: Router,private route: ActivatedRoute, private storageSvc: StorageService, private location:Location) {}
 
   ngOnInit(): void {
     this.getAllproperties();
+
+
   }
 
   ngAfterContentChecked() {
     this.getQueryByUrl();
+
   }
 
   getQueryByUrl() {
@@ -71,14 +74,12 @@ export class PropertiesComponent implements OnInit {
   }
 
   handleOnSearch(value: any) {
-    console.log(value);
     this.searchWord = value;
     this.location.replaceState('/propiedades' );
     this.hacerBusqueda();
   }
 
   hacerBusqueda() {
-    console.log(this.searchWord);
     if (this.searchWord === '') {
       console.log('no hay nada');
       this.propiedades = this.propiedadesAux;
