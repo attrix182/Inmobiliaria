@@ -1,0 +1,54 @@
+<article>
+  <div class="card mb-3 list" (click)="goToDetails(property)">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="wrapper">
+          <img
+            src="'../../../../../../assets/Loading_icon.gif"
+          />
+          <div class="fanart" [lazyLoad]="property.images"></div>
+        </div>
+
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ property.title | titlecase }}
+
+          </h5>
+          <h6 class="card-subtitle">
+            {{ property.propertyType | titlecase }} - {{ property.adress.street }},
+            {{ property.adress.province }}
+            <b *ngIf="property.adress.locality">-</b>
+            {{ property.adress.locality }}
+          </h6>
+          <p class="card-text mt-2">
+            <span class="font-weight-bold font-price"
+              >{{ property.price }} {{ property.currency }}</span
+            >
+          </p>
+          <div class="card-text">
+            <div class="row">
+              <div class="col-6">{{ property.squareFeet }} m² totales
+                <i class="far fa-square"></i>
+              </div>
+              <div class="col-6">
+                {{ property.squareFeetCover }} m² cubiertos <i class="fa fa-square"></i>
+              </div>
+
+              <div class="col-6">
+                {{ property.bedrooms }} Habitaciones <i class="fa fa-bed"></i>
+              </div>
+              <div class="col-6">
+                {{ property.baths }} Baños <i class="fa fa-toilet"></i>
+              </div>
+              <div class="col-6">
+                {{ property.parkings }} Cochera <i class="fa fa-car"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

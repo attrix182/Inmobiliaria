@@ -20,6 +20,7 @@ import { NgxImageCompressService } from 'ngx-image-compress';
 import { SharedModule } from '../shared/shared.module';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { AdminSellComponent } from './pages/admin-section/sections/admin-sells/admin-sell.component';
+import { AdminPropertyCardComponent } from './pages/admin-section/sections/admin-properties/admin-properties-list/property-card/admin-property-card.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AdminSellComponent } from './pages/admin-section/sections/admin-sells/a
     AdminPropertiesPageComponent,
     AdminUsersAddComponent,
     AdminUsersListComponent,
-    AdminSellComponent
+    AdminSellComponent,
+    AdminPropertyCardComponent
   ],
   providers: [NgxImageCompressService],
   imports: [
